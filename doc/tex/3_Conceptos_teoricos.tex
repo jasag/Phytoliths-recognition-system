@@ -1,0 +1,29 @@
+\capitulo{3}{Conceptos teóricos}
+
+%En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
+
+Para la comprensión de este proyecto será necesario la compresión de algunos conceptos teóricos que introduciré en este apartado:
+
+\begin{itemize}
+	\item Segmentación
+	\item Binarización
+	\item \textit{thresholding}
+\end{itemize}
+
+\section{Segmentación}
+
+La segmentación en el campo de la visión artificial, como se indica en la wikipedia, consiste en subdividir una imagen en varios pixeles u objetos. \cite{wiki:segmentation}
+Cuando segmentamos una imagen lo que pretendemos hacer es cambiar su representación para poder obtener de esta una mayor utilidad o cantidad de información.
+
+En nuestro caso segmentamos la imagen para eliminar el fondo de ella y obtener así una imagen con solo su parte delantera. De esta manera eliminamos el ruido que existe en la imagen y a su vez la simplificamos reteniendo la parte de la imagen en la que se encuentran los objetos que nos interesan.
+
+Posteriormente a ese paso nos interesa, como es obvio, dividir la parte delantera de la imagen resultante en objetos. Para de esta manera obtener cada uno de los objetos por separado de forma ideal.
+\section{Binarización}
+
+La binarización de una imagen consiste en la simplificación de los valores de cada pixel a 2 posibles valores, blanco o negro, representando el fondo y el frente de la imagen cada uno de ellos. De esta manera conseguimos una simplificación muy significativa. Para ejemplificarlo de manera más visual estamos convirtiendo una imagen RGB en la que cada pixel tiene 3 valores y cada uno de estos valores puede variar desde el 0 al 255, lo cual es una explosión de combinaciones muy significativa, frente a una imagen binarizada en la que cada pixel tiene 2 posibles valores, 0 o 1. Como podemos imaginar una simplificación de la imagen de tal calibre facilita el procesamiento de la imagen enormemente.
+
+\section{Thresholding}
+
+Es el método mas simple para la segmentación de una imagen, pudiendose utilizar para la binarización de una imagen, como es nuestro caso. Consiste en reemplazar los pixeles por debajo de una determinada constante a pixeles negros y los que se encuentran por encima a pixeles blancos.
+
+Existen distintas maneras de llevar a cabo este proceso, siendo uno de lo más conocidos el método de Otsu.\cite{otsu}
