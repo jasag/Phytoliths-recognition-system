@@ -7,3 +7,72 @@ Se busca que no sea una mera operación de copiar y pegar diagramas y extractos 
 Puede ser el lugar más adecuado para documentar los aspectos más interesantes del diseño y de la implementación, con un mayor hincapié en aspectos tales como el tipo de arquitectura elegido, los índices de las tablas de la base de datos, normalización y desnormalización, distribución en ficheros3, reglas de negocio dentro de las bases de datos (EDVHV GH GDWRV DFWLYDV), aspectos de desarrollo relacionados con el WWW...
 Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
 \end{comment}
+
+\section{Procesamiento de imagenes}
+
+Como primera aproximación al problema que nos concierne hemos escogido el procesamiento de imagenes mediante la librería Scikit-image para Python. Mediante esta herramienta trataremos de dar solución a nuestro problema siguiendo los siguientes pasos:
+
+\begin{enumerate}[1.]
+  \item Convertimos la imagen a escala de grises
+  \item Segmentamos los objetos del fondo de la imagen
+  \item Obtenemos los distintos objetos de la imagen
+\end{enumerate}
+
+\subsection{Convertimos la imagen a escala de grises}
+
+La conversión de la imagen original (RGB) a escala de grises viene motivada porque para poder segmentar los objetos del fondo de la imagen mediante el método de \textit{Thresholding} solo se puede partir de una imagen en escala de grises.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{2}
+        \caption{Original}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{grayscale_image}
+        \caption{Imagen en escala de grises}
+    \end{subfigure}
+\end{figure}
+
+\subsection{Segmentamos los objetos del fondo de la imagen}
+
+Una vez tenemos la imagen en escala de grises procedemos a transformar nuestra imagen en una imagen en blanco y negro o binarizada. Los motivos por los que binarizamos la imagen es para obtener una imagen que sea más significativa para nosotros y además este simplificada, para facilitarnos su procesamiento.
+
+Scikit nos propociona distintos métodos mediante los cuales podemos segmentar una imagen. A continuación vamos a ver el resultado aplicando distintos métodos, los cuales se van indicando en cada una de las figuras:
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{grayscale_image}
+        \caption{Imagen en escala de grises}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{otsu_threshold_image}
+        \caption{Método de Otsu}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{otsu_threshold_image}
+        \caption{Método de Otsu}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{yen_image}
+        \caption{Método de Yen}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{li_thresholded_image}
+        \caption{Método de Li}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{isodata_thresholded_image}
+        \caption{Método de ISODATA}    
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{edge_based_image}
+        \caption{Método basado en bordes}    
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{adaptive_thresholded_image_5}
+        \caption{Método adaptativo}    
+    \end{subfigure}
+\end{figure} 
+
