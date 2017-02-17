@@ -76,3 +76,30 @@ Scikit nos propociona distintos métodos mediante los cuales podemos segmentar u
     \end{subfigure}
 \end{figure} 
 
+\subsection{Obtenemos los distintos objetos de la imagen}
+Después de tener la imagen binarizada de la forma más apropiada posible probamos a segmentar los distintos objetos de nuestra imagen.
+
+\subsection{Transformación divisoria}
+Transformación divisoria, o en ingles \textit{Watershed segmentation}, es un algoritmo clásico en la segmentación de objetos en una imagen.
+
+Durante las primeras pruebas la segmentación más interesante hasta el momento ha sido la que se muestra a continuación a partir del \textit{Watershed segmentation} con marcado. Más allá de esta segmentación no se ha conseguido nada mejor.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{grayscale_image}
+        \caption{Imagen en escala de grises}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{local_gradient_gimp}
+        \caption{Gradiente de la imagen}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{markers_gimp}
+        \caption{Marcadores}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{segmented}
+        \caption{Imagen segmentada}
+    \end{subfigure}
+\end{figure} 	
