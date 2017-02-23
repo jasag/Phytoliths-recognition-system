@@ -26,4 +26,16 @@ La binarización de una imagen consiste en la simplificación de los valores de 
 
 Es el método mas simple para la segmentación de una imagen, pudiendose utilizar para la binarización de una imagen, como es nuestro caso. Consiste en reemplazar los píxeles por debajo de una determinada constante a píxeles negros y los que se encuentran por encima a píxeles blancos o viceversa.
 
-Existen distintas maneras de llevar a cabo este proceso, siendo uno de lo más conocidos el método de Otsu.\cite{otsu}
+Existen distintas maneras de llevar a cabo este proceso, siendo uno de lo más conocidos el método de Otsu. \cite{wiki:otsu}
+
+\section{Descriptores visuales}
+
+Los descriptores visuales, o descriptores de características, son descripciones de las características visuales de los contenidos en imágenes o videos , en nuestro caso de imágenes, con el proposito de la detección de objetos \cite{wiki:visualdescriptor}. El objetivo de los descriptores visuales es obtener la información que resulta significativa, eliminando a su vez la información que no lo es. Para basarnos en la información obtenida para clasificar los objetos en las clases de objetos que deseemos. Algunos ejemplos de características son la forma, el color o la textura.
+
+Como se puede imaginar obtener las características a mano es una tarea complicada y que usualmente no funciona correctamente. Por ello utilizamos un método de extracción automática de características como es \textit{Histogram of Oriented Gradients}, el cual se basa en los gradientes de la imagen para obtener si un determinado objeto se encuentra en la imagen \cite{wiki:hog}.
+
+\section{Máquinas de vectores soporte}
+
+Las máquinas de vectores soporte, o SVM, son modelos de aprendizaje supervisados con algoritmos de aprendizaje asociados que analizan datos usados para tareas de clasificación o de regresión \cite{wiki:svm}. En nuestro caso este modelo se ve usado para tareas de clasificación, puesto que es lo que nos concierne en nuestra problemática.
+
+Para que nuestra SVM sea capaz de clasificar los objetos le proveemos de un conjunto de entrenamiento compuesto por positivos y falsos positivos, es decir, ejemplos de los objetos que nos interesan y otros objetos, respectivamente. A partir de esta información nuestra SVM será capaz de clasificar nuevos ejemplos en las categorías pertinentes.

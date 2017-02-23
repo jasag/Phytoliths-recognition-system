@@ -103,3 +103,56 @@ Durante las primeras pruebas la segmentación más interesante hasta el momento 
         \caption{Imagen segmentada}
     \end{subfigure}
 \end{figure} 	
+
+\section{Clasificadores}
+La aproximación mediante procesamiento de imágenes no parece la más adecuada visto los resultados obtenidos. Por ello vamos a realizar el estudio sobre una segunda aproximación  mediante máquinas de vector soporte, para la tarea de clasificación, junto a Histogramas de los gradientes orientados, la cual es una técnica para la extracción automática de características.
+
+El procedimiento para obtener el clasificador es el siguiente:
+
+\begin{enumerate}[1.]
+  \item Crear un conjunto de entrenamiento de imágenes de caras que supongan positivos.
+  \item Crear un conjunto de entrenamiento de imágenes de no-caras que supongan falsos-positivos.
+  \item Extraer las características de HoG del conjunto de entrenamiento.
+  \item Entrenar el clasificador SVM.
+\end{enumerate}
+
+ Finalizado el entrenamiento de la SVM, ya tenemos nuestro clasificador listo para enviarle nuevas imágenes y que sean clasificadas.
+ 
+\subsection{Reconocimiento de imágenes en nuevas imágenes}
+Para el reconocimiento de objetos en nuevas imágenes deberemos de llevar a cabo los 2 siguientes pasos:
+
+\begin{enumerate}[1.]
+  \item Pasar una ventana por toda la imagen, comprobando si la ventana contiene un objeto.
+  \item Si existe solapamiento en la detección del objeto, muy común en el uso de este tipo de clasificadores, se deben de combinar dichos solapamientos en uno único.
+\end{enumerate}
+
+En cuanto al primer paso, lo único a lo que nos referimos es que para el procesado de nuevas imágenes, una ventana del mismo tamaño que las imágenes con las que ha sido entrenado el clasificador recorre toda la imagen comprobando si cada una de las porciones de la imagen contiene el objeto deseado.
+
+El problema de este método es que nos reconocerá muchos más objetos de lo que realmente tenemos en la imagen. Debido a que la ventana recorre linealmente la imagen, por lo que reconocerá el mismo objeto varias veces en ventanas muy próximas, como podemos deducir que es totalmente lógico, ya que esas ventanas serán muy similares y por lo tanto tendrán unas características muy parecidas entre sí. Por ello se aplica el segundo paso sobre los objetos reconocidos, que es la eliminación del solapamiento de objetos mediante la técnica de \textit{Non-Maximum suprresion}.
+
+Como previa experimentación con esta metodología, vamos a entrenar el clasificador para el reconocimiento de caras. Y en función de la efectividad del método sobre las caras tomaremos una serie de conclusiones sobre las que decidamos si llevar a cabo esta solución de nuestro problema.
+
+\subsection{Aplicación sobre el reconocimiento de caras}
+
+A modo de aclaración de las explicaciones anteriores y para que podamos apreciar los resultados, vamos a ver algunas de las imágenes resultantes del clasificador.
+
+Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviamos una nueva imagen, como podría ser la presentada en la figura \ref{subfig:family}. A partir de esta imagen el clasificador nos permitirá obtener las ventanas en las que detecta una cara, como vemos en la figura \ref{subfig:family_labeled}. Podemos apreciar que existe más de una ventana alrededor de cada cara. Y finalmente, tras aplicar el método \textit{Non-Maximum suprresion} obtenemos el resultado final mostrado en la figura \ref{subfig:family_labeled_nms}.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{family}
+        \caption{Imagen original}
+        \label{subfig:family}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{family_labeled}
+        \caption{Imagen después de aplicarla nuestro clasificador}
+        \label{subfig:family_labeled}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{family_labeled_nms}
+        \caption{Imagen tras aplicarla \textit{Non-Maximum suprresion}}
+         \label{subfig:family_labeled_nms}
+    \end{subfigure}
+\end{figure}
