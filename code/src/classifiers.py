@@ -17,11 +17,9 @@ svm2_path = path + 'svm2_clf.sav'
 gtb_path = path + 'gtb_clf.sav'
 rf_path = path + 'rf_clf.sav'
 
-# Serizalización
-classifiers['svm'] = pickle.load(open(svm_path, 'rb'))
-classifiers['svm2'] = pickle.load(open(svm2_path, 'rb'))
-classifiers['gtb'] = pickle.load(open(gtb_path, 'rb'))
-classifiers['rf'] = pickle.load(open(rf_path, 'rb'))
 
-def get_classifiers():
-    return classifiers
+# Serizalización: Cargamos clasificador e indicamos si devuelve probabilidades
+classifiers['svm'] = [pickle.load(open(svm_path, 'rb')), False]
+classifiers['svm2'] = [pickle.load(open(svm2_path, 'rb')), True]
+classifiers['gtb'] = [pickle.load(open(gtb_path, 'rb')), True]
+classifiers['rf'] = [pickle.load(open(rf_path, 'rb')), True]
