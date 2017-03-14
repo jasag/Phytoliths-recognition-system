@@ -8,9 +8,9 @@ Puede ser el lugar más adecuado para documentar los aspectos más interesantes 
 Este apartado, debe convertirse en el resumen de la experiencia práctica del proyecto, y por sí mismo justifica que la memoria se convierta en un documento útil, fuente de referencia para los autores, los tutores y futuros alumnos.
 \end{comment}
 
-\section{Procesamiento de imagenes}
+\section{Procesamiento de imágenes}
 
-Como primera aproximación al problema que nos concierne hemos escogido el procesamiento de imagenes mediante la librería Scikit-image para Python. Mediante esta herramienta trataremos de dar solución a nuestro problema siguiendo los siguientes pasos:
+Como primera aproximación al problema que nos concierne, nos hemos enfrentado al procesamiento de imágenes mediante la librería Scikit-image para Python. Mediante esta herramienta trataremos de dar solución a nuestro problema siguiendo los siguientes pasos:
 
 \begin{enumerate}[1.]
   \item Convertimos la imagen a escala de grises
@@ -20,7 +20,7 @@ Como primera aproximación al problema que nos concierne hemos escogido el proce
 
 \subsection{Convertimos la imagen a escala de grises}
 
-La conversión de la imagen original (RGB) a escala de grises viene motivada porque para poder segmentar los objetos del fondo de la imagen mediante el método de \textit{Thresholding} solo se puede partir de una imagen en escala de grises.
+La conversión de la imagen original (RGB) a escala de grises viene motivada con el mero objetivo de poder segmentar los objetos del fondo de la imagen mediante el método de \textit{Thresholding}. Solo pudiéndose partir de una imagen en escala de grises. En la figura \ref{fig:5.1.1} podemos ver los resultados.
 
 \begin{figure}
 	\centering
@@ -32,13 +32,15 @@ La conversión de la imagen original (RGB) a escala de grises viene motivada por
         \includegraphics[width=\textwidth]{grayscale_image}
         \caption{Imagen en escala de grises}
     \end{subfigure}
+    \caption{Conversión de la imagen original a escala de grises}
+	\label{fig:5.1.1}
 \end{figure}
 
 \subsection{Segmentamos los objetos del fondo de la imagen}
 
-Una vez tenemos la imagen en escala de grises procedemos a transformar nuestra imagen en una imagen en blanco y negro o binarizada. Los motivos por los que binarizamos la imagen es para obtener una imagen que sea más significativa para nosotros y además este simplificada, para facilitarnos su procesamiento.
+Una vez tenemos la imagen en escala de grises, procedemos a transformar nuestra imagen en una imagen en blanco y negro o binarizada. Los motivos por los que binarizamos la imagen es para obtener una imagen que sea más significativa para nosotros y además este simplificada. Lo cual nos sera útil para facilitarnos su procesamiento.
 
-Scikit nos propociona distintos métodos mediante los cuales podemos segmentar una imagen. A continuación vamos a ver el resultado aplicando distintos métodos, los cuales se van indicando en cada una de las figuras:
+Scikit nos propociona distintos métodos mediante los cuales podemos segmentar una imagen. En la figura \ref{fig:5.1.2} podemos observar el resultado aplicando distintos métodos, los cuales se van indicando en cada una de las figuras.
 
 \begin{figure}
 	\centering
@@ -74,15 +76,17 @@ Scikit nos propociona distintos métodos mediante los cuales podemos segmentar u
         \includegraphics[width=\textwidth]{adaptive_thresholded_image_5}
         \caption{Método adaptativo}    
     \end{subfigure}
+    \caption{Distintos ejemplos de una imagen segmentada}
+	\label{fig:5.1.2}
 \end{figure} 
 
 \subsection{Obtenemos los distintos objetos de la imagen}
 Después de tener la imagen binarizada de la forma más apropiada posible probamos a segmentar los distintos objetos de nuestra imagen.
 
 \subsection{Transformación divisoria}
-Transformación divisoria, o en ingles \textit{Watershed segmentation}, es un algoritmo clásico en la segmentación de objetos en una imagen.
+Transformación divisoria, o en inglés \textit{Watershed segmentation}, es un algoritmo clásico para la segmentación de objetos en una imagen.
 
-Durante las primeras pruebas la segmentación más interesante hasta el momento ha sido la que se muestra a continuación a partir del \textit{Watershed segmentation} con marcado. Más allá de esta segmentación no se ha conseguido nada mejor.
+Durante las primeras pruebas, la segmentación más interesante hasta el momento ha sido la que se muestra en la figura \ref{fig:5.1.3}. A partir de \textit{Watershed segmentation} con marcado. Más allá de esta segmentación no se ha conseguido nada mejor.
 
 \begin{figure}
 	\centering
@@ -102,41 +106,43 @@ Durante las primeras pruebas la segmentación más interesante hasta el momento 
         \includegraphics[width=\textwidth]{segmented}
         \caption{Imagen segmentada}
     \end{subfigure}
+        \caption{Resultados obtenidos mediante transformación divisoria}
+	\label{fig:5.1.3}
 \end{figure} 	
 
 \section{Clasificadores}
-La aproximación mediante procesamiento de imágenes no parece la más adecuada visto los resultados obtenidos. Por ello vamos a realizar el estudio sobre una segunda aproximación  mediante máquinas de vector soporte, para la tarea de clasificación, junto a Histogramas de los gradientes orientados, la cual es una técnica para la extracción automática de características.
+
+La aproximación mediante procesamiento de imágenes no parece la más adecuada visto los resultados obtenidos. Por ello vamos a realizar el estudio sobre una segunda aproximación  mediante clasificadores, junto a descriptores visuales.
+
+El primer conjunto de técnicas escogido ha sido una Máquina de Vector Soporte junto al Histograma de los gradientes orientados, la cual es una técnica para la extracción automática de características. Sin embargo, iremos utilizando distintas técnicas para adoptar la que mejor se adapte a nuestra problemática.
 
 El procedimiento para obtener el clasificador es el siguiente:
 
 \begin{enumerate}[1.]
-  \item Crear un conjunto de entrenamiento de imágenes de caras que supongan positivos.
-  \item Crear un conjunto de entrenamiento de imágenes de no-caras que supongan falsos-positivos.
-  \item Extraer las características de HoG del conjunto de entrenamiento.
-  \item Entrenar el clasificador SVM.
+  \item Crear un conjunto de entrenamiento de imágenes de caras que consideramos que son elementos positivos.
+  \item Crear un conjunto de entrenamiento de imágenes de no-caras que consideramos que son negativos.
+  \item Extraer las características del conjunto de entrenamiento  mediante un descriptor visual.
+  \item Entrenar el clasificador.
 \end{enumerate}
 
- Finalizado el entrenamiento de la SVM, ya tenemos nuestro clasificador listo para enviarle nuevas imágenes y que sean clasificadas.
+ Finalizado el entrenamiento, ya tenemos nuestro clasificador listo para enviarle nuevas imágenes y que sean clasificadas.
  
 \subsection{Reconocimiento de imágenes en nuevas imágenes}
-Para el reconocimiento de objetos en nuevas imágenes deberemos de llevar a cabo los 2 siguientes pasos:
+Para el reconocimiento de objetos en nuevas imágenes, deberemos llevar a cabo los tres siguientes pasos:
 
 \begin{enumerate}[1.]
-  \item Pasar una ventana por toda la imagen, comprobando si la ventana contiene un objeto.
-  \item Si existe solapamiento en la detección del objeto, muy común en el uso de este tipo de clasificadores, se deben de combinar dichos solapamientos en uno único.
+  \item Dividir la imagen en múltiples fragmentos.
+  \item Comprobar si cada uno de los fragmentos contiene el objeto.
+  \item Si existe solapamiento en la detección de objetos, muy común en el uso de este tipo de clasificadores, se deben de combinar dichos solapamientos en uno único.
 \end{enumerate}
 
-En cuanto al primer paso, lo único a lo que nos referimos es que para el procesado de nuevas imágenes, una ventana del mismo tamaño que las imágenes con las que ha sido entrenado el clasificador recorre toda la imagen comprobando si cada una de las porciones de la imagen contiene el objeto deseado.
-
-El problema de este método es que nos reconocerá muchos más objetos de lo que realmente tenemos en la imagen. Debido a que la ventana recorre linealmente la imagen, por lo que reconocerá el mismo objeto varias veces en ventanas muy próximas, como podemos deducir que es totalmente lógico, ya que esas ventanas serán muy similares y por lo tanto tendrán unas características muy parecidas entre sí. Por ello se aplica el segundo paso sobre los objetos reconocidos, que es la eliminación del solapamiento de objetos mediante la técnica de \textit{Non-Maximum suprresion}.
-
-Como previa experimentación con esta metodología, vamos a entrenar el clasificador para el reconocimiento de caras. Y en función de la efectividad del método sobre las caras tomaremos una serie de conclusiones sobre las que decidamos si llevar a cabo esta solución de nuestro problema.
+Cada uno de los fragmentos anteriores se solapa en gran medida. Por lo que origina un problema de sobrereconocimiento de objetos, reconociendo donde existe un posible positivo, más de uno, en la mayoría de casos. Por ello, se aplica el tercer paso sobre los objetos reconocidos, que es la eliminación del solapamiento de objetos mediante la técnica de \textit{Non-Maximum suprresion}.
 
 \subsection{Aplicación sobre el reconocimiento de caras}
 
-A modo de aclaración de las explicaciones anteriores y para que podamos apreciar los resultados, vamos a ver algunas de las imágenes resultantes del clasificador.
+Como previa experimentación con esta metodología, vamos a entrenar el clasificador para el reconocimiento de caras. Y en función de la efectividad del método sobre las caras tomaremos una serie de conclusiones sobre las que decidiremos si llevar a cabo esta solución sobre  nuestro problema.
 
-Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviamos una nueva imagen, como podría ser la presentada en la figura \ref{subfig:family}. A partir de esta imagen el clasificador nos permitirá obtener las ventanas en las que detecta una cara, como vemos en la figura \ref{subfig:family_labeled}. Podemos apreciar que existe más de una ventana alrededor de cada cara. Y finalmente, tras aplicar el método \textit{Non-Maximum suprresion} obtenemos el resultado final mostrado en la figura \ref{subfig:family_labeled_nms}.
+Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviamos una nueva imagen, como podría ser la presentada en la figura \ref{subfig:family}. A partir de esta imagen el clasificador nos permitirá obtener las ventanas \footnote{Se entiende por ventana , en este contexto, a la caja o cuadrilatero que etiqueta un positivo en una imagen.} en las que detecta una cara, como vemos en la figura \ref{subfig:family_labeled}. Podemos apreciar que existe más de una ventana alrededor de cada cara. Y finalmente, tras aplicar el método \textit{Non-Maximum supresion} obtenemos el resultado final mostrado en la figura \ref{subfig:family_labeled_nms}.
 
 \begin{figure}
 	\centering
@@ -152,7 +158,9 @@ Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviam
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{family_labeled_nms}
-        \caption{Imagen tras aplicarla \textit{Non-Maximum suprresion}}
+        \caption{Imagen tras aplicarla \textit{Non-Maximum supresion}}
          \label{subfig:family_labeled_nms}
     \end{subfigure}
+        \caption{Resultados tras aplicar el clasificador sobre una imagen}
+	\label{fig:5.1.4}
 \end{figure}

@@ -5,37 +5,50 @@
 Para la comprensión de este proyecto será necesario la compresión de algunos conceptos teóricos que introduciré en este apartado:
 
 \begin{itemize}
+	\item Inteligencia artificial
+	\item Reconocimiento de patrones
+	\item Aprendizaje supervisado y no supervisado
 	\item Segmentación
 	\item Binarización
 	\item \textit{thresholding}
+	\item Descriptores visuales
+	\item Maquinas de vector soporte
 \end{itemize}
+
+
+\section{Inteligencia artificial}
+
+\section{Reconocimiento de patrones}
+
+\section{Aprendizaje supervisado y no supervisado}
 
 \section{Segmentación}
 
 La segmentación en el campo de la visión artificial, como se indica en la wikipedia, consiste en subdividir una imagen en varios pixeles u objetos. \cite{wiki:segmentation}
-Cuando segmentamos una imagen lo que pretendemos hacer es cambiar su representación para poder obtener de esta una mayor utilidad o cantidad de información.
+Cuando segmentamos una imagen, lo que pretendemos hacer es cambiar su representación para poder obtener de esta una mayor utilidad o cantidad de información.
 
-En nuestro caso segmentamos la imagen para eliminar el fondo de ella y obtener así una imagen con solo su parte delantera. De esta manera eliminamos el ruido que existe en la imagen y a su vez la simplificamos reteniendo la parte de la imagen en la que se encuentran los objetos que nos interesan.
+En nuestro caso, segmentamos la imagen para eliminar el fondo de ella y obtener así una imagen con solo su parte delantera. De esta manera, eliminamos el ruido que existe en la imagen y, a su vez, la simplificamos reteniendo la parte de la imagen en la que se encuentran los objetos que nos interesan.
 
-Posteriormente a ese paso nos interesa, como es obvio, dividir la parte delantera de la imagen resultante en objetos. Para de esta manera obtener cada uno de los objetos por separado de forma ideal.
+Posteriormente a ese paso, nos interesa, como es obvio, dividir la parte delantera de la imagen resultante en objetos. De este modo, obtendremos cada uno de los objetos por separado de forma idónea.
+
 \section{Binarización}
 
-La binarización de una imagen consiste en la simplificación de los valores de cada pixel a 2 posibles valores, blanco o negro, representando el fondo y el frente de la imagen cada uno de ellos. De esta manera conseguimos una simplificación muy significativa. Para ejemplificarlo de manera más visual estamos convirtiendo una imagen RGB en la que cada pixel tiene 3 valores y cada uno de estos valores puede variar desde el 0 al 255, lo cual es una explosión de combinaciones muy significativa, frente a una imagen binarizada en la que cada pixel tiene 2 posibles valores, 0 o 1. Como podemos imaginar una simplificación de la imagen de tal calibre facilita el procesamiento de la imagen enormemente.
+La binarización de una imagen consiste en la simplificación de los valores de cada pixel a 2 posibles valores, blanco o negro, representando el fondo y el frente de la imagen cada uno de ellos. Esta técnica nos permite conservar únicamente la información que nos interesa, eliminando el resto.
 
 \section{Thresholding}
 
-Es el método mas simple para la segmentación de una imagen, pudiendose utilizar para la binarización de una imagen, como es nuestro caso. Consiste en reemplazar los píxeles por debajo de una determinada constante a píxeles negros y los que se encuentran por encima a píxeles blancos o viceversa.
+Es el método mas simple para la segmentación de una imagen, pudiendose utilizar para la binarización de una imagen, como es nuestro caso. Consiste en reemplazar los píxeles por debajo de una determinada constante a píxeles negros, y los que se encuentran por encima a píxeles blancos o viceversa.
 
 Existen distintas maneras de llevar a cabo este proceso, siendo uno de lo más conocidos el método de Otsu. \cite{wiki:otsu}
 
 \section{Descriptores visuales}
 
-Los descriptores visuales, o descriptores de características, son descripciones de las características visuales de los contenidos en imágenes o videos , en nuestro caso de imágenes, con el proposito de la detección de objetos \cite{wiki:visualdescriptor}. El objetivo de los descriptores visuales es obtener la información que resulta significativa, eliminando a su vez la información que no lo es. Para basarnos en la información obtenida para clasificar los objetos en las clases de objetos que deseemos. Algunos ejemplos de características son la forma, el color o la textura.
+Los descriptores visuales, o descriptores de características, son descripciones de las características visuales de los contenidos en imágenes o videos, en nuestro caso de imágenes, con el proposito de la detección de objetos \cite{wiki:visualdescriptor}. El objetivo de los descriptores visuales es obtener la información que resulta significativa, eliminando a su vez la que no lo es. Así, utilizaremos la información que el descriptor nos proporciona para detectar los objetos que nos interesan en una imagen. Algunos ejemplos de características son la forma, el color o la textura.
 
-Como se puede imaginar obtener las características a mano es una tarea complicada y que usualmente no funciona correctamente. Por ello utilizamos un método de extracción automática de características como es \textit{Histogram of Oriented Gradients}, el cual se basa en los gradientes de la imagen para obtener si un determinado objeto se encuentra en la imagen \cite{wiki:hog}.
+Como se puede imaginar, obtener las características a mano es una tarea complicada y que usualmente no funciona correctamente. Por ello, utilizamos un método de extracción automática de características como es \textit{Histogram of Oriented Gradients}, el cual se basa en los gradientes de la imagen para detectar los distintos objetos que se encuentran en la imagen \cite{wiki:hog}.
 
 \section{Máquinas de vectores soporte}
 
-Las máquinas de vectores soporte, o SVM, son modelos de aprendizaje supervisados con algoritmos de aprendizaje asociados que analizan datos usados para tareas de clasificación o de regresión \cite{wiki:svm}. En nuestro caso este modelo se ve usado para tareas de clasificación, puesto que es lo que nos concierne en nuestra problemática.
+Las máquinas de vectores soporte, o SVM, son modelos de aprendizaje supervisados utilizados para tareas de clasificación o de regresión \cite{wiki:svm}. En nuestro caso este modelo se ve usado para tareas de clasificación, puesto que es lo que nos concierne en nuestra problemática.
 
-Para que nuestra SVM sea capaz de clasificar los objetos le proveemos de un conjunto de entrenamiento compuesto por positivos y falsos positivos, es decir, ejemplos de los objetos que nos interesan y otros objetos, respectivamente. A partir de esta información nuestra SVM será capaz de clasificar nuevos ejemplos en las categorías pertinentes.
+Para que nuestra SVM sea capaz de clasificar los objetos, le proveemos de un conjunto de entrenamiento compuesto por positivos y negativos, es decir, ejemplos de los objetos que nos interesan y otros objetos, respectivamente. A partir de esta información nuestra SVM será capaz de clasificar nuevos ejemplos en las categorías pertinentes.

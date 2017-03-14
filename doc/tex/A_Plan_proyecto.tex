@@ -1,74 +1,72 @@
 \apendice{Planificación}
 
 \section{Introducción}
-En las primeras semanas, de manera previa a utilizar cualquier metodología de desarrollo software, debemos de probar distintas aproximaciones a nuestro problema. Para que finalmente podamos escoger la más adecuada entre las distintas posibilidades.
 
-Aunque no se aplique una metodología ágil, se asignarán unas tareas semanales para llevar a cabo la traceabilidad del desarrollo del proyecto, así como el control del estudio sobre la problemática a realizar durante cada semana o \textit{milestone}.
 
-Una vez escogida la mejor solución posible comenzaremos a utilizar una metodología ágil de desarrollo.
+Para llevar a cabo este proyecto vamos a aplicar una metodología llamada Scrum. Scrum es una metodología de desarrollo software ágil, es decir, durante cada \textit{sprint} \footnote{\textit{Sprint}: es el período en el cual se lleva a cabo el trabajo en sí.\cite{wiki:scrum}} se asignarán unas determinadas tareas a cumplimentar, con un producto como consecuencia de estas tareas. Al final de cada \textit{sprint} se realizará una reunión junto a los tutores para validar los avances realizados y determinar las tareas a realizar durante el siguiente \textit{sprint}.
 
 \section{Estudio previo}
 
-\subsection{Semana 0}
-Estas son las tareas a realizar durante esta semana 0:
+\subsection{\textit{Sprint} 0}
+Estas son las tareas a realizar durante este \textit{sprint} 0:
 
 \begin{itemize}
-	\item Probar LaTeX
+	\item Probar \LaTeX
 	\item Gestor de tareas/versiones: Github y Zenhub
-	\item Instalar anaconda y Jupyter
+	\item Instalar Anaconda y Jupyter
 	\item Leer los artículos propuestos por los tutores
 	\item Comenzar a probar algunos algoritmos de binarización
 \end{itemize}
 
-Como se puede ver las tareas a realizar son básicas puesto que es la semana 0 y es una semana de mera adaptación al entorno de trabajo. La única tarea que supone un esfuerzo de comprensión mayor es la lectura de los artículos propuestos sobre trabajos relacionados o con una problemática similar a la nuestra. A continuación en la figura \ref{fig:A.1.1} se muestra el diagrama \textit{burndown} de esta semana. 
+Como se puede ver las tareas a realizar son básicas, puesto que es el \textit{sprint} 0 y es un \textit{sprint} de mera adaptación al entorno de trabajo. La única tarea que supone un esfuerzo de comprensión mayor es la lectura de los artículos propuestos sobre trabajos relacionados o con una problemática similar a la nuestra. A continuación, en la figura \ref{fig:A.1.1}, se muestra el diagrama \textit{burndown} de este \textit{sprint}. 
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.99\textwidth]{semana_0}
-\caption{Burndown de la semana 0}
+\caption{Burndown de la \textit{sprint} 0}
 \label{fig:A.1.1}
 \end{figure}
 
-\subsection{Semana 1}
-Estas son las tareas a realizar durante esta semana 1:
+\subsection{\textit{Sprint} 1}
+Estas son las tareas a realizar durante esta \textit{sprint} 1:
 
 \begin{itemize}
-	\item Documentar lo realizado durante la semana 0
-	\item Documentar lo que se irá realizando durante esta semana 1
+	\item Documentar lo realizado durante el \textit{sprint} 0
+	\item Documentar lo que se irá realizando durante este \textit{sprint} 1
 	\item Continuar probando con algoritmos de procesamiento de imágenes
 	\item Probar una aproximación con clasificadores al problema
 \end{itemize}
 
-Puesto que en la semana anterior no se documento lo realizado, durante esta semana se pretende documentar todo lo realizado durante la semana anterior y esta semana. Además de continuar probando con algoritmos de procesamiento de imágenes y comenzar a probar con la aproximación al problema mediante clasificadores.
+Puesto que en el \textit{sprint} anterior no se documentó lo realizado, durante este se pretende documentar todo lo realizado durante el \textit{sprint} anterior y este. Además de continuar probando con algoritmos de procesamiento de imágenes y comenzar a probar con la aproximación al problema mediante clasificadores.
 
-En esta semana me vi desbordado de trabajo debido a la subestimación del esfuerzo a empeñar en las distintas tareas. No siendo capaz de comenzar a probar una aproximación con clasificadores. Por ello la tarea "Probar una aproximación con clasificadores al problema" se vio movida a la siguiente semana. 
+En este \textit{sprint} me vi desbordado de trabajo debido a la subestimación del esfuerzo a empeñar en las distintas tareas. No siendo capaz de comenzar a probar una aproximación con clasificadores. Por ello la tarea <<Probar una aproximación con clasificadores al problema>> se vio movida al siguiente \textit{sprint}. 
 
-A continuación en la figura \ref{fig:A.1.2} se muestra el diagrama \textit{burndown} de esta semana.
+A continuación, en la figura \ref{fig:A.1.2}, se muestra el diagrama \textit{burndown} de este \textit{sprint}. El cual tiene dicho aspecto debido a que muchas de las tareas se trabajaron de manera paralela, no siendo acabadas hasta el final del \textit{sprint}. Y, además, otras de las tareas no fueron cerradas cuando se debió, aspecto que se corregirá en los siguientes \textit{sprints}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.99\textwidth]{semana_1}
-\caption{Burndown de la semana 1}
+\caption{Burndown del \textit{sprint} 1}
 \label{fig:A.1.2}
 \end{figure}
 
-\subsection{Semana 2}
-Estas son las tareas a realizar durante esta semana 2:
+\subsection{\textit{Sprint} 2}
+Estas son las tareas a realizar durante este \textit{sprint} 2:
 
 \begin{itemize}
 	\item Probar una aproximación con clasificadores al problema
 	\item Aplicación del método "Non maximum suppression" sobre el clasificado
 \end{itemize}
 
-Puesto que la aproximación mediante reconocimiento de imágenes no reflejaba unos resultados muy positivos, durante la reunión mantenida con los tutores se decidió el uso de una técnica distinta. Está técnica es mediante una SVM, utilizado como clasificador, junto a diversas técnicas.
+Puesto que la aproximación mediante reconocimiento de imágenes no reflejaba unos resultados muy positivos, durante la reunión mantenida con los tutores se decidió el uso de una técnica distinta. Nos referimos a la utilización  de un clasificador, junto a un descriptor visual.
 
-Debido a que todavía no se poseían suficientes imágenes para el estudio del problema directamente mediante esta técnica, lo que se decidió es aplicar estas técnicas sobre otro problema de características similares, como es el reconomiento de caras en imágenes. Con unos resultados bastante positivos debido a distintos razonamientos explicados en la sección de Aspectos relevantes del proyecto.
+Debido a que todavía no se poseían suficientes imágenes para el estudio del problema mediante esta técnica, lo que se decidió es aplicarla sobre otro problema de características similares, como es el reconocimiento de caras en imágenes. Con unos resultados bastante positivos debido a distintos razonamientos explicados en la Memoria, sección de Aspectos relevantes del proyecto.
 
 \begin{comment}
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.99\textwidth]{semana_1}
-\caption{Burndown de la semana 1}
+\caption{Burndown de la \textit{sprint} 1}
 \label{fig:A.1.1}
 \end{figure}
 \end{comment}
