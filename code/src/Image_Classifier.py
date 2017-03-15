@@ -11,7 +11,7 @@ import numpy as np
 class Image_Classifier:
     
     ''' Constructor'''
-    def __init__(self, classifier, is_probs_classifier = False, Nj = 60, Ni = 40):
+    def __init__(self, classifier, is_probs_classifier = False, Nj = 62, Ni = 47):
         self._classifier = classifier
         self._is_probs_classifier = is_probs_classifier
         # Tamaño de la ventana en Y y X, respectivamente
