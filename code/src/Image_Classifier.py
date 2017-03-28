@@ -11,28 +11,40 @@ import numpy as np
 class Image_Classifier:
     
     ''' Constructor'''
-    def __init__(self, classifier, is_probs_classifier = False, Nj = 62, Ni = 47):
+    def __init__(self, classifier, is_probs_classifier = False,
+                 patch_size=(62, 47), istep=2, jstep=2, scale = 1.0):
         self._classifier = classifier
         self._is_probs_classifier = is_probs_classifier
         # Tamaño de la ventana en Y y X, respectivamente
-        self._Nj = Nj
-        self._Ni = Ni
-    
+        self._patch_size = patch_size
+        self._istep = istep
+        self._jstep = jstep
+        self._scale = scale
+
     # Getters y setters de attribs
-    def get_Nj(self):
-        return self._Nj
-    
-    def set_Nj(self, Nj):
-        self._Nj = Nj
-        return Nj
-    
-    def get_Ni(self):
-        return self._Ni
-    
-    def set_Ni(self, Ni):
-        self._Ni = Ni
-        return Ni
-    
+
+    # patch
+    def get_patch_size(self):
+        return self._patch_size
+
+    def set_patch_size(self, patch_size):
+        self._patch_size = patch_size
+
+    #istep
+    def get_istep(self):
+        return self._istep
+
+    def set_istep(self, istep):
+        self._istep = istep
+
+    #jstep
+    def get_jstep(self):
+        return self._jstep
+
+    def set_jstep(self, jstep):
+        self._jstep = jstep
+
+    #classifier
     def get_classifier(self):
         return self._classifier
     
@@ -44,17 +56,21 @@ class Image_Classifier:
     
     ''' Extractor de las ventanas de una imagen'''
     def windows_extracter(self, image):
-        indices, patches = zip(*wins.sliding_window(image))
+        indices, patches = zip(*wins.sliding_window(image, patch_size = self._patch_size,
+                                                    istep = self._istep, jstep = self._jstep,
+                                                    scale = self._scale))
         patches_hog = np.array([feature.hog(patch) for patch in patches])
         return (indices, patches, patches_hog)
         
     '''Generador de las ventanas o cajas, con las coordenadas necesarias'''
-    def boxes_generator(self, indices, labels, probs):
+    def boxes_generator(self, indices, labels, probs, alfa):
         boxes = list()
+        Ni, Nj = self._patch_size
         for i, j in indices[labels > probs]:
-            boxes.append((j, i, j+self._Nj, i+self._Ni))
-        return np.array(boxes)
-    
+            boxes.append((i, j, i+Ni, j+Nj))
+        boxes = self.redundant_windows_deleter(np.array(boxes), alfa)
+        return boxes
+
     ''' Etiquetador de la imagen, es decir, método que obtiene las ventanas 
     resultantes de la clasificación de la imagen'''
     def labeler(self, image):

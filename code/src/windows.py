@@ -13,12 +13,17 @@ Función para la obtención de todas la ventanas de una imagen
 """
 def sliding_window(img, patch_size=(62, 47),
                    istep=2, jstep=2, scale=1.0):
+    # Rescala los tamaños a la escala determinada
     Ni, Nj = (int(scale * s) for s in patch_size)
+    # Genera las imágenes en función del ancho y
+    # alto determinados
     for i in range(0, img.shape[0] - Ni, istep):
-        for j in range(0, img.shape[1] - Ni, jstep):
+        for j in range(0, img.shape[1] - Nj, jstep):
             patch = img[i:i + Ni, j:j + Nj]
             if scale != 1:
                 patch = transform.resize(patch, patch_size)
+            # Devolvermos indices e imagen resultante por cada
+            # división realizada
             yield (i, j), patch
 
 """
