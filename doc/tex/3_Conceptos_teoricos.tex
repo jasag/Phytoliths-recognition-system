@@ -6,11 +6,13 @@ Para la comprensión de este proyecto será necesario la compresión de algunos 
 
 \begin{itemize}
 	\item Inteligencia artificial
-	\item Reconocimiento de patrones
+	\item Aprendizaje automático
 	\item Aprendizaje supervisado y no supervisado
+	\item Clasificación
+	\item Reconocimiento de patrones
 	\item Segmentación
 	\item Binarización
-	\item \textit{thresholding}
+	\item \textit{Thresholding}
 	\item Descriptores visuales
 	\item Maquinas de vector soporte
 \end{itemize}
@@ -18,9 +20,31 @@ Para la comprensión de este proyecto será necesario la compresión de algunos 
 
 \section{Inteligencia artificial}
 
-\section{Reconocimiento de patrones}
+Inteligencia artificial, que comúnmente aparece como las siglas IA o AI del ingles, consiste en otorgar a las máquinas la capacidad de realizar acciones que habitualmente son realizadas por humanos, imitando la inteligencia cognitiva humana \cite{alanturing:ai}. Esta podría ser una posible definición de Inteligencia artificial, pero existen multitud \cite{russell1995modern}. Algunos posibles ejemplos conocidos por todos en los que se aplica la IA son el coche autónomo, videojuegos, asistentes personales, reconocimiento facial en imágenes.
+
+\section{Apredizaje automático}
+
+Apredizaje automático, o en ingles \textit{machine learning}, es un campo de la informática cuyo objetivo es dar a los computadores la capacidad de aprender sin explícitamente haber sido programados\cite{wiki:machinelearning}. Por lo tanto, se encarga de construir modelos para problemas en los que un algoritmo programado no puede conseguir buenos resultados o es muy complejo hacer que lo sean.
+
+
 
 \section{Aprendizaje supervisado y no supervisado}
+
+En esta sección vamos a distinguir entre aprendizaje supervisado y no supervisado, ambas técnicas pertenecientes al campo de la informática \textit{machine learning}.
+
+Aprendizaje supervisado es una técnica que consiste en la inferencia de una función partiendo de un conjunto de datos de entrenamiento etiquetado \cite{wiki:supervisedLearning}. Para tareas de clasificación o regresión. Es decir, para tareas en las que el resultado deseado sea obtener una variable que nos informe a que clase pertenece una determinada instancia, lo cual es un valor discreto, o para tareas en las que se desea obtener un valor continuo. Dos posibles ejemplos, a modo de aclaración,  podrían ser: la clasificación de \textit{emails} en \textit{spam} o \textit{no spam} y la predicción del valor de un inmueble.
+
+En cuanto al otro tipo de aprendizaje, el aprendizaje no supervisado consiste en la obtención de la estructura oculta en los datos. Pero al contrario que en el aprendizaje supervisado, partiendo de un conjunto de datos sin etiquetar, es decir, datos para los cuales no poseemos su valor deseado\cite{wiki:unsupervisedLearning}. Un posible ejemplo  de la utilización de este tipo de aprendizaje podría ser la categorización de clientes en varios grupos con fines comerciales.
+
+\section{Clasificación}
+
+Clasificación es la tarea de identificar, entre un conjunto de  categorías o clases, a que categoría o clase pertenece una determinada instancia.
+
+En el caso de este proyecto, estamos tratando de clasificar los distintos tipos de fitolitos. Por lo tanto tendremos tantas clases como tipos de fitolitos, además, de una clase que indica    que no existe fitolito, es decir, negativos.
+
+\section{Reconocimiento de patrones}
+
+El reconocimiento de patrones consiste en la extracción de propiedades similares entre las distintas instancias de una clase \cite{wiki:patternrecognition}. De manera que podamos identificar un determinado objeto en función de los patrones que contiene este. Este concepto, como podemos observar, está íntimamente relacionado con el concepto de clasificación y \textit{machine larning}.
 
 \section{Segmentación}
 
