@@ -1,9 +1,11 @@
 \apendice{Planificación}
 
 \section{Introducción}
+Para llevar a cabo este proyecto vamos a aplicar una metodología llamada Scrum. Scrum es una metodología de desarrollo software ágil, es decir, durante cada \textit{sprint} \footnote{\textit{Sprint}: es el período en el cual se lleva a cabo el trabajo en sí.\cite{wiki:scrum}}, generalmente cada semana, se asignarán unas determinadas tareas a cumplimentar, con un producto como consecuencia de estas tareas. Al final de cada \textit{sprint} se realizará una reunión junto a los tutores para validar los avances realizados y determinar las tareas a realizar durante el siguiente \textit{sprint}.
 
+\section{Planificación temporal}
 
-Para llevar a cabo este proyecto vamos a aplicar una metodología llamada Scrum. Scrum es una metodología de desarrollo software ágil, es decir, durante cada \textit{sprint} \footnote{\textit{Sprint}: es el período en el cual se lleva a cabo el trabajo en sí.\cite{wiki:scrum}} se asignarán unas determinadas tareas a cumplimentar, con un producto como consecuencia de estas tareas. Al final de cada \textit{sprint} se realizará una reunión junto a los tutores para validar los avances realizados y determinar las tareas a realizar durante el siguiente \textit{sprint}.
+En esta sección podremos ver la planificación del proyecto subdividida en \textit{sprints}, como previamente comentaba. En cada uno de los sprints se detalla las tareas a realizar, algunos detalles descriptivos y un gráfico \textit{burndown}.
 
 % \section{Estudio previo}
 
@@ -114,7 +116,7 @@ A continuación, en la figura \ref{fig:A.1.5}, se muestra el diagrama \textit{bu
 
 
 \subsection{\textit{Sprint} 5}
-Estas son las tareas a realizar durante este \textit{sprint} 4:
+Estas son las tareas a realizar durante este \textit{sprint} 5:
 
 \begin{itemize}
 	\item Implementar un \textit{file chooser} 
@@ -123,22 +125,110 @@ Estas son las tareas a realizar durante este \textit{sprint} 4:
 	\item Estudiar como implementar un etiquetador de imágenes.
 \end{itemize}
 
+Durante este \textit{sprint} se añadieron los clasificadores que deseábamos, es decir, un clasificador bayesiano y un clasificador mediante regresión logística. Además, se añadió un \textit{file chooser} que nos permitiría, desde ese momento, escoger la imagen que deseemos dentro de nuestro sistema operativo. En cuanto a la documentación, se corrigió toda la  realizada hasta ese momento. Y, por último, se hizo un estudio básico sobre como implementar un etiquetador de imágenes mediante un \textit{Widget} de \textit{Python}. Aunque, esta última tarea no tuviese ningún producto resultante en este \textit{sprint}.
 
-\begin{comment}
+A continuación, en la figura \ref{fig:A.1.6}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_5}
 \caption{Burndown del \textit{sprint} 5}
-\label{fig:A.1.5}
+\label{fig:A.1.6}
+\end{figure}
+
+\subsection{\textit{Sprint} 6}
+Estas son las tareas a realizar durante este \textit{sprint} 6:
+
+\begin{itemize}
+	\item Estudiar los \textit{Widgets} personalizados de \textit{Jupyter Notebook} e \textit{Ipython}.
+\end{itemize}
+
+Aunque este \textit{sprint} se encuentre compuesto por una única tarea, no era menos complejo por ello. El objetivo de este \textit{sprint} era obtener un \textit{Widget} capaz de etiquetar imágenes. Pero en la realización de este se encontraron multiples problemas. Obteniendo como producto resultante tres posibles alternativas con aspectos a corregir.
+
+Por lo tanto, en la figura \ref{fig:A.1.7} mostramos el diagrama \textit{burndown}, poco esclarecedor, de este \textit{sprint}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_6}
+\caption{Burndown del \textit{sprint} 6}
+\label{fig:A.1.7}
+\end{figure}
+
+
+
+\subsection{\textit{Sprint} 7}
+Estas son las tareas a realizar durante este \textit{sprint} 7:
+
+\begin{itemize}
+	\item Estudiar \textit{Bag of Words}.
+	\item Añadir mayor parametrización al \textit{Jupyter Notebook UI}.
+	\item Corregir \textit{bugs} del Widget previamente implementado.
+\end{itemize}
+
+Durante este \textit{sprint} se consiguió, en primer lugar, corregir una de las alternativas del etiquetador de imágenes, o \textit{Widget}, desarrolladas durante el \textit{sprint} anterior. Además, se corrigieron y añadieron múltiples parámetros en el \textit{Jupyter Notebook UI} y en las clases utilizadas por este \textit{Notebook}. Y, por ultimo, se realizo un estudio sobre un modelo ampliamente usado para tareas de clasificación, llamado \textit{Bag of Words}.
+
+A continuación, en la figura \ref{fig:A.1.8}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_7}
+\caption{Burndown del \textit{sprint} 7}
+\label{fig:A.1.8}
+\end{figure}
+
+
+\subsection{\textit{Sprint} 8}
+Estas son las tareas a realizar durante este \textit{sprint} 8:
+
+\begin{itemize}
+	\item Implementar la funcionalidad de obtención de imágenes en el etiquetador de imágenes, o \textit{Widget}.
+	\item Mejorar la interfaz del etiquetador de imágenes.
+	\item Crear un primer prototipo de interfaz de usuario.
+\end{itemize}
+
+Durante este \textit{sprint} se realizó un primer prototipo de interfaz de  usuario. Partiendo de este prototipo, se mejoró la interfaz del etiquetador de imágenes. Consiguiendo, así, una interfaz adecuada para el cliente. Además, se implemento la funcionalidad que nos permitiría obtener una imágen resultante de cada etiqueta realizada en las distintas imágenes.
+
+A continuación, en la figura \ref{fig:A.1.9}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_8}
+\caption{Burndown del \textit{sprint} 8}
+\label{fig:A.1.9}
+\end{figure}
+
+\subsection{\textit{Sprint} 9}
+
+Este \textit{sprint} tendrá una duración de dos semanas. Debido  a la carga de trabajo asociada a este \textit{sprint} y al ser días no lectivos por las vacaciones de Semana Santa. 
+
+Estas son las tareas a realizar durante este \textit{sprint} 9:
+
+\begin{itemize}
+	\item Añadir un texto a cada etiqueta que realizamos en una imagen.
+	\item Añadir notificaciones al usuario en la carga y guardado de imágenes.
+	\item Guardar las coordenadas de las etiquetas de cada imagen.
+	\item Cargar las etiquetas de una imagen que haya sido previamente etiquetada.
+	\item Controlar que el usuario no cree etiquetas en el SVG pero fuera de la imagen.
+	\item Añadir la posibilidad de eliminar etiquetas previamente realizadas.
+	\item Corregir los notebooks creados para la técnica Bag of Words.
+\end{itemize}
+
+
+\begin{comment}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_9}
+\caption{Burndown del \textit{sprint} 9}
+\label{fig:A.1.10}
 \end{figure}
 \end{comment}
 
-\section{Planificación temporal}
+\begin{comment}
 
 \section{Estudio de viabilidad}
 
 \subsection{Viabilidad económica}
 
 \subsection{Viabilidad legal}
-
+\end{comment}
 
