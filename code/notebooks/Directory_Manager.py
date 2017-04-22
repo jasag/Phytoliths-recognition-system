@@ -42,3 +42,9 @@ class Directory_Manager():
 
     def get_default_dir(self):
         return self._default_dir
+
+    def get_path_cte(self):
+        return self._path_cte
+
+    def get_possible_dir(self, dir):
+        return self._path_cte + dir + '\\'
