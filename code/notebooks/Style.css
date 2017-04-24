@@ -3,3 +3,8 @@
     stroke: green;
     stroke-width: 3px;
 }
+
+.widget .btn {
+	width: 130px;
+	align-content: center;
+}
