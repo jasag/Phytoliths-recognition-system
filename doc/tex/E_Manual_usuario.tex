@@ -2,10 +2,191 @@
 
 \section{Introducción}
 
+En esta sección se indicarán los distintos prerrequisitos de la herramienta. Así, como toda la información necesaria para la correcta utilización de la herramienta. O la solución ante posibles problemas en su utilización.
+
 \section{Requisitos de usuarios}
 
+El requisito básico necesario, por parte del usuario, es disponer de un ordenador con un sistema operativo moderno. Pudiendo, así, llevar a cabo la instalación que será explicada en la siguiente sección.
+
 \section{Instalación}
+Los requisitos necesarios son:
+
+\begin{itemize}
+	\item Anaconda\footnote{Es altamente recomendable utilizar \textit{Anaconda} para la instalación de \textit{Python} junto a algunos paquetes necesarios. Puesto que la instalación aislada de \textit{Python} llevaría al usuario a tener que instalar manualmente múltiples paquetes que ya vienen preinstálados con \textit{Anaconda}.}.
+
+	\item IPython File Upload. Siguiendo los pasos de instalación en \url{https://github.com/peteut/ipython-file-upload}.
+
+	\item \textit{Jupyter Dashboards}. Siguiendo los pasos de instalación en \url{https://github.com/jupyter/dashboards}.
+
+	\item Este proyecto descargado o clonado. Cuyo enlace al repositorio es \url{https://github.com/jasag/Phytoliths-recognition-system}.
+\end{itemize}
 
 \section{Manual del usuario}
 
+En esta sección se explicarán los distintos aspectos a tener en cuenta en el uso de los distintos productos.
 
+\subsection{Manual del usuario: etiquetador de imágenes}
+
+Una vez completados satisfactoriamente los pasos anteriores,  ejecutamos \textit{Jupyter Notebook} desde \textit{Anaconda}\footnote{ Si es la primera vez que utilizas Anaconda es recomendable utilizar Anaconda Navigator. Ya que este nos facilitará ejecutar \textit{Jupyter Notebook}, sin el uso de la linea comandos.}. Y desde esta aplicación, abrimos el \textit{notebook} \textit{Image\_Labeler.ipynb}, en la carpeta \textit{code/notebooks} dentro del repositorio previamente descargado.
+
+Con \textit{Image\_Labeler.ipynb} ya abierto tendremos que llevar a cabo dos pasos:
+
+\begin{enumerate}[1.]
+    \item Ejecutar todas las celdas del \textit{notebook}.
+    \item Activar \textit{Dashboard Preview}.
+\end{enumerate}
+
+Para llevar a cabo los dos siguientes pasos basta con navegar por la barra del \textit{notebook}, como muestro a continuación. 
+
+Para la ejecución del primer paso, navegamos por \textit{Cell} y clicamos en \textit{Run All}. Como se puede observar en la figura \ref{fig:E.4.1}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.80\textwidth]{ejecucion_todas_las_celdas}
+\caption{Ejecución del \textit{notebook}}
+\label{fig:E.4.1}
+\end{figure}
+
+Para la ejecución del segundo paso, navegamos por \textit{View} y clicamos en \textit{Dashboard Preview} \ref{fig:E.4.2}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.60\textwidth]{cambio_de_vista_a_preview_dashboard}
+\caption{Selección de la vista del \textit{notebook}}
+\label{fig:E.4.2}
+\end{figure}
+
+Una vez realizados los pasos anteriores, tendremos como resultado la figura \ref{fig:E.4.3}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{etiquetador_de_imagenes_antes_de_cargar_imagen_v1}
+\caption{Etiquetador de imágenes}
+\label{fig:E.4.3}
+\end{figure}
+
+\subsubsection{Uso del etiquetador}
+
+Como resultado de los pasos previos, el etiquetador de imágenes estará listo para su funcionamiento. 
+
+El etiquetador está compuesto por dos partes principales:
+
+\begin{itemize}
+	\item Parte izquierda: imagen.
+	\item Parte derecha: \textrm{<<botones>>}.	
+\end{itemize}
+
+La parte izquierda mostrará la imagen a ser etiquetada. Y la parte derecha mostrará los botones que nos permitirán realizar distintas elecciones. Como podemos ver en la figura \ref{fig:E.4.3}.
+
+\subsubsection{Parte derecha del etiquetador}
+La parte derecha del etiquetador esta compuesta por tres grupos de botones. El botón para la carga de una imagen, los botones de selección de fitolito y el botón de guardado. Como podemos obsevar en la figura \ref{fig:E.4.7}. 
+
+En las secciones siguientes explicaré sus funciones. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.50\textwidth]{etiquetador_botones}
+\caption{Parte derecha del etiquetador}
+\label{fig:E.4.7}
+\end{figure}
+
+\subsubsection{Carga de imagen}
+
+Para etiquetar una imagen el primer paso será escoger una imagen en nuestro ordenador mediante el botón \textit{Browse}, situado en la esquina superior derecha del etiquetador. Como se puede ver en la figura \ref{fig:E.4.3}.
+
+Una vez  pulsado, se mostrará una ventana, como la que podemos ver en la figura \ref{fig:E.4.4}, en la que escogeremos la imagen que deseemos.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{fileupload_captura}
+\caption{Ventana de subida de ficheros}
+\label{fig:E.4.4}
+\end{figure}
+
+Tras escoger la imagen, esta se cargará en la parte izquierda del etiquetador, dando lugar a algo similar a lo mostrado en la figura \ref{fig:E.4.5}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{etiquetador_de_imagenes_2_v1}
+\caption{Etiquetador imágenes con una imagen cargada}
+\label{fig:E.4.5}
+\end{figure}
+
+\subsubsection{Etiquetar distintos tipos de fitolitos}
+Antes de explicar como se crean las etiquetas, debemos de tener en cuenta los botones para la selección de tipos de fitolito.
+
+Cada vez que se quiera etiquetar un tipo de fitolito distinto tendremos que clicar en el botón correspondiente al tipo de fitolito objetivo.
+
+A su vez, y para facilitarnos distinguir a que tipo de fitolito pertenece cada etiqueta, se escribe encima de cada etiqueta el tipo de fitolito que ha sido etiquetado, como podemos ver en la figura \ref{fig:E.4.6}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.30\textwidth]{etiqueta_ejemplo}
+\caption{Ejemplo de etiqueta}
+\label{fig:E.4.6}
+\end{figure}
+
+\subsubsection{Realizar etiquetas}
+
+Una vez cargada la imagen en el etiquetador y comprendido el uso de los botones de selección de tipo de fitolito, podemos comenzar a  etiquetar fitolitos. Para etiquetar basta con clicar en la imagen, mover el ratón hacía donde deseemos y volver a clicar. Para, así, definir una etiqueta como la que se puede ver en la figura \ref{fig:E.4.6}.
+
+\subsubsection{Eliminar etiquetas}
+
+Como es normal, un usuario puede equivocarse realizando una etiqueta que no debería. Por ello, en la esquina superior izquierda de cada etiqueta, disponemos de una \textrm{<<X>>}, como podemos observar en la figura \ref{fig:E.4.6}, que nos permitirá eliminar etiquetas previamente realizadas. Posibilitando así revertir un error del usuario.
+
+\subsubsection{Guardar etiquetas}
+Después de realizar las etiquetas, y finalizar de etiquetar una imagen, solo queda guardar las etiquetas. Para ello basta con clicar el botón \textrm{<<Guardar imágenes>>} en la esquina inferior derecha del etiquetador, véase \ref{fig:E.4.3}.
+
+Es \textbf{importante} destacar que no sirve de nada etiquetar una imagen, sino pulsamos más tarde en el botón guardar. Debido a que las etiquetas realizadas no habrán sido guardadas. Y 
+, por lo tanto, todas las etiquetas realizadas sobre una imagen se perderán.
+
+\subsubsection{Etiquetas realizadas fuera de la imagen}
+
+En la versión actual del etiquetador, este te permite realizar etiquetas fuera de la imagen. Pero estas etiquetas no serán guardadas.
+
+Por lo tanto, debemos de tener en cuenta que las etiquetas que no tengan todas sus aristas dentro de la imagen no se guardan.
+
+Aun, así, en la siguiente sección explicaré como comprobar que las etiquetas previamente realizadas han sido guardadas.
+
+\subsubsection{Carga de etiquetas previamente realizadas}
+
+Las imágenes etiquetadas se guardan en la carpeta \textit{/code/rsc/img} dentro del repositorio. Al cargar imágenes que se encuentren dentro de esta carpeta, las etiquetas previamente realizadas sobre estas imágenes se cargarán con ellas\footnote{Notese que los nombres de las imágenes no son los cargados originalmente, ya que todas las imágenes etiquetadas son renombradas para no sobrescribir imágenes previamente etiquetadas con nombres iguales.}. Pudiendo ser modificadas, eliminándolas o creando nuevas etiquetas.
+
+\subsubsection{Notificaciones}
+
+Se han incluido en el etiquetador una sería de notificaciones, las cuales nos permitirán cercionarnos de distintos eventos. 
+
+Las notificaciones que se muestran son las siguientes:
+
+\begin{enumerate}
+	\item Notificación en la carga de una imagen. Véase la figura \ref{fig:E.4.8.1}.
+	\item Notificación en la carga incorrecta de un fichero que no sea una imagen. Véase la figura \ref{fig:E.4.8.2}.
+	\item Notificación en el guardado de etiquetas. Véase la figura \ref{fig:E.4.8.3}.
+\end{enumerate}
+
+Gracias a estas notificaciones podremos saber si la imagen que hemos seleccionado era correcta, o no, y si las etiquetas ya han sido guardadas.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.60\textwidth]{notificacion_carga_de_imagen_correctamente}
+\caption{Notificación en la carga de una imagen}
+\label{fig:E.4.8.1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.70\textwidth]{notificacion_carga_de_imagen_incorrectamente}
+\caption{Notificación en la carga incorrecta de un fichero que no sea una imagen}
+\label{fig:E.4.8.2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.70\textwidth]{notificacion_guardado_correctamente}
+\caption{Notificación en el guardado de etiquetas}
+\label{fig:E.4.8.3}
+\end{figure}
+
+\subsubsection{Bloqueo del etiquetador}
+
+En algunas ocasiones, y por razones que desconozco hasta el momento, el etiquetador puede bloquearse alguna vez al cargar imágenes previamente etiquetadas. Para solucionar este problema basta con recargar el etiquetador, como se vio en la parte inicial de esta sección.
