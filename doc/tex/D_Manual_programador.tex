@@ -1,11 +1,58 @@
 \apendice{Documentación técnica de programación}
 
 \section{Introducción}
+En este anexo se introducirá la información necesaria para las personas que deseen continuar o trabajar en el proyecto.
 
 \section{Estructura de directorios}
+La estructura de directorios del proyecto, en estructura de árbol, es la siguiente:
+
+\begin{itemize}
+	\item \textit{\textbf{/}}, es decir, el directorio raíz. En el se encuentra el fichero de la licencia, el \textit{README}, el \textit{.gitignore} y las siguientes carpetas:
+	\begin{itemize}
+		\item \textit{\textbf{code}}: contiene toda la lógica de la aplicación.
+			\begin{itemize}
+				\item \textit{\textbf{imgaug}}: repositorio para realizar \textit{Data Augmentation} con \textit{Python 2}.
+				\item \textit{\textbf{notebooks}}: contiene todos los notebooks creados para este proyecto.
+				\item \textit{\textbf{rsc}}: contiene los recursos necesarios por las distintas aplicaciones.
+				\item \textit{\textbf{src}}: contiene el notebook principal para tareas de reconocimiento. Esta carpeta aun se encuentra en desarrollo.
+			\end{itemize}
+		\item \textit{\textbf{doc}}: contiene la documentación del proyecto.
+			\begin{itemize}
+				\item \textit{\textbf{img}}: contiene todas las imágenes de la memoria y anexos del proyecto.
+				\item \textit{\textbf{tex}}: contiene los ficheros correspondientes a cada uno de los anexos.
+			\end{itemize}
+	\end{itemize}
+\end{itemize}
 
 \section{Manual del programador}
 
+\subsection{Manual del programador: etiquetador de imágenes}
+
+En esta sección explicare más en detalle como funciona internamente el etiquetador.
+
+\subsubsection{Base del etiquetador: \textit{Widgets} de \textit{Python}}
+
+El etiquetador está creado mediante los \textit{Widgets} de \textit{Python}. Un \textit{Widget} es un objeto de Python con representación en navegadores. Este nos permite la comunicación entre \textit{JavaScript} y \textit{Python}. Facilitando, así, crear interfaces \textit{Web} interactivas, como es nuestro caso\cite{ipywidgets:whataarewidgets}.
+
+El etiquetador de imágenes es un \textit{Widget} personalizado, el cual ha sido creado por nosotros. Pero, además, este utiliza otros \textit{Widgets} prefedefinidos por \textit{Python} para los botones.
+
+\subsubsection{\textit{Javascript}}
+
+La parte de código \textit{JavaScript} se ocupa de representar todos los elementos visuales y capturar los eventos.
+
+En cuanto a elementos visuales, nos referimos al SVG, la imagen, rectangulos o etiquetas y textos. Los cuales son elementos \textit{HTML}. Y, en cuanto a eventos, nos referimos a los clicks o movimientos del ratón sobre nuestros elementos \textit{HTML}.
+
+\subsubsection{\textit{Python}}
+
+La parte de \textit{Python} controla toda la lógica de la aplicación. Desde que imagen se muestra, hasta las conversiones de las coordenadas de la imagen entre la vista y la imagen real.
+
+Además, para los botones, los cuales son \textit{Widgets} de \textit{Python}, se controlan tambien sus eventos desde el propio \textit{Python}.
+
 \section{Compilación, instalación y ejecución del proyecto}
 
+\subsection{Compilación, instalación y ejecución del  etiquetador de imágenes}
+El etiquetador no requiere de ninguna compilación. Simplemente es necesario llevar a cabo los pasos indicados en el \textit{\textit{Manual del usuario etiquetador de imágenes}} para su instalación y ejecución. Y, en ese momento, estaremos listos para modificar o mejorar el código todo lo que deseemos.
+
+\begin{comment}
 \section{Pruebas del sistema}
+\end{comment}
