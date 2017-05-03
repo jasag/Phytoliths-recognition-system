@@ -18,6 +18,8 @@ Para la comprensión de este proyecto será necesario la compresión de algunos 
 	\item \textit{Bag of Words}
 	\item Detección de objetos
 	\item mAP
+	\textit{Deep learning}
+	%\textit{cnn}
 	\item YOLO
 \end{itemize}
 
@@ -103,21 +105,34 @@ La media promedio de precisión, en ingles \textit{mean average precision} (\tex
 
 %\section{IOU}
 
-%\section{VOc}?
+%\section{VOC}?
 
-%\section{Redes neuronales convolucionales}
+%\section{Redes neuronales y redes neuronales convolucionales}
 
-%\section{Deep learning}
+\section{Aprendizaje profundo}
+
+Aprendizaje profundo, o más comunmente mencionado en ingles mediante las palabras \textit{deep learning}, es la técnica más avanzada, catalogada como el estado del arte, para ámbitos como la visión artificial, el reconocimiento de voz automático, el procesamiento del lenguaje natural,  la bioinformática y el reconocimiento de audio, entre otros campos \cite{ms:deeplearning}.
+
+\textit{Deep learning} es un conjunto de algoritmos de la rama del aprendizaje automático que se caracteriza por los siguientes aspectos, principalmente \cite{ms:deeplearning}:
+
+\begin{enumerate}
+	\item Consisten en modelos con varias capas en las que la información sufre a menudo operaciones no lineales.
+	\item Consisten en representaciones de características que parten desde un nivel bajo de abstracción hasta llegar a un nivel alto. Por ejemplo, desde los píxeles de la imagen hasta las clases de objetos y sus coordenadas dentro de la imagen.
+\end{enumerate}
+
+Este conjunto de técnicas es la intersección entre las redes neuronales, la inteligencia artificial, el modelado de grafos, la optimización, el reconocimiento de patrones y el procesado de señales \cite{ms:deeplearning}. % Aclarar algunos de los conceptos
+
+Pero, no todo son ventajas en esta aproximación. Y es que existe un problema principal, el cual es el volumen de imágenes que necesita un modelo de este tipo para ser adecuadamente entrenado, miles. Y, por otro lado, el tiempo necesario para entrenar un modelo de este tipo. Más adelante indagaremos en posibles soluciones.
 
 \section{\textit{YOLO}}
 
-\textit{YOLO}, o \textit{You Only Look Once}, es una aproximación innovadora en la detección de objetos, considerándose actualmente el estado del arte en esta materia, junto a \textit{Faster RCNN}\footnote{Faster RCNN es un detector de objetos en tiempo real con una precisión similar a la última versión de \textit{YOLO}, pero con menor rendimiento en tiempos que \textit{este}}. Tratando de crear una arquitectura muy rápida pero, a su vez, siendo capaz de soportar un número de clases mayor a 9000 \cite{yolov2}.
+\textit{YOLO}, o \textit{You Only Look Once}, es una aproximación innovadora en la detección de objetos, considerado, actualmente, como el estado del arte en esta materia, junto a \textit{Faster RCNN}\footnote{Faster RCNN es un detector de objetos en tiempo real con una precisión similar a la última versión de \textit{YOLO}, pero con menor rendimiento en tiempos que \textit{este}}. Tratando de crear una arquitectura que funciona en tiempo real pero, a su vez, siendo capaz de soportar un número de clases mayor a 9000 \cite{yolov2}.
 
 \subsection{Versiones}
 
 \textit{YOLO}, actualmente, tiene dos versiones. Y, en cada una de estas versiones, se ha desarrollado una versión pequeña y una normal. En la primera versión de \textit{YOLO} se consiguió llegar a resultados muy positivos, como la capacidad de procesar 45 imágenes por segundo con una precisión de 63.4 \textit{mAP}. Y, con la versión pequeña de este, se llegaron a procesar 155 imágenes por segundo con una precisión de 52.7 \textit{mAP}\cite{yolo}. Precisiones muy positivas, pero que todavía no estaban a la altura del estado del arte a nivel de precisión.
 
-En la segunda versión, se considera a \textit{YOLO} como el estado del arte, junto a \textit{Faster RCNN}. En esta versión, \textit{YOLO} consigue llegar a una precisión de 76,8 \textit{mAP}, procesando 67 imágenes por segundo, y 78,6 \textit{mAP}, procesando 40 imágenes por segundo. Lo cual, supera a \textit{Faster RCNN} en precisión y rapidez, siendo esta última ampliamente superada \cite{yolov2}.\footnote{\textit{Faster RCNN} consigue clasificar una 1 imágenes cada 2 segundos. En cambio, \textit{YOLO} es capaz de procesar 40 imágenes.}
+En la segunda versión, se considera a \textit{YOLO} como el estado del arte, junto a \textit{Faster RCNN}. En esta versión, \textit{YOLO} consigue llegar a una precisión de 76,8 \textit{mAP}, procesando 67 imágenes por segundo, y 78,6 \textit{mAP}, procesando 40 imágenes por segundo. Lo cual, supera a \textit{Faster RCNN} en precisión y rapidez, siendo esta última ampliamente superada \cite{yolov2}.\footnote{\textit{Faster RCNN} consigue clasificar una 1 imágenes cada 2 segundos(\textit{FPS, frames per second}). En cambio, \textit{YOLO} es capaz de procesar más de 40 imágenes.}
 
 \subsection{Característica diferenciadora de \textit{YOLO}}
 

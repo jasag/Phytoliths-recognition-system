@@ -112,9 +112,9 @@ Durante las primeras pruebas, la segmentación más interesante hasta el momento
 
 \section{Clasificadores}
 
-La aproximación mediante procesamiento de imágenes no parece la más adecuada visto los resultados obtenidos. Por ello vamos a realizar el estudio sobre una segunda aproximación  mediante clasificadores, junto a descriptores visuales.
+La aproximación mediante procesamiento de imágenes no parece la más adecuada visto los resultados obtenidos. Por ello vamos a realizar el estudio sobre una segunda aproximación  mediante clasificadores, junto a descriptores visuales y la técnica \textit{sliding window} \footnote{Sliding window consiste en la subdivisión de una imágen en distintos fragmentos, estableciendo el tamaño de cada fragmento, tanto en ancho y en alto, como el tamaño del salto en cada eje, tras una subdivisión.}.
 
-El primer conjunto de técnicas escogido ha sido una Máquina de Vector Soporte junto al Histograma de los gradientes orientados, la cual es una técnica para la extracción automática de características. Sin embargo, iremos utilizando distintas técnicas para adoptar la que mejor se adapte a nuestra problemática.
+El primer conjunto de técnicas escogidas ha sido una Máquina de Vector Soporte junto al Histograma de los gradientes orientados, la cual es una técnica para la extracción automática de características. Sin embargo, iremos utilizando distintas técnicas para adoptar la que mejor se adapte a nuestra problemática.
 
 El procedimiento para obtener el clasificador es el siguiente:
 
@@ -122,7 +122,7 @@ El procedimiento para obtener el clasificador es el siguiente:
   \item Crear un conjunto de entrenamiento de imágenes de caras que consideramos que son elementos positivos.
   \item Crear un conjunto de entrenamiento de imágenes de no-caras que consideramos que son negativos.
   \item Extraer las características del conjunto de entrenamiento  mediante un descriptor visual.
-  \item Entrenar el clasificador.
+  \item Entrenar\footnote{Nos refererimos por entrenar, en este ámbito, a enviar al clasificador las distintas imágenes con la clase a la que pertenecen (fitolito de tipo 1, fitolito de tipos 2, etcétera).} el clasificador.
 \end{enumerate}
 
  Finalizado el entrenamiento, ya tenemos nuestro clasificador listo para enviarle nuevas imágenes y que sean clasificadas.
@@ -142,7 +142,7 @@ Cada uno de los fragmentos anteriores se solapa en gran medida. Por lo que origi
 
 Como previa experimentación con esta metodología, vamos a entrenar el clasificador para el reconocimiento de caras. Y en función de la efectividad del método sobre las caras tomaremos una serie de conclusiones sobre las que decidiremos si llevar a cabo esta solución sobre  nuestro problema.
 
-Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviamos una nueva imagen, como podría ser la presentada en la figura \ref{subfig:family}. A partir de esta imagen el clasificador nos permitirá obtener las ventanas \footnote{Se entiende por ventana , en este contexto, a la caja o cuadrilatero que etiqueta un positivo en una imagen.} en las que detecta una cara, como vemos en la figura \ref{subfig:family_labeled}. Podemos apreciar que existe más de una ventana alrededor de cada cara. Y finalmente, tras aplicar el método \textit{Non-Maximum supresion} obtenemos el resultado final mostrado en la figura \ref{subfig:family_labeled_nms}.
+Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviamos una nueva imagen, como podría ser la presentada en la figura \ref{subfig:family}. A partir de esta imagen el clasificador nos permitirá obtener las ventanas \footnote{Se entiende por ventana, en este contexto, a la caja o cuadrilatero que etiqueta un positivo en una imagen.} en las que detecta una cara, como vemos en la figura \ref{subfig:family_labeled}. Podemos apreciar que existe más de una ventana alrededor de cada cara. Y finalmente, tras aplicar el método \textit{Non-Maximum supresion} obtenemos el resultado final mostrado en la figura \ref{subfig:family_labeled_nms}.
 
 \begin{figure}
 	\centering
@@ -164,3 +164,30 @@ Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviam
         \caption{Resultados tras aplicar el clasificador sobre una imagen}
 	\label{fig:5.1.4}
 \end{figure}
+
+\section{Conclusiones}
+
+El método utilizado en esta sección se encuentra muy limitado por los siguientes aspectos:
+
+\begin{itemize}
+	\item Es una técnica que presenta problemas de rendimiento. Puesto que requiere de 2 o 3 segundos, como mínimo, para clasificar una nueva imagen.
+	\item Es una técnica que no tiene en cuenta el contexto de la imagen para su clasificación. Sino, que solo tiene en cuenta cada uno de los fragmentos de la imagen de manera aislada al resto. Lo cual dificulta una adecuada precisión del clasificador.
+	\item Comete muchos errores en la detección de falsos positivos. Como se puede observar en la figura \ref{subfig:family_labeled_nms}.
+	\item El tamaño de la subdivisión de la imagen es constante. Por lo tanto, complica las posibilidades en la detección de distintos tamaños de fitolitos.
+\end{itemize}
+
+\section{Problema fundamental: falta de imágenes}
+
+Llegados a este punto, y teniendo una primera aproximación, con mayor o menor precisión, de como afrontar el reconocimiento automático de fitolitos, se plantea un problema fundamental en el desarrollo de este proyecto. El problema, al que me refiero, es que no poseemos o conocemos ningún conjunto de entrenamiento de imágenes etiquetadas\footnote{Me refiero por imágenes etiquetadas, a imágenes con las coordenadas de donden se encuentran los distintos fitolitos en estas.} de fitolitos. Y por lo que hemos podido observar, hasta el momento, es el requisito básico en el aprendizaje supervisado.
+
+Debido a esta problemática, desarrollamos un etiquetador de fitolitos que permita a nuestros usuarios crear un conjunto de imágenes de fitolitos etiquetadas y , así, solucionar este problema fundamental en el desarrollo del proyecto.
+
+En concreto, este etiquetador es una aplicación web desarrollada sobre un conjunto de tecnologías \textit{Python} y \textit{JavaScript}. Con el objetivo de poder realizar un futuro despliegue en un servicio \textit{web} que facilite lo máximo las tareas a nuestros usuarios. La información más detallada para un futuro programador, o para el uso por parte del usuario, se encuentra en los anexos del manual del programador y el manual del usuario, respectivamente.
+
+\section{Detección de objetos mediante técnicas de \textit{deep learning}}
+
+Una vez observados los resultados mediante una técnica clásica, como es \textit{sliding window}. Vamos a ir un paso más allá, con las técnicas de \textit{deep learning}, las cuales son las que,  con diferencia, mayor rendimiento aportan en la actualidad, como previamente he explicado en los conceptos teóricos.
+
+Para ello, vamos a entrenar una implementación de \textit{YOLO} en \textit{Python}, todavía en desarrollo, para tratar de llevar a cabo el detector automático de fitolitos. Aunque, existen otras alternativas que se podrían adoptar en un fúturo de no conseguir los resultados esperados con esta implementación.
+
+Previamente, en los conceptos teóricos, sea explicado que este tipo de modelos también presentan algunas problemáticas, por el volumen de imágenes necesario y el tiempo necesario para ser entrenados, principalmente. Existen soluciones, como \textit{data augmentation}, trasferencia de conocimiento o partir de modelos previamente entrenados. Que iremos valorando en este desarrollo.
