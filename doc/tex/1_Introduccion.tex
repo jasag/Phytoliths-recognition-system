@@ -1,3 +1,47 @@
 \capitulo{1}{Introducción}
 
 %Descripción del contenido del trabajo y del estrucutra de la memoria y del resto de materiales entregados.
+
+Este trabajo esta desarrollado en colaboración con investigadores del CSIC, los cuales serán los principales usuarios de los productos \textit{software} desarrollados en este proyecto.
+
+Este está compuesto de un conjunto de herramientas, que tienen el fin de desarrollar un sistema capaz de reconocer automáticamente fitolitos. Crear un sistema de este tipo es una tarea compleja, ya que lleva consigo un conjunto de problemáticas a resolver, más allá de los problemas implícitos que tiene un sistema de visión artificial, entre las cuales se encuentran las siguientes:
+
+\begin{itemize}
+	\item No poseemos un conjunto de imágenes de fitolitos etiquetadas, con los tipos de fitolitos que las componen y otra información necesaria. Base fundamental para la construcción de un sistema de este tipo.
+	\item Los fitolitos son de distintos tamaños y tridimensionales.
+	\item Las imágenes microscópicas de fitolitos, no solo contienen fitolitos, sino que contienen otros materiales.
+	\item Los fitolitos pueden estar superpuestos entre sí.
+\end{itemize}
+
+Debido a que no poseemos dichas imágenes, desde un principio, muchas de las tareas que se podrán ver en este proyecto se realizarán con caras. Se utilizarán caras puesto que las bases de datos de caras son mucho más comunes y nos permitirán tener una primera aproximación al problema.
+
+Debido al problema de la falta de imágenes de estas características, nos veremos obligados a crear un etiquetador. El cual, nos permitirá obtener toda la información necesaria para tener un conjunto de imágenes que nos permitan llevar a cabo el sistema automático de reconocimiento de fitolitos.
+
+Como más tarde iremos viendo, la mayoría de los productos generados en este proyecto son \textit{Jupyter Notebooks}, los cuales nos permiten interaccionar facilmente con el código, explicados más detalladamente en el capitulo de técnicas y herramientas. Cada uno de estos \textit{notebooks} contendrán estudios sobre algunas herramientas o técnicas utilizadas o investigadas.
+
+Finalmente, y a modo de aclaración, para llevar a cabo este sistema, se irán estudiando diferentes técnicas, como previamente he comentado en el resumen. Comenzando por la técnica de segmentación, continuando con la ventana deslizante y avanzando hasta técnicas más avanzadas, como \textit{deep learning}.
+
+\section{Estructura de los materiales del proyecto}
+
+La documentación, principalmente, se compone de dos documentos: la memoria y la documentación técnica. La composición de la memoria es la siguiente:
+
+\begin{itemize}
+	\item \textbf{Introducción}: descripción del contenido del trabajo, de la estructura de la memoria y de los materiales del proyecto.
+	\item \textbf{Objetivos del proyecto}: objetivos que se quieren llevar a cabo con este trabajo.
+	\item \textbf{Conceptos teóricos}: múltiples conceptos que nos permitirán comprender el trabajo adecuadamente.
+	\item \textbf{Técnicas y herramientas}: las distintas técnicas y herramientas utilizadas en este trabajo.
+	\item \textbf{Aspectos relevantes del desarrollo del proyecto}: los distintos pasos que se han llevado a cabo en este proyecto, sus explicaciones y sus conclusiones.
+	\item \textbf{Trabajos relacionados}: trabajos anteriores sobre una temática similar a la de este trabajo.
+	\item \textbf{Conclusiones y Líneas de trabajo futuras}: trabajo a realizar para futuras mejoras del actual proyecto.
+\end{itemize}
+
+En cuanto a la documentación técnica, formada por varios anexos, la composición es la siguiente:
+
+\begin{itemize}
+	\item \textbf{Planificación}: organización temporal del desarrollo del proyecto.
+	%\item Especificación de Requisitos:
+	\item \textbf{Documentación técnica de programación}: contiene la información sobre los pasos a seguir por un futuro desarrollador o interesado para trabajar en el proyecto.
+	\item \textbf{Documentación de usuario}: contiene la información que un usuario debe conocer para el uso de las herramientas que este proyecto provee.
+\end{itemize}
+
+Finalmente, los detalles de como se organizada la estructura de directorios del proyecto se encuentra en el anexo de la documentación técnica de programación.

@@ -424,6 +424,18 @@ D. nombre co-tutor
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
+La arqueobotánica es la ciencia que estudia las interrelaciones de las poblaciones humanas antiguas con el mundo vegetal \cite{ucm:arqueobotanica}. Obteniendo información de las actividades del ser humano relacionadas con las plantas, como las técnicas de agricultura, el consumo de vegetales, la utilización de las plantas o información sobre los entornos de vegetación antiguos.
+
+En concreto, nuestro objetivo es centrarnos en la rama de los micro-restos y, más en concreto, en los fitolitos. Los fitolitos son partículas microscópicas generadas por las plantas, a causa de un proceso metabólico vital para ellas \cite{wiki:fitolito}. La identificación de los fitolitos nos permiten obtener, entre otra, la información anteriormente citada.
+
+En este proyecto tratamos de solucionar la problemática de analizar cada una de las muestras microscópicas manualmente. Para crear un sistema que sea capaz de reconocer de forma automática los fitolitos en cada una de estas muestras.
+
+Para ello, se comenzó mediante técnicas de segmentación, las cuales no aportaban grandes resultados, por su enorme ineficiencia en tiempos. Se continuó con la utilización de técnicas tradicionales, en el ámbito de la visión artificial, como es la ventana deslizante. Y, se finalizo, estudiando técnicas avanzas de \textit{deep learning}, o aprendizaje profundo, junto a técnicas de \textit{data augmentation}.
+
+Además, en la utilización de este tipo de técnicas se plantea un problema fundamental que es la necesidad de poseer imágenes con los fitolitos etiquetados, por lo que se realizó un  etiquetador de imágenes que nos permitiese obtener toda la información necesaria.
+
+% Acabar con la conclusión
+
 %Proyecto a realizar en colaboración con investigadores del CSIC en el que, mediante técnicas de reconocimiento automático de imágenes, se diseñará e implementará un sistema software capaz de identificar fitolitos en fotografías realizadas con microscopio. El análisis de fitolitos es una popular técnica utilizada en arqueobotánica para la identificación e interpretación de vegetales fosilizados. Gracias a la observación de los fitolitos y a la contabilidad de una determinada muestra, es posible determinar condiciones ambientales así como actividades humanas relacionadas con las plantas, tales como técnicas agrícolas empleadas o dieta, entre otras muchas. El proyecto se realizará en Python mediante la utilización del paquete scikit-learn que facilitará las labores de segmentación y reconocimiento de patrones.
 %En este primer apartado se hace una \textbf{breve} presentación del tema que se aborda en el proyecto.
 \end{abstract}
@@ -431,7 +443,7 @@ D. nombre co-tutor
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
 %Palabras separadas por comas que identifiquen el contenido del proyecto Ej: servidor web, buscador de vuelos, android \ldots
-Arqueobotánica, Fitolito, Reconocimiento de imagenes, Python
+Arqueobotánica, Fitolito, Reconocimiento de objetos, \textit{Python}
 \end{abstract}
 
 \clearpage
