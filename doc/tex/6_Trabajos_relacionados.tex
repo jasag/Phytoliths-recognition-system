@@ -1,3 +1,23 @@
 \capitulo{6}{Trabajos relacionados}
 
 %Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
+
+Actualmente, no existe ningún sistema popular que intente solucionar el problema acometido en este trabajo. Pero si existen trabajos similares en los que se estudian posibles técnicas para abordar la realización de sistemas automáticos para materiales microscópicos \cite{palyrecog}.
+
+En el caso del artículo \textit{Automatic recognition of complete palynomorphs in digital images} \cite{palyrecog}, escrito por J.J. Charles, se crea un sistema consistente en las siguientes tres fases:
+
+\begin{enumerate}
+	\item Preprocesar la imagen, segmentando la parte de atrás de la imagen de la parte de delante.
+	\item Segmentar las distintas regiones de la imagen.
+	\item Clasifica las regiones de la imagen.
+\end{enumerate}
+
+Esta aproximación genera muy buenos resultados para la aplicación estudiada, pero presenta varios problemas para nuestro caso. Los problemas a los que me refiero son los siguientes:
+
+\begin{itemize}
+	\item Es un sistema aplicado a una única clase de objetos. En nuestro caso, queremos que sea un sistema escalable debido a la gran variedad de tipos de fitolito.
+	\item No existen grandes diferencias en los tamaños de palinofaceos. Fue entrenado para objetos de tamaño 30, 50 y 70. Pero en nuestro caso los fitolitos son de distintos tamaños, estrechos y altos, o viceversa. Es decir, teniendo tamaños muy variados y siendo tridimensionales, por lo cual las formas de los materiales varían sustancialmente. Lo cual complica nuestro proyecto un gran paso más allá.
+	\item En ningun momento se hace referencia al tiempo necesario para clasificar una nueva imagen. Pero estas técnicas sueles ser bastante ineficientes, debido al gran espacio de exploración que plantean.
+\end{itemize}
+
+Por lo tanto, las técnicas de \textit{deep learning} actuales presentan grandes mejoras en cuanto a eficiencia, escalabilidad, y flexibilidad en cuanto al aprendizaje de nuevos tipos de fitolitos, en nuestro caso. Aunque también presentan otros problemas a cambio de sus grandes posibilidades, como he comentado previamente en otras secciones.
