@@ -6,8 +6,8 @@
 </p>
 <br>
 
-## Prerequisitos
-Los prerequisitos necesarios para poder instalar las aplicaciones realizadas en este proyecto son:
+## Prerrequisitos
+Los prerrequisitos necesarios para poder instalar las aplicaciones realizadas en este proyecto son:
 
 - Windows.
 - Google Chrome.
@@ -46,8 +46,8 @@ Una vez completados satisfactoriamente los pasos anteriores, ejecutamos la aplic
 ![](https://raw.githubusercontent.com/jasag/Phytoliths-recognition-system/research/doc/img/etiquetador_de_imagenes_2_v1.JPG)
 
 
-## Documentation
-Para obtener información más detallada sobre el proyecto, véase la memoria y anexos del proyecto. 
+## Documentación
+Este repositorio forma parte del trabajo fin de grado de ingeniería informática desarrollado para la Universidad de Burgos (UBU). Para obtener información más detallada sobre el proyecto, véase la memoria y anexos del proyecto. 
 
 ## Autores
 - Jaime Sagüillo Revilla
