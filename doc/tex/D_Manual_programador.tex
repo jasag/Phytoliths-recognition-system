@@ -53,6 +53,35 @@ Además, para los botones, los cuales son \textit{Widgets} de \textit{Python}, s
 \subsection{Compilación, instalación y ejecución del  etiquetador de imágenes}
 El etiquetador no requiere de ninguna compilación. Simplemente es necesario llevar a cabo los pasos indicados en el \textit{\textit{Manual del usuario etiquetador de imágenes}} para su instalación y ejecución. Y, en ese momento, estaremos listos para modificar o mejorar el código todo lo que deseemos.
 
+\subsection{Procedimiento de entrenamiento de \textit{YOLO}}
+
+Para realizar el entrenamiento de \textit{YOLO}, \textit{darkflow} nos provee de un \textit{script} que nos facilita dicha tarea mediante la linea de comandos\footnote{ Solo ha sido probado desde un sistema Linux.}, llamado \textit{flow}. Además, existen dos posibilidades principales para realizar el entrenamiento sobre nuestro \textit{dataset}:
+
+\begin{itemize}
+	\item Utilizar unos pesos\footnote{Pesos: son cada uno de los valores asignados a una neurona en una red neuronal.} pre-entrenados para nuestro modelo.
+	\item Crear un modelo que se ajuste a nuestras necesidades.
+\end{itemize}
+
+La ventaja de utilizar unos pesos pre-entrenados reside en que la red neuronal ya habrá aprendido ciertas características, como bordes o formas. Por lo tanto, el tiempo de entrenamiento será mucho menor. Pero puede que la reutilización de dicho modelo no se adecue a nuestras necesidades ya sea porque tengamos un número distinto de clases al modelo inicial o porque el contexto sea totalmente distinto.
+
+Por otro lado, se encuentra el entrenamiento desde cero de un nuevo modelo que se adecue a nuestras necesidades. El cual suple las desventajas presentadas por la anterior opción, pero introduce una mayor complejidad a la hora del entrenamiento.
+
+En cualquier caso, los dos siguientes ejemplos, correspondientes a las opciones planteadas, nos permitirían entrenar el modelo:
+
+\begin{verbatim}
+flow --train --model cfg/yolo-tiny.cfg
+ --load bin/yolo-tiny.weights
+ --dataset "Fitolitos" --annotation "Fitolitos"
+
+o
+
+flow --model cfg/yolo-new.cfg --train
+ --dataset "Fitolitos" --annotation "Fitolitos"
+\end{verbatim}
+
+Donde la opción \textit{--train} indica que se desea entrenar un modelo, la opción \textit{--load} indica donde se encuentran los pesos pre-entrenados, la opción \textit{--dataset} indica la ruta de la carpeta donde se encuentran las imagenes de los fitolitos y la opción \textit{--annotation} indica donde se encuentran los ficheros con las coordenadas\footnote{La modificaciones realizadas sobre \textit{darkflow} para permitir la lectura y conversión de mis coordenadas están pensados para que el valor de las opciones \textit{dataset} y \textit{annotation} sean el mismo. De otra manera el modelo fallará en el entrenamiento.}.
+
+
 \begin{comment}
 \section{Pruebas del sistema}
 \end{comment}

@@ -26,7 +26,7 @@ Respecto a la carpeta Default, en ella se almacenan las imágenes completas junt
 		"Spherical": [[1132, 1282, 2207, 2357], [1238, 1414, 368, 533]]}}
 \end{verbatim}
 
-Siendo el formato: nombre de la imagen y nombre de cada tipo de fitolito, solo apareciendo los existentes en la imagen. Teniendo cada tipo de fitolito una lista de etiquetas, donde cada etiqueta tiene 4 coordenadas. Por último, las 4 coordenadas de cada etiqueta se almacenan con el siguiente formato y orden:
+Siendo el formato: nombre de la imagen y nombre de cada tipo de fitolito, solo apareciendo los existentes en la imagen. Teniendo cada tipo de fitolito una lista de etiquetas, donde cada etiqueta tiene cuatro coordenadas. Las cuatro coordenadas se almacenan con el siguiente orden y significado:
 
 \begin{itemize}
 	\item Desplazamiento en el eje y de la esquina superior izquierda de una etiqueta.
@@ -38,7 +38,7 @@ Siendo el formato: nombre de la imagen y nombre de cada tipo de fitolito, solo a
 
 \section{Diseño procedimental}
 
-En este proyecto hay que destacar tres procedimientos principales, los cuales explicaré ,brevemente, a continuación.
+En este proyecto hay que destacar tres procedimientos principales, los cuales explicaré, brevemente, a continuación.
 
 \begin{comment}
 \begin{itemize}
@@ -71,66 +71,85 @@ El procedimiento muy simplificado del funcionamiento del etiquetador cuando se c
 
 Una vez cargada la imagen, como indico finalmente, se escuchan los eventos del ratón. En concreto, los \textit{clicks} y movimientos de este sobre el SVG. Ya que la creación de los rectangulos, o etiquetas, sobre la imagen se hacen a partir de dichos eventos. Para ello, se poseen dos \textit{listeners}, u observadores de eventos, uno para cada evento. Los \textit{clicks} se utilizan para la creación de un nuevo rectángulo o su finalización. Y los movimientos del ratón, una vez hecho un primer click\footnote{De manera que hayamos creado el rectángulo}, permiten redimensionar el rectángulo de manera totalmente intuitiva.
 
-Nótese que existen más variables a tener en cuenta, como el tipo de fitolito, el cual determina el directorio donde se guardará el recorte obtenido de la etiqueta y como se almacenan las coordenadas en el fichero \textit{JSON}, entre otras. Pero lo que se intenta realizar en este apartado es una introducción simplificada del procedimiento.
+Nótese que existen más variables a tener en cuenta, como el tipo de fitolito, el cual determina el directorio donde se guardará el recorte obtenido de la etiqueta y como se almacenan las coordenadas en el fichero \textit{JSON}, entre otras. Pero lo que se intenta realizar en este apartado es una explicación simplificada del procedimiento.
 
 \subsection{Procedimiento en el \textit{notebook} para la detección de caras}
 
 El procedimiento simplificado del funcionamiento del \textit{notebook} para el reconocimiento de caras en una imagen es el mostrado en el procedimiento \ref{alg:2}.
 
-%COMPLETAR
 \begin{algorithm}
-    Realizamos la ventana deslizante sobre la imagen.
+    Realizamos la ventana deslizante sobre la imagen.    
     
     Obtenemos las características del histograma de los gradientes.
 
+	Clasificamos la imagen.    
+    
     Eliminamos las ventanas redundantes con non-maximum suppression.
 
-    Mostramos la imagen con los rectangulos.
+    Mostramos la imagen con los rectángulos.
     \caption{Procedimiento de funcionamiento del etiquetador}
     \label{alg:2}
 \end{algorithm}
 
-\subsection{Procedimiento de entrenamiento de \textit{YOLO}}
-
-Para realizar el entrenamiento de \textit{YOLO}, \textit{darkflow} nos provee de un \textit{script} que nos facilita dicha tarea, llamado \textit{flow}. Además, existen dos posibilidades principalmente para realizar el entrenamiento sobre nuestro \textit{dataset}:
-
-\begin{itemize}
-	\item Utilizar unos pesos\footnote{Pesos: son cada uno de los valores asignados a una neurona en una red neuronal.} entrenados para nuestro modelo.
-	\item Crear un modelo que se ajuste a nuestras necesidades.
-\end{itemize}
-
-La ventaja de utilizar unos pesos pre-entrenados reside en que la red neuronal ya habrá aprendido ciertas características, como bordes o formas. Por lo tanto, el tiempo de entrenamiento será mucho menor. Pero puede que la reutilización de dicho modelo no se adecue a nuestras necesidades ya sea porque tengamos un número distinto de clases al modelo inicial o porque el contexto sea totalmente distinto.
-
-Por otro lado, se encuentra el entrenamiento desde cero de un nuevo modelo que se adecue a nuestras necesidades. El cual suple las desventajas presentadas por la anterior opción, pero introduce una mayor complejidad a la hora del entrenamiento.
-
-En cualquier caso, los dos siguientes ejemplos, correspondientes a las opciones planteadas, nos permitirían entrenar el modelo:
-
-\begin{verbatim}
-flow --train --model cfg/yolo-tiny.cfg
- --load bin/yolo-tiny.weights
- --dataset "Fitolitos" --annotation "Fitolitos"
-
-or
-
-flow --model cfg/yolo-new.cfg --train
- --dataset "Fitolitos" --annotation "Fitolitos"
-\end{verbatim}
-
-Donde la opción \textit{--train} indica que se desea entrenar un modelo, la opción \textit{--load} indica donde se encuentran los pesos pre-entrenados, la opción \textit{--dataset} indica la ruta de la carpeta donde se encuentran las imagenes de los fitolitos y la opción \textit{--annotation} indica donde se encuentran los ficheros con las coordenadas\footnote{La modificaciones realizadas sobre \textit{darkflow} para permitir la lectura y conversión de mis coordenadas están pensados para que el valor de las opciones \textit{dataset} y \textit{annotation} sean el mismo. De otra manera el modelo fallará en el entrenamiento.}. 
-
 \section{Diseño arquitectónico}
 
-Este proyecto no contiene un diseño muy elaborado a nivel arquitectónico por dos razones fundamentales. La primera ha sido el esfuerzo requerido en la investigación y aprendizaje por mi parte de técnicas muy variadas para afrontar el problema. Hasta llegar con la más adecuada. Por otro lado, la mayoría del código ha sido desarrollado en los \textit{Jupyter Notebooks}. Los cuales nos permiten interaccionar fácilmente con el código y documentarlo a su vez, aportando una fácil introducción a otros usuarios.
+Este proyecto no contiene un diseño muy elaborado a nivel arquitectónico por dos razones fundamentales. La primera ha sido el esfuerzo requerido en la investigación y el aprendizaje de técnicas muy variadas para afrontar el problema. Hasta llegar con la más adecuada. Por otro lado, la mayoría del código ha sido desarrollado en los \textit{Jupyter Notebooks}. Los cuales nos permiten interaccionar fácilmente con el código y documentarlo a su vez, aportando una fácil introducción a otros usuarios.
 
-Aun así existen dos módulos con código empaquetado: módulo utilizado por el \textit{notebook} para la predicción de caras y módulo utilizado para la gestión de carpetas del etiquetador. Véase COMPLETAR REF.
+Aun así existen dos módulos con código empaquetado: módulo utilizado por el \textit{notebook} para la predicción de caras y módulo utilizado para la gestión de carpetas del etiquetador. Véase el diagrama de paquetes \ref{fig:C.4.1}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{dia_paquetes}
+\caption{Diagrama de paquetes}
+\label{fig:C.4.1}
+\end{figure}
+
+Por un lado, tenemos el módulo que se encarga de la gestión de carpetas donde el etiquetador almacena las imágenes. Véase el diagrama de clases \ref{fig:C.4.2}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{dia_dirs}
+\caption{Diagrama de clases de las clases encargadas de la gestión de carpetas}
+\label{fig:C.4.2}
+\end{figure}
 
 
-
-Por un lado, tenemos el módulo que se encarga de la gestión de carpetas. Con los siguientes métodos y atributos.
-
-Y, por otro lado, tenemos las clases encargadas de la predicción de una nueva imagen mediante el \textit{notebook} citado anteriormente.
+Y, por otro lado, tenemos las clases encargadas de la predicción de una nueva imagen mediante el \textit{notebook} explicado anteriormente. En este caso existen 3 clases, las cuales interaccionan entre sí. La primera es una clase estática con 2 funciones para los cálculos del non-maximum suppression y la ventana deslizante. Véase la figura \ref{fig:C.4.3} 
 
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{dia_win}
+\caption{Clase estática encargada de las tareas de non-maximum suppression y ventana deslizante}
+\label{fig:C.4.3}
+\end{figure}
+
+Por otro lado, tenemos la clase encargada de envolver al clasificador y realizar las tareas de clasificación de una imagen. Véase la figura \ref{fig:C.4.4}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{dia_ic}
+\caption{Clase encargada de las tareas de clasificación de una imagen}
+\label{fig:C.4.4}
+\end{figure}
+
+Y, finalmente, tenemos la clase encargada de guardar la imagen, mostrarla y poder clasificarla con el apoyo del resto de clases. Véase la figura \ref{fig:C.4.5}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{dia_li}
+\caption{Clase encargada de de guardar la imagen, mostrarla y poder clasificarla.}
+\label{fig:C.4.5}
+\end{figure}
+
+Para finalizar esta sección, podemos apreciar en la figura \ref{fig:C.4.6} como interaccionan las tres clases.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\textwidth]{dia_cls}
+\caption{Diagrama de clases del \textit{Jupyter Notebook} para la detección de caras}
+\label{fig:C.4.6}
+\end{figure}
 
 \section{Diseño de las interfaces}
 
@@ -148,6 +167,17 @@ Por lo tanto, la interfaz de este \textit{Jupyter Notebook} no ha sido trabajada
 \caption{\textit{Jupyter Notebook} para el reconomiento de caras}
 \label{fig:C.5.1}
 \end{figure}
+
+Aun así, a continuación enumeraré y explicare la función de cada uno de los botones, o selectores de valores:
+
+\begin{itemize}
+	\item \textit{classifier_index}: permite seleccionar el clasificador con el que se desea clasificar la imagen.
+	\item \textit{rescale_coef}: permite seleccionar el coeficiente de reescalado de una imagen.
+	\item \textit{istep}: permite elegir el número de pixeles que debe saltar la ventana deslizante en cada subdivisión en el eje vertical.
+	\item \textit{jstep}: permite elegir el número de pixeles que debe saltar la ventana deslizante en cada subdivisión en el eje horizontal.
+	\item \textit{alfa}: permite seleccionar el coeficiente de solapación entre ventanas para que el método non-maximum suppression elimine más o menos ventanas solapadas.
+	\item \textit{probs}: permite escoger las ventanas que deseamos mostrar en función de las probabilidades que indica el clasificador sobre cada ventana.
+\end{itemize}
 
 \subsection{Etiquetador de imágenes}
 
