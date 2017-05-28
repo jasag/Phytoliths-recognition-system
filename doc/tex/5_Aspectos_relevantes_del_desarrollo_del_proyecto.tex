@@ -10,7 +10,7 @@ Este apartado, debe convertirse en el resumen de la experiencia práctica del pr
 
 \section{Procesamiento de imágenes}
 
-Como primera aproximación al problema que nos concierne, nos hemos enfrentado al procesamiento de imágenes mediante la librería Scikit-image para Python. Mediante esta herramienta trataremos de dar solución a nuestro problema siguiendo los siguientes pasos:
+Como primera aproximación al problema que nos concierne, nos hemos enfrentado al procesamiento de imágenes mediante la librería \textit{Scikit-image} de \textit{Python}. Mediante esta herramienta trataremos de dar solución a nuestro problema siguiendo los siguientes pasos:
 
 \begin{enumerate}[1.]
   \item Convertimos la imagen a escala de grises
@@ -38,9 +38,9 @@ La conversión de la imagen original (RGB) a escala de grises viene motivada con
 
 \subsection{Segmentamos los objetos del fondo de la imagen}
 
-Una vez tenemos la imagen en escala de grises, procedemos a transformar nuestra imagen en una imagen en blanco y negro o binarizada. Los motivos por los que binarizamos la imagen es para obtener una imagen que sea más significativa para nosotros y además este simplificada. Lo cual nos sera útil para facilitarnos su procesamiento.
+Una vez tenemos la imagen en escala de grises, procedemos a transformar nuestra imagen en una imagen en blanco y negro o binarizada. Los motivos por los que binarizamos la imagen es para obtener una imagen que sea más significativa para nosotros y además este simplificada. Lo cual nos será útil para facilitarnos su procesamiento.
 
-Scikit nos propociona distintos métodos mediante los cuales podemos segmentar una imagen. En la figura \ref{fig:5.1.2} podemos observar el resultado aplicando distintos métodos, los cuales se van indicando en cada una de las figuras.
+\textit{Scikit-image} nos propociona distintos métodos mediante los cuales podemos segmentar una imagen. En la figura \ref{fig:5.1.2} podemos observar el resultado aplicando distintos métodos, los cuales se van indicando en cada una de las figuras.
 
 \begin{figure}
 	\centering
@@ -122,7 +122,7 @@ El procedimiento para obtener el clasificador es el siguiente:
   \item Crear un conjunto de entrenamiento de imágenes de caras que consideramos que son elementos positivos.
   \item Crear un conjunto de entrenamiento de imágenes de no-caras que consideramos que son negativos.
   \item Extraer las características del conjunto de entrenamiento  mediante un descriptor visual.
-  \item Entrenar\footnote{Nos refererimos por entrenar, en este ámbito, a enviar al clasificador las distintas imágenes con la clase a la que pertenecen (fitolito de tipo 1, fitolito de tipos 2, etcétera).} el clasificador.
+  \item Entrenar\footnote{Nos referimos por entrenar, en este ámbito, a enviar al clasificador las distintas imágenes con la clase a la que pertenecen (fitolito de tipo 1, fitolito de tipos 2, etc.).} el clasificador.
 \end{enumerate}
 
  Finalizado el entrenamiento, ya tenemos nuestro clasificador listo para enviarle nuevas imágenes y que sean clasificadas.
@@ -136,7 +136,7 @@ Para el reconocimiento de objetos en nuevas imágenes, deberemos llevar a cabo l
   \item Si existe solapamiento en la detección de objetos, muy común en el uso de este tipo de clasificadores, se deben de combinar dichos solapamientos en uno único.
 \end{enumerate}
 
-Cada uno de los fragmentos anteriores se solapa en gran medida. Por lo que origina un problema de sobrereconocimiento de objetos, reconociendo donde existe un posible positivo, más de uno, en la mayoría de casos. Por ello, se aplica el tercer paso sobre los objetos reconocidos, que es la eliminación del solapamiento de objetos mediante la técnica de \textit{Non-Maximum suprresion}.
+Cada uno de los fragmentos anteriores se solapa en gran medida. Por lo que origina un problema de sobrereconocimiento de objetos, reconociendo donde existe un posible positivo, más de uno, en la mayoría de casos. Por ello, se aplica el tercer paso sobre los objetos reconocidos, que es la eliminación del solapamiento de objetos mediante la técnica de \textit{Non-maximum suppression}.
 
 \subsection{Aplicación sobre el reconocimiento de caras}
 
@@ -180,7 +180,7 @@ El método utilizado en esta sección se encuentra muy limitado por los siguient
 
 Llegados a este punto, y teniendo una primera aproximación, con mayor o menor precisión, de como afrontar el reconocimiento automático de fitolitos, se plantea un problema fundamental en el desarrollo de este proyecto. El problema, al que me refiero, es que no poseemos o conocemos ningún conjunto de entrenamiento de imágenes etiquetadas\footnote{Me refiero por imágenes etiquetadas, a imágenes con las coordenadas de donden se encuentran los distintos fitolitos en estas.} de fitolitos. Y por lo que hemos podido observar, hasta el momento, es el requisito básico en el aprendizaje supervisado.
 
-Debido a esta problemática, desarrollamos un etiquetador de fitolitos que permita a nuestros usuarios crear un conjunto de imágenes de fitolitos etiquetadas y , así, solucionar este problema fundamental en el desarrollo del proyecto.
+Debido a esta problemática, desarrollamos un etiquetador de fitolitos que permita a nuestros usuarios crear un conjunto de imágenes de fitolitos etiquetadas y así, solucionar este problema fundamental en el desarrollo del proyecto.
 
 En concreto, este etiquetador es una aplicación web desarrollada sobre un conjunto de tecnologías \textit{Python} y \textit{JavaScript}. Con el objetivo de poder realizar un futuro despliegue en un servicio \textit{web} que facilite lo máximo las tareas a nuestros usuarios. La información más detallada para un futuro programador, o para el uso por parte del usuario, se encuentra en los anexos del manual del programador y el manual del usuario, respectivamente.
 
@@ -190,4 +190,4 @@ Una vez observados los resultados mediante una técnica clásica, como es \texti
 
 Para ello, vamos a entrenar una implementación de \textit{YOLO} en \textit{Python}, todavía en desarrollo, para tratar de llevar a cabo el detector automático de fitolitos. Aunque, existen otras alternativas que se podrían adoptar en un fúturo de no conseguir los resultados esperados con esta implementación.
 
-Previamente, en los conceptos teóricos, sea explicado que este tipo de modelos también presentan algunas problemáticas, por el volumen de imágenes necesario y el tiempo necesario para ser entrenados, principalmente. Existen soluciones, como \textit{data augmentation}, trasferencia de conocimiento o partir de modelos previamente entrenados. Que iremos valorando en este desarrollo.
+Previamente, en los conceptos teóricos, se ha explicado que este tipo de modelos también presentan algunas problemáticas, por el volumen de imágenes necesario y el tiempo necesario para ser entrenados, principalmente. Existen soluciones, como \textit{data augmentation}, trasferencia de conocimiento o partir de modelos previamente entrenados. Que iremos valorando en este desarrollo.

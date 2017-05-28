@@ -3,7 +3,7 @@
 %Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
 %No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
 
-En esta sección se explicarán las distintas técnicas y herramientas utilizadas para llevar a cabo el proyecto.
+En esta sección se explican las distintas técnicas y herramientas utilizadas para llevar a cabo el proyecto.
 
 \section{Lenguajes de programación}
 
@@ -13,7 +13,7 @@ En esta sección se explicarán las distintas técnicas y herramientas utilizada
 \textit{Python} se caracteriza por muchos aspectos. Y tiene múltiples ventajas respecto a otros lenguajes, como la fácil legibilidad de su código, las potentes funciones que incorpora por defecto, la utilización de tipado dinámico y las múltiples librerías de código abierto disponibles para distintas tareas, entre otras. Las ventajas que presenta respecto a otros lenguajes, como pueden ser C o Java, nos llevan a usar este lenguaje como el núcleo de nuestro proyecto.
 
 \subsection{\textit{JavaScript}}
-\textit{Javascript} es el lenguaje de programación de \textit{HTML} y de la \textit{Web}\cite{w3schools:javascript}. En nuestro caso, este es utilizado para la realización del etiquetador de imágenes, puesto que está basado en una aplicación \textit{Web}. No existen alternativas estandar a él. Pero si existen librerías para facilitar el uso del mismo, como \textit{JQuery}, la cual es utilizada en la medida de lo posible.
+\textit{JavaScript} es el lenguaje de programación de \textit{HTML} y de la \textit{Web}~\cite{w3schools:javascript}. En nuestro caso, este es utilizado para la realización del etiquetador de imágenes, puesto que está basado en una aplicación \textit{Web}. No existen alternativas estandar a él. Pero si existen librerías para facilitar el uso del mismo, como \textit{JQuery}, la cual es utilizada en la medida de lo posible.
 
 \subsection{\textit{JSON}}
 \textit{JSON}, siglas que denotan \textit{JavaScript Object Notation}, es un formato ligero para el intercambio de datos \cite{json}. Se basa en la notación de objetos de \textit{JavaScript}, de ahí su nombre. Este es utilizado para el almacenamiento de información en nuestra aplicación, como más tarde veremos.
@@ -27,11 +27,11 @@ Existe una posible alternativa a \textit{JSON}, la cual es \textit{XML}. Este es
 \end{itemize}
 \section{\textit{Anaconda}}
 
-\textit{Anaconda} es un distribución de \textit{Python} y \textit{R} que facilita las tareas de gestión de paquetes, de entornos y de versiones de lenguajes de programación. Nos permite crear varios entornos con distintas versiones de paquetes o lenguajes de programación. Y nos permite la instalación, desinstalación y actualización de distintos paquetes. Facilitandonos estas tareas en la medida de lo posible.
+\textit{Anaconda} es una distribución de \textit{Python} y \textit{R} que facilita las tareas de gestión de paquetes, de entornos y de versiones de lenguajes de programación. Nos permite crear varios entornos con distintas versiones de paquetes o lenguajes de programación. Y nos permite la instalación, desinstalación y actualización de distintos paquetes. Facilitandonos estas tareas en la medida de lo posible.
  
-\textit{Anaconda} nos provee de muchas ventajas respecto a la utilización de \textit{Python} de manera aislada. La utilización de distintas versiones del mismo lenguaje en un mismo sistema operativo es una problemática que \textit{Anaconda} nos soluciona aislandonos de todos estos problemas. Además, como previamente comentaba sobre la gestión de paquetes, \textit{Anaconda} nos provee de una herramienta, \textit{conda}, para la gestión de paquetes.
+\textit{Anaconda} nos provee de muchas ventajas respecto a la utilización de \textit{Python} de manera aislada. La utilización de distintas versiones del mismo lenguaje en un mismo sistema operativo es una problemática que \textit{Anaconda} nos soluciona aislándonos de todos estos problemas. Además, como previamente se ha comentado sobre la gestión de paquetes, \textit{Anaconda} nos provee de una herramienta, \textit{<<conda>>}, para la gestión de paquetes.
 
-A continuación explicaré brevemente los paquetes utilizados.
+A continuación explicaré brevemente los paquetes de \textit{Python} utilizados.
  
 \subsubsection{\textit{scikit-image}}
 
@@ -42,6 +42,16 @@ A continuación explicaré brevemente los paquetes utilizados.
 \subsubsection{\textit{Jupyter Notebook}}
 
 Es una herramienta que nos permite crear \textit{webs} interactivas con código, texto, representaciones de los datos o distintas visualizaciones, como imágenes. Muchos de los productos generados por este proyecto serán de este tipo, como el etiquetador de imágenes que más tarde introduciré.
+
+\section{Librerías auxiliares}
+
+Para llevar a cabo este proyecto, además de las librerías ya citadas, se han utilizado algunos repositorios auxiliares para llevar a cabo algunas de las tareas. Indico a continuación los repositorios con una breve descripción:
+
+\begin{itemize}
+	\item \textit{Jupyter Dashboards}: es una extensión que nos permitirá mostrar un \textit{Jupyter Notebook} con un estilo más personalizado.
+	\item \textit{IPython File Upload}: es una extensión que nos permitirá subir imágenes desde un \textit{Jupyter Notebook}.
+	\item \textit{darkflow}: es una implementación de \textit{YOLO} utilizado para el reconocimiento automático de fitolitos.
+\end{itemize}
 
 \subsection{Gestor de tareas: \textit{ZenHub}}
 
@@ -56,7 +66,7 @@ Es una herramienta que nos permite crear \textit{webs} interactivas con código,
 
 \section{Control de versiones: \textit{Git}}
 
-El control de versiones es una parte fundamental para la realización de un proyecto. Este nos permite acometer distintas acciones, como comprobar el cambio realizado entre versiones, trabajar en equipo facilmente o volver a un punto anterior, entre otras cosas. En nuestro caso, utilizamos \textit{Git} como control de versiones. 
+El control de versiones es una parte fundamental para la realización de un proyecto. Este nos permite acometer distintas acciones, como comprobar el cambio realizado entre versiones, trabajar en equipo fácilmente o volver a un punto anterior, entre otras cosas. En nuestro caso, utilizamos \textit{Git} como control de versiones. 
 
 \textit{Git} nos proporciona las características que necesitamos. Además de algunas ventajas respecto a otras herramientas, como ser un sistema distribuido o proporcionar una interfaz de comandos muy potente.
 
@@ -65,16 +75,6 @@ El control de versiones es una parte fundamental para la realización de un proy
 \section{Repositorio: \textit{Github}}
 
 Otra herramienta principal, a seleccionar, es el repositorio central, en nuestro caso hemos elegido \textit{Github}. \textit{Github} nos proporciona muchas utilidades y una forma simple de llevar a cabo el proyecto con todas las características necesarias. Es por todas sus características y una previa experiencia con la herramienta por lo que se eligió como nuestro servicio de repositorio central.
-
-\section{Librerías auxiliares}
-
-Para llevar a cabo este proyecto, además de las librerías ya citadas, se han utilizado algunos repositorios auxiliares para llevar a cabo algunas de las tareas. Indico a continuación los repositorios con una breve descripción:
-
-\begin{itemize}
-	\item \textit{Jupyter Dashboards}: es una extensión que nos permitirá mostrar un \textit{Jupyter Notebook} con un estilo más personalizado.
-	\item \textit{IPython File Upload}: es una extensión que nos permitirá subir imágenes desde un \textit{Jupyter Notebook}.
-	\item \textit{darkflow}: es una implementación de \textit{YOLO}, concepto que más tarde introduciremos, utilizado para el reconocimiento automático de fitolitos.
-\end{itemize}
 
 \section{Documentación: \LaTeX}
 
@@ -86,8 +86,8 @@ La memoria y anexos de este proyecto han sido escritos en \LaTeX. Este nos propo
 
 El entorno de desarrollo o, por sus siglas \textit{IDE}, es la aplicación utilizada para el desarrollo de la aplicación. Proporcionando múltiples herramientas, desde el auto-completar, hasta \textit{plugins} que permiten comprobar el recubrimiento del código mediante tests, entre otras funcionalidades.
 
-Para esta utilidad se valorarón dos herrramientas principalmente: \textit{PyDev} y \textit{JetBrains PyCharm}. Escogiéndose esta última por poseer una mayor cantidad de herramientas integradas, como el control de versiones, distintas opciones para refactorizar el código y un muy buen auto-completar, entre otras características.
+Para esta utilidad se valoraron dos herrramientas principalmente: \textit{PyDev} y \textit{JetBrains PyCharm}. Escogiéndose esta última por poseer una mayor cantidad de herramientas integradas, como el control de versiones, distintas opciones para refactorizar el código y un muy buen auto-completar, entre otras características.
 
 \section{Herramienta de prototipado: \textit{NinjaMock}}
 
-La herramienta de prototipado es la aplicación utilizada para un primer diseño de la interfaz de una aplicación. Facilitando la demostración, evaluación y agilizando el proceso de llevar a cabo una interfaz. En nuestro caso se utilizo \textit{NinjaMock}, la cual es una aplicación web que nos permite llevar a cabo esta tarea facilmente.
+La herramienta de prototipado es la aplicación utilizada para un primer diseño de la interfaz de una aplicación. Facilitando la demostración, evaluación y agilizando el proceso de llevar a cabo una interfaz. En nuestro caso se utilizó \textit{NinjaMock}, la cual es una aplicación web que nos permite llevar a cabo esta tarea facilmente.
