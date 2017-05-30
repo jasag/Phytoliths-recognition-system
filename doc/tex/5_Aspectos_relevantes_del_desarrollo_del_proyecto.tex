@@ -86,7 +86,7 @@ Después de tener la imagen binarizada de la forma más apropiada posible probam
 \subsection{Transformación divisoria}
 Transformación divisoria, o en inglés \textit{Watershed segmentation}, es un algoritmo clásico para la segmentación de objetos en una imagen.
 
-Durante las primeras pruebas, la segmentación más interesante hasta el momento ha sido la que se muestra en la figura \ref{fig:5.1.3}. A partir de \textit{Watershed segmentation} con marcado. Más allá de esta segmentación no se ha conseguido nada mejor.
+Durante las primeras pruebas, la segmentación más interesante hasta el momento ha sido la que se muestra en la figura \ref{fig:5.1.3}. A partir de \textit{Watershed segmentation} con marcado, representando cada color un objeto distinto. Más allá de esta segmentación no se ha conseguido nada mejor.
 
 \begin{figure}
 	\centering
@@ -95,14 +95,6 @@ Durante las primeras pruebas, la segmentación más interesante hasta el momento
         \caption{Imagen en escala de grises}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{local_gradient_gimp}
-        \caption{Gradiente de la imagen}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{markers_gimp}
-        \caption{Marcadores}
-    \end{subfigure}
-        \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{segmented}
         \caption{Imagen segmentada}
     \end{subfigure}
@@ -112,7 +104,18 @@ Durante las primeras pruebas, la segmentación más interesante hasta el momento
 
 \section{Clasificadores}
 
-La aproximación mediante procesamiento de imágenes no parece la más adecuada visto los resultados obtenidos. Por ello vamos a realizar el estudio sobre una segunda aproximación  mediante clasificadores, junto a descriptores visuales y la técnica \textit{sliding window} \footnote{Sliding window consiste en la subdivisión de una imágen en distintos fragmentos, estableciendo el tamaño de cada fragmento, tanto en ancho y en alto, como el tamaño del salto en cada eje, tras una subdivisión.}.
+La aproximación mediante procesamiento de imágenes no parece la más adecuada visto los resultados obtenidos. Por ello vamos a realizar el estudio sobre una segunda aproximación  mediante clasificadores, junto a descriptores visuales y la técnica de la ventana deslizante, o en inglés \textit{sliding window}.
+
+\textit{Sliding window} consiste en la subdivisión de una imagen en distintos fragmentos, estableciendo previamente el tamaño de los fragmentos, tanto en ancho como en alto, y el tamaño del salto en cada eje, tras una subdivisión. 
+
+Como podemos apreciar en la figura \ref{fig:sliding_window}, primero, la ventana deslizante recorre la imagen en el eje horizontal. Comenzando por la esquina superior izquierda hasta llegar a la esquina superior derecha. Generando una imagen por cada subdivisión y realizando saltos horizontales según el tamaño que hayamos definido. Una vez esta llega a la esquina superior derecha, la ventana deslizante lleva a cabo el mismo proceso pero realizando un salto en el eje vertical. Y así sucesivamente hasta completar su recorrido por toda la imagen.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{sliding_window}
+\caption{Esquema del funcionamiento de la ventana deslizante}
+\label{fig:sliding_window}
+\end{figure}
 
 El primer conjunto de técnicas escogidas ha sido una Máquina de Vector Soporte junto al Histograma de los gradientes orientados, la cual es una técnica para la extracción automática de características. Sin embargo, iremos utilizando distintas técnicas para adoptar la que mejor se adapte a nuestra problemática.
 

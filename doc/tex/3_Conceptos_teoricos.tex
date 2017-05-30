@@ -57,9 +57,9 @@ La binarización de una imagen consiste en la simplificación de los valores de 
 
 \subsubsection{Thresholding}
 
-Es el método mas simple para la segmentación de una imagen, pudiendose utilizar para la binarización de una imagen, como es nuestro caso. Consiste en reemplazar los píxeles por debajo de una determinada constante a píxeles negros, y los que se encuentran por encima a píxeles blancos o viceversa. Un ejemplo de una imagen a la que se le ha aplicado esta técnicas se muestra en la figura \ref{fig:3.2.1}.
+Es el método mas simple para la segmentación de una imagen, pudiendose utilizar para la binarización de una imagen, como es nuestro caso. Consiste en reemplazar los píxeles por debajo de una determinada constante a píxeles negros, y los que se encuentran por encima a píxeles blancos o viceversa. Un ejemplo de una imagen a la que se le ha aplicado esta técnica se muestra en la figura \ref{fig:3.2.1}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{adaptive_thresholded_image_5}
 \caption{Ejemplo de imagen tras aplicar \textit{thresholding}.}
@@ -126,14 +126,31 @@ En la segunda versión, se considera a \textit{YOLO} como el estado del arte, ju
 
 Por supuesto, esta perspectiva no es tan simple como un giro en el enfoque. Sino que, además, implementa otras características, como la normalización en lotes o la obtención automática del tamaño de las cajas, que la permiten ser la mejor aproximación actual en este campo~\cite{yolov2}.
 
-Podemos ver una comparativa entre los mejores detectores de objetos actuales con \textit{YOLO} en la figura \ref{fig:3.2.13}. Indicando para cada uno de ellos la precisión y la capacidad de procesamiento de imágenes, en las unidades de media promedio de precisión e imágenes por segundo, respectivamente.
+Podemos ver una comparativa entre los mejores detectores de objetos actuales con \textit{YOLO} en la tabla \ref{tabla:comparativa_yolo}. Indicando para cada uno de ellos la precisión y la capacidad de procesamiento de imágenes, en las unidades de media promedio de precisión e imágenes por segundo, respectivamente.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.5\textwidth]{comparativa_yolo}
-\caption[Comparativa entre los distintos sistemas de detección de objetos]{Comparativa entre los distintos sistemas de detección de objetos sobre el mismo conjunto de entrenamiento y sobre la misma configuración~\cite{yolov2}.}
-\label{fig:3.2.13}
-\end{figure}
+\begin{table}
+  \begin{center}
+  \caption[Comparativa entre los distintos sistemas de detección de objetos]{Comparativa entre los distintos sistemas de detección de objetos sobre el mismo conjunto de entrenamiento y sobre la misma configuración~\cite{yolov2}.}
+    \label{tabla:comparativa_yolo}
+    \begin{tabular}{@{} l l r r@{}}
+      \toprule
+        \textbf{Detection frameworks}  & \textbf{Train} & \textbf{$mAP$} & \textbf{FPS} \\
+      \midrule
+        Fast R-CNN                     & 2007+2012      & 70.0           & 0.5 \\
+        Faster R-CNN VGG-16                            & 2007+2012      & 73.2           & 7 \\
+      Faster R-CNN Resnet                            & 2007+2012      & 76.4           & 5 \\
+      YOLO                            & 2007+2012      & 63.4          & 45 \\
+      SDD300                            & 2007+2012      & 74.3           & 46 \\
+      SDD500                            & 2007+2012      & 76.8           & 19 \\\hline
+      YOLOv2 288 x 288                            & 2007+2012      & 69           & 91 \\
+      YOLOv2 352 x 352                            & 2007+2012      & 73.7           & 81 \\
+      YOLOv2 416 x 416                            & 2007+2012      & 76.8           & 67 \\
+      YOLOv2 480 x 480                            & 2007+2012      & 77.8           & 59 \\
+      YOLOv2 544 x 544                            & 2007+2012      & 78.6           & 40 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
 
 
 % Por aclarar más cosas
