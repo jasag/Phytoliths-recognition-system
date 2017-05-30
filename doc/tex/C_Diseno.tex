@@ -13,10 +13,9 @@ En este trabajo se manejan dos tipos de datos principales:
 	\item Ficheros JSON que contienen las coordenadas de las etiquetas realizadas con el etiquetador de imágenes.
 \end{itemize}
 
-Tanto las imágenes como las etiquetas de las imágenes se almacenan de manera persistente en el almacenamiento de nuestro disco duro. Para observarlas deberemos seguir dentro del proyecto la siguiente ruta de carpetas: \textit{code}, \textit{rsc}, \textit{img}. Una vez situados en la carpeta \textit{img}, nos encontraremos una serie de carpetas con el nombre de cada tipo de fitolito y una carpeta \textit{Default}\footnote{Siempre y cuando hayamos utilizado el etiquetador anteriormente.}.% Aclarar
-% Añadir captura de pantalla: tanto de carpetas
+Tanto las imágenes como las etiquetas de las imágenes se almacenan de manera persistente en el almacenamiento de nuestro disco duro. Para observarlas, deberemos navegar, dentro del proyecto, por la siguiente ruta de carpetas: \textit{code}, \textit{rsc}, \textit{img}. Una vez situados en la carpeta \textit{img}, nos encontraremos una serie de carpetas con el nombre de cada tipo de fitolito y una carpeta \textit{Default}\footnote{Siempre y cuando hayamos utilizado el etiquetador anteriormente.}.
 
-La razón de la existencia de una carpeta por cada tipo de fitolito es el almacenamiento organizado de los recortes generados por cada etiqueta realizada con el etiquetador. Almacenando en cada una de estas carpetas los recortes correspondientes a un tipo de fitolito. 
+La razón de la existencia de una carpeta por cada tipo de fitolito es el almacenamiento organizado de los recortes generados por el etiquetador. Almacenando en cada una de estas carpetas los recortes o imágenes correspondientes a un tipo de fitolito. 
 
 Respecto a la carpeta Default, en ella se almacenan las imágenes completas junto a un fichero \textit{JSON} por imagen. En cada uno de estos ficheros se almacenan las coordenadas  realizadas con el etiquetador en dicha imagen. Un ejemplo del contenido de un fichero JSON sería el siguiente:
 
@@ -69,7 +68,7 @@ El procedimiento muy simplificado del funcionamiento del etiquetador cuando se c
     \label{alg:1}
 \end{algorithm}
 
-Una vez cargada la imagen, como indico finalmente, se escuchan los eventos del ratón. En concreto, los \textit{clicks} y movimientos de este sobre el SVG. Ya que la creación de los rectangulos, o etiquetas, sobre la imagen se hacen a partir de dichos eventos. Para ello, se poseen dos \textit{listeners}, u observadores de eventos, uno para cada evento. Los \textit{clicks} se utilizan para la creación de un nuevo rectángulo o su finalización. Y los movimientos del ratón, una vez hecho un primer click\footnote{De manera que hayamos creado el rectángulo}, permiten redimensionar el rectángulo de manera totalmente intuitiva.
+Una vez cargada la imagen, como indico finalmente, se escuchan los eventos del ratón. En concreto, los \textit{clicks} y movimientos de este sobre el SVG. Ya que la creación de los rectangulos, o etiquetas, sobre la imagen se hacen a partir de dichos eventos. Para ello, se poseen dos \textit{listeners}, u observadores de eventos, uno para cada evento. Los \textit{clicks} se utilizan para la creación de un nuevo rectángulo o su finalización. Y los movimientos del ratón, una vez hecho un primer click\footnote{De manera que hayamos creado el rectángulo.}, permiten redimensionar el rectángulo de manera totalmente intuitiva.
 
 Nótese que existen más variables a tener en cuenta, como el tipo de fitolito, el cual determina el directorio donde se guardará el recorte obtenido de la etiqueta y como se almacenan las coordenadas en el fichero \textit{JSON}, entre otras. Pero lo que se intenta realizar en este apartado es una explicación simplificada del procedimiento.
 
@@ -93,7 +92,7 @@ El procedimiento simplificado del funcionamiento del \textit{notebook} para el r
 
 \section{Diseño arquitectónico}
 
-Este proyecto no contiene un diseño muy elaborado a nivel arquitectónico por dos razones fundamentales. La primera ha sido el esfuerzo requerido en la investigación y el aprendizaje de técnicas muy variadas para afrontar el problema. Hasta llegar con la más adecuada. Por otro lado, la mayoría del código ha sido desarrollado en los \textit{Jupyter Notebooks}. Los cuales nos permiten interaccionar fácilmente con el código y documentarlo a su vez, aportando una fácil introducción a otros usuarios.
+Este proyecto no contiene un diseño muy elaborado a nivel arquitectónico por dos razones fundamentales. La primera ha sido el esfuerzo requerido en la investigación y el aprendizaje de técnicas muy variadas para afrontar el problema. Hasta dar con la más adecuada. Por otro lado, la mayoría del código ha sido desarrollado en los \textit{Jupyter Notebooks}. Los cuales nos permiten interaccionar fácilmente con el código y documentarlo a su vez, aportando una fácil introducción a otros usuarios.
 
 Aun así existen dos módulos con código empaquetado: módulo utilizado por el \textit{notebook} para la predicción de caras y módulo utilizado para la gestión de carpetas del etiquetador. Véase el diagrama de paquetes \ref{fig:C.4.1}.
 
@@ -147,7 +146,7 @@ Para finalizar esta sección, podemos apreciar en la figura \ref{fig:C.4.6} como
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.99\textwidth]{dia_cls}
-\caption{Diagrama de clases del \textit{Jupyter Notebook} para la detección de caras}
+\caption{Diagrama de clases del \textit{Jupyter Notebook} para la detección de caras.}
 \label{fig:C.4.6}
 \end{figure}
 
@@ -168,8 +167,7 @@ Por lo tanto, la interfaz de este \textit{Jupyter Notebook} no ha sido trabajada
 \label{fig:C.5.1}
 \end{figure}
 
-Aun así, a continuación enumeraré y explicare la función de cada uno de los botones, o selectores de valores:
-
+\begin{comment}
 \begin{itemize}
 	\item \textit{classifier_index}: permite seleccionar el clasificador con el que se desea clasificar la imagen.
 	\item \textit{rescale_coef}: permite seleccionar el coeficiente de reescalado de una imagen.
@@ -178,6 +176,7 @@ Aun así, a continuación enumeraré y explicare la función de cada uno de los 
 	\item \textit{alfa}: permite seleccionar el coeficiente de solapación entre ventanas para que el método non-maximum suppression elimine más o menos ventanas solapadas.
 	\item \textit{probs}: permite escoger las ventanas que deseamos mostrar en función de las probabilidades que indica el clasificador sobre cada ventana.
 \end{itemize}
+\end{comment}
 
 \subsection{Etiquetador de imágenes}
 
