@@ -45,7 +45,7 @@ En este \textit{sprint} me vi desbordado de trabajo debido a la subestimación d
 
 A continuación, en la figura \ref{fig:A.1.2}, se muestra el diagrama \textit{burndown} de este \textit{sprint}. El cual tiene dicho aspecto debido a que muchas de las tareas se trabajaron de manera paralela, no siendo acabadas hasta el final del \textit{sprint}. Y, además, algunas de las tareas no fueron cerradas cuando se debió, aspecto que se corregirá en los siguientes \textit{sprints}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_1}
 \caption{Burndown del \textit{sprint} 1}
@@ -66,7 +66,7 @@ Debido a que todavía no se poseían suficientes imágenes para el estudio del p
 
 A continuación, en la figura \ref{fig:A.1.3}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_2}
 \caption{Burndown del \textit{sprint} 2}
@@ -86,7 +86,7 @@ Durante este \textit{sprint}, primero, se reorganizo la estructura del proyecto.
 
 A continuación, en la figura \ref{fig:A.1.4}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_3}
 \caption{Burndown del \textit{sprint} 3}
@@ -107,7 +107,7 @@ Además, se realizó un \textit{notebook}\footnote{Siempre que nos referimos a u
 
 A continuación, en la figura \ref{fig:A.1.5}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_4}
 \caption{Burndown del \textit{sprint} 4}
@@ -129,7 +129,7 @@ Durante este \textit{sprint} se añadieron los clasificadores que deseábamos, e
 
 A continuación, en la figura \ref{fig:A.1.6}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_5}
 \caption{Burndown del \textit{sprint} 5}
@@ -147,7 +147,7 @@ Aunque este \textit{sprint} se encuentre compuesto por una única tarea, no era 
 
 Por lo tanto, en la figura \ref{fig:A.1.7} mostramos el diagrama \textit{burndown}, poco esclarecedor, de este \textit{sprint}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_6}
 \caption{Burndown del \textit{sprint} 6}
@@ -169,7 +169,7 @@ Durante este \textit{sprint} se consiguió, en primer lugar, corregir una de las
 
 A continuación, en la figura \ref{fig:A.1.8}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_7}
 \caption{Burndown del \textit{sprint} 7}
@@ -190,7 +190,7 @@ Durante este \textit{sprint} se realizó un primer prototipo de interfaz de  usu
 
 A continuación, en la figura \ref{fig:A.1.9}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_8}
 \caption{Burndown del \textit{sprint} 8}
@@ -215,7 +215,7 @@ Estas son las tareas a realizar durante este \textit{sprint} 9:
 
 
 \begin{comment}
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_9}
 \caption{Burndown del \textit{sprint} 9}
@@ -223,12 +223,51 @@ Estas son las tareas a realizar durante este \textit{sprint} 9:
 \end{figure}
 \end{comment}
 
-\begin{comment}
 
 \section{Estudio de viabilidad}
 
 \subsection{Viabilidad económica}
+En esta sección se realiza un análisis de los costes económicos que hubiera supuesto el desarrollo de este proyecto en un entorno empresarial.
+
+\subsubsection{Coste del personal}
+Este proyecto ha sido desarrollado por un único desarrollador a tiempo parcial. En la tabla \ref{tabla:costespersonales} muestro el desglose de los costes ocasionados por el salario que hubiese recibido en una situación real.
+
+\tablaSmallSinColores{Costes de personal}{p{4.5cm} p{.25cm} p{2.5cm}}{costespersonales}{
+  \multicolumn{3}{p{6cm}}{\textbf{Costes de personal}} \\
+ }
+ {
+  Salario mensual neto  & 1500\euro{} \\
+  Retención IRPF (15\%) & \euro{} \\
+  Seguridad social (29,9\%) & \euro{} \\
+  Salario mensual bruto  & \euro{} \\\hline
+  Salario total(4 meses)  & \euro{} \\
+  }
+
+\subsubsection{Coste del \textit{software} y \textit{hardware}}
+
+
+
+\subsubsection{Costes totales}
+
+
 
 \subsection{Viabilidad legal}
-\end{comment}
 
+En este apartado enunciare las distintas librerías utilizadas junto a sus licencias, en todos sus casos de código abierto. Véase la tabla \ref{tabla:licencias}. Si se desea indagar más sobre las distintas librerías se recomienda ver la sección de herramientas y técnicas dentro de la memoria.
+
+\tablaSmallSinColores{Licencias de las librerías}{p{3.5cm} p{1.5cm} p{2.5cm}}{licencias}{
+  \multicolumn{3}{p{7cm}}{\textbf{Licencias de las librerías}} \\
+ }
+ {
+  Librería & Versión & Licencia \\\hline
+  Numpy & 1.12 & BSD \\
+  scikit-learn & 0.18 & BSD \\
+  scikit-image & 0.13 & BSD \\
+  Matplotlib & 1.12 & PSF \\
+  Jupyter Notebook & 1 & BSD \\
+  Jupyter Dashboards & 0.6 & BSD \\
+  Ipython File Upload & 0.1.2 & MIT \\
+  darkflow & 0 & GPL 3 \\
+ }
+ 
+ Finalmente, este proyecto esta publicado bajo la licencia \textit{BSD 3-clause} con la que se permite un libre uso, modificación, distribución y uso privado de este. Sin embargo, con la condición de que el código debe ser suministrado en todas las ocasiones junto a la licencia que expone las distintas garantías de uso. Para finalizar, esta licencia introduce una muy limitada responsabilidad sobre la utilización de este proyecto y ningún tipo de garantía.
