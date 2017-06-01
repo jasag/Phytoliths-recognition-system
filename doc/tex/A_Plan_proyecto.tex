@@ -82,7 +82,7 @@ Estas son las tareas a realizar durante este \textit{sprint} 3:
 	\item Enviar fotos rotadas al clasificador.
 \end{itemize}
 
-Durante este \textit{sprint}, primero, se reorganizo la estructura del proyecto. Aportando mucho más orden y claridad a nuestro proyecto. Después, se introdujeron múltiples clasificadores y métricas, los cuales introduciré en mayor medida en la memoria, como \textit{Random Forest}\cite{random forest} o \textit{Gradient tree boosting}\cite{gradientboosting}. Por último, se enviaron imágenes rotadas al clasificador, con el fin de poder analizar una posible problemática.
+Durante este \textit{sprint}, primero, se reorganizo la estructura del proyecto. Aportando mucho más orden y claridad a nuestro proyecto. Después, se introdujeron múltiples clasificadores y métricas, los cuales introduciré en mayor medida en la memoria, como \textit{Random Forest}\cite{randomforest} o \textit{Gradient tree boosting}\cite{gradientboosting}. Por último, se enviaron imágenes rotadas al clasificador, con el fin de poder analizar una posible problemática.
 
 A continuación, en la figura \ref{fig:A.1.4}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
 
@@ -210,19 +210,162 @@ Estas son las tareas a realizar durante este \textit{sprint} 9:
 	\item Cargar las etiquetas de una imagen que haya sido previamente etiquetada.
 	\item Controlar que el usuario no cree etiquetas en el SVG pero fuera de la imagen.
 	\item Añadir la posibilidad de eliminar etiquetas previamente realizadas.
-	\item Corregir los notebooks creados para la técnica Bag of Words.
+	\item Añadir un botón que permita guardar imágenes como negativos.
+	\item Corregir los \textit{notebooks} creados para la técnica \textit{Bag of Words}.
 \end{itemize}
 
+Durante este \textit{sprint} se completaron todas las tareas asignadas, excepto la corrección de los \textit{notebooks} para la técnica \textit{Bag of Words}. Los cuales no se revisaron porque no se utilizarían por el momento.
 
-\begin{comment}
+A continuación, en la figura \ref{fig:A.1.10}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
 \begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_9}
 \caption{Burndown del \textit{sprint} 9}
 \label{fig:A.1.10}
 \end{figure}
-\end{comment}
 
+
+\subsection{\textit{Sprint} 10}
+
+Estas son las tareas a realizar durante este \textit{sprint} 10:
+
+\begin{itemize}
+	\item Tratar de reentrenar a \textit{YOLO}.
+	\item Corregir errores en la carga de etiquetas.
+	\item Mejorar la interfaz del etiquetador de imágenes.
+	\item Documentación: manual de usuario del etiquetador de imágenes.
+	\item Documentación: diseño(prototipo).
+\end{itemize}
+
+Durante este \textit{sprint} se comenzaron las pruebas con el detector automático de objetos, para su futura adaptación a la detección de fitolitos. Además, se trataron de solucionar algunos errores presentes en el etiquetador. Y, finalmente, se documentó en la medida de lo posible el manual del etiquetador. Tratando de facilitar su uso por parte de los usuarios, en breves momentos.
+
+A continuación, en la figura \ref{fig:A.1.11}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_10}
+\caption{Burndown del \textit{sprint} 10}
+\label{fig:A.1.11}
+\end{figure}
+
+\subsection{\textit{Sprint} 11}
+
+Estas son las tareas a realizar durante este \textit{sprint} 11:
+
+\begin{itemize}
+	\item Documentación: aspectos relevantes
+	\item Documentación: conceptos \textit{YOLO} y \textit{BoW}
+	\item Documentación: técnicas y herramientas.
+	\item Documentación: manual del programador.
+	\item Poner correctamente los separadores de archivo en Linux Y Windows.
+	\item Crear script para la lectura de las coordenadas desde \textit{YOLO}.
+	\item Documentación: \textit{README}.
+\end{itemize}
+
+Durante este \textit{sprint}, principalmente, se trato de documentar algunos de los aspectos de la memoria. Y, por último, se creó un \textit{script} para la lectura y conversión de las coordenadas para el entrenamiento de \textit{YOLO}.
+
+A continuación, en la figura \ref{fig:A.1.12}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_11}
+\caption{Burndown del \textit{sprint} 11}
+\label{fig:A.1.12}
+\end{figure}
+
+\subsection{\textit{Sprint} 12}
+
+Estas son las tareas a realizar durante este \textit{sprint} 12:
+
+\begin{itemize}
+	\item \textit{Data augmentation}: rotar imágenes y coordenadas en ángulos de 90 grados.
+	\item \textit{Data augmentation}: espejar imágenes.
+	\item \textit{Data augmentation}: aplicar ruidos a las imágenes.
+	\item \textit{Data augmentation}: realizar cambios de tamaño en las imágenes.
+	\item Documentación: introducción.
+	\item Documentación: objetivos del proyecto.
+	\item Documentación: trabajos relacionados.
+	\item Documentación: Documentación: diseño arquitectónico y procedimental.
+\end{itemize}
+
+Durante este \textit{sprint} se trato de continuar escribiendo algunos de los aspectos todavía no documentados hasta el momento. Y se creo una herramienta para la aplicación de técnicas de \textit{data augmentation} sobre un conjunto de imágenes. Además, la última de las tareas planteadas para este \textit{sprint} fue completada en un sprint más adelante por ser muy subestimada en cuanto al esfuerzo requerido.
+
+A continuación, en la figura \ref{fig:A.1.13}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_12}
+\caption{Burndown del \textit{sprint} 12}
+\label{fig:A.1.13}
+\end{figure}
+
+\subsection{\textit{Sprint} 13}
+
+Estas son las tareas a realizar durante este \textit{sprint} 13:
+
+\begin{itemize}
+	\item \textit{Data augmentation}: generador de imágenes.
+	\item \textit{Data augmentation}: aplicar filtros en las imágenes (clarecer,oscurecer).
+	\item Entrenar por primera vez a YOLO con un primer dataset de fitolitos.
+\end{itemize}
+
+Durante este \textit{sprint} se finalizo el generador de imágenes que aplicaba las técnicas de \textit{data augmentation}, implementadas durante el \textit{sprint} anterior, para generar un conjunto de imágenes mucho mayor. Y, además, dado que nuestros clientes nos enviaron un conjunto de imágenes etiquetadas de fitolitos, comenzamos con los primeros entrenamientos a \textit{YOLO}.
+
+A continuación, en la figura \ref{fig:A.1.14}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_13}
+\caption{Burndown del \textit{sprint} 13}
+\label{fig:A.1.14}
+\end{figure}
+
+\subsection{\textit{Sprint} 14}
+
+Estas son las tareas a realizar durante este \textit{sprint} 14:
+
+\begin{itemize}
+	\item Correcciones menores en fichero \textit{README}.
+	\item Evaluar los resultados de \textit{YOLO} con un primer dataset.
+	\item Entrenar a YOLO con el dataset aplicando \textit{data augmentation}.
+\end{itemize}
+
+Durante este \textit{sprint} se entrenó a YOLO, con un dataset de un tamaño mayor. Además, se completaron otras tareas pendientes de las semanas anteriores, relativas a la documentación y a la evaluación del modelo generado por el entrenamiento.
+
+A continuación, en la figura \ref{fig:A.1.15}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_14}
+\caption{Burndown del \textit{sprint} 14}
+\label{fig:A.1.15}
+\end{figure}
+
+\subsection{\textit{Sprint} 15}
+
+Estas son las tareas a realizar durante este \textit{sprint} 15:
+
+\begin{itemize}
+	\item Documentación: lineas futuras.
+	\item Reetiquetar un único tipo de fitolitos.
+	\item Documentación: completar los aspectos restantes del anexo de diseño.
+	\item Documentación: Preparar el anexo de requisitos.
+	\item Entrenar el clasificador con los fitolitos reetiquetados.
+\end{itemize}
+
+\begin{comment}
+Durante este \textit{sprint} se entrenó a YOLO, con un dataset de un tamaño mayor. Además, se completaron otras tareas pendientes de las semanas anteriores, relativas a la documentación y a la evaluación del modelo generado por el entrenamiento.
+
+A continuación, en la figura \ref{fig:A.1.17}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{sprint_15}
+\caption{Burndown del \textit{sprint} 15}
+\label{fig:A.1.17}
+\end{figure}
+\end{comment}
 
 \section{Estudio de viabilidad}
 
