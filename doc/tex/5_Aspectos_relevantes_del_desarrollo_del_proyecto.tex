@@ -1,5 +1,7 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
+En este apartado se recogen los detalles con mayor importancia en el desarrollo del proyecto. Tratando de mantener un orden cronológico con el que observemos los pasos que hemos seguido para solucionar las problemáticas del trabajo.
+
 \begin{comment}
 Este apartado pretende recoger los aspectos más interesantes del desarrollo del proyecto, comentados por los autores del mismo.
 Debe incluir desde la exposición del ciclo de vida utilizado, hasta los detalles de mayor relevancia de las fases de análisis, diseño e implementación.
@@ -13,12 +15,12 @@ Este apartado, debe convertirse en el resumen de la experiencia práctica del pr
 Como primera aproximación al problema que nos concierne, nos hemos enfrentado al procesamiento de imágenes mediante la librería \textit{Scikit-image} de \textit{Python}. Mediante esta herramienta trataremos de dar solución a nuestro problema siguiendo los siguientes pasos:
 
 \begin{enumerate}[1.]
-  \item Convertimos la imagen a escala de grises
-  \item Segmentamos los objetos del fondo de la imagen
-  \item Obtenemos los distintos objetos de la imagen
+  \item Convertir la imagen a escala de grises
+  \item Segmentar los objetos del fondo de la imagen
+  \item Obtener los distintos objetos de la imagen
 \end{enumerate}
 
-\subsection{Convertimos la imagen a escala de grises}
+\subsection{Convertir la imagen a escala de grises}
 
 La conversión de la imagen original (RGB) a escala de grises viene motivada con el mero objetivo de poder segmentar los objetos del fondo de la imagen mediante el método de \textit{Thresholding}. Solo pudiéndose partir de una imagen en escala de grises. En la figura \ref{fig:5.1.1} podemos ver los resultados.
 
@@ -36,7 +38,7 @@ La conversión de la imagen original (RGB) a escala de grises viene motivada con
 	\label{fig:5.1.1}
 \end{figure}
 
-\subsection{Segmentamos los objetos del fondo de la imagen}
+\subsection{Segmentar los objetos del fondo de la imagen}
 
 Una vez tenemos la imagen en escala de grises, procedemos a transformar nuestra imagen en una imagen en blanco y negro o binarizada. Los motivos por los que binarizamos la imagen es para obtener una imagen que sea más significativa para nosotros y además este simplificada. Lo cual nos será útil para facilitarnos su procesamiento.
 
@@ -80,7 +82,7 @@ Una vez tenemos la imagen en escala de grises, procedemos a transformar nuestra 
 	\label{fig:5.1.2}
 \end{figure} 
 
-\subsection{Obtenemos los distintos objetos de la imagen}
+\subsection{Obtener los distintos objetos de la imagen}
 Después de tener la imagen binarizada de la forma más apropiada posible probamos a segmentar los distintos objetos de nuestra imagen.
 
 \subsection{Transformación divisoria}

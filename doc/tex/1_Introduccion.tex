@@ -1,22 +1,22 @@
 \capitulo{1}{Introducción}
-
+\label{intro}
 %Descripción del contenido del trabajo y del estrucutra de la memoria y del resto de materiales entregados.
 
-Este trabajo esta desarrollado en colaboración con investigadores del CSIC, especialmente con Débora Zurro y Virginia Ahedo, los cuales serán los principales usuarios de los productos \textit{software} desarrollados en este proyecto. 
+Este trabajo esta desarrollado en colaboración con investigadores del CSIC, en concreto con Débora Zurro, experta en arqueobotánica, y Virginia Ahedo, interlocutora en el desarrollo del proyecto. Siendo ellas las principales usuarios de los productos \textit{software} desarrollados en este proyecto. 
 
 Está compuesto de un conjunto de herramientas, que tienen el fin de desarrollar un sistema capaz de reconocer automáticamente fitolitos. Crear un sistema de este tipo es una tarea compleja, ya que lleva consigo un gran número de problemáticas a resolver, más allá de los problemas implícitos que tiene un sistema de visión artificial, entre las cuales se encuentran las siguientes:
 
 \begin{itemize}
-	\item No poseemos un conjunto de imágenes de fitolitos etiquetadas, con los tipos de fitolitos que las componen y otra información necesaria. Base fundamental para la construcción de un sistema de aprendizaje automático.
-	\item Los fitolitos son de distintos tamaños y tridimensionales, pero las fotografías son planas, en 2D.
+	\item No poseemos un conjunto de imágenes de fitolitos etiquetadas: con los tipos de fitolitos que las componen y otra información necesaria. Base fundamental para la construcción de un sistema de aprendizaje automático.
+	\item Los fitolitos son de distintos tamaños y tridimensionales, pero las fotografías son planas, en 2D. Lo cual ocasiona que un mismo tipo de fitolito tenga múltiples formas en distintas fotografías.
 	\item Las imágenes microscópicas de fitolitos, no solo contienen fitolitos, sino que contienen otros materiales, como restos de materia inorgánica.
 	\item Los fitolitos pueden estar superpuestos entre sí. Debido a que se fotografían fitolitos en disolución.
 \end{itemize}
 
-Debido a que no poseemos dichas imágenes desde un principio, muchas de las tareas que se podrán ver en este proyecto se realizarán con caras. Se utilizarán caras puesto que las bases de datos de caras son mucho más comunes y nos permitirán tener una primera aproximación al problema.
+Debido a que no poseemos dichas imágenes al inicio del desarrollo, muchas de las tareas que se podrán ver en este proyecto se realizarán con reconocimiento facial~\cite{facedetection}. Se utilizarán caras puesto que las bases de datos de caras son mucho más comunes y nos permitirán tener una primera aproximación al problema.
 
 Debido al problema de la falta de imágenes de estas características, nos veremos obligados a crear un etiquetador de imágenes\footnote{Un etiquetador de imágenes es una herramienta que permite identificar donde se encuentran los diferentes objetos en una imagen.}. El cual, nos permitirá obtener toda la información necesaria para tener un conjunto de imágenes que nos permitan llevar a cabo el sistema automático de reconocimiento de fitolitos.
 
-Como más tarde iremos viendo, la mayoría de los productos generados en este proyecto son \textit{Jupyter Notebooks}, los cuales nos permiten interaccionar facilmente con el código. Se explicán en detalle en el capitulo de técnicas y herramientas. Cada uno de estos \textit{notebooks} contendrán estudios sobre algunas herramientas o técnicas utilizadas o investigadas.
+Como más tarde iremos viendo, la mayoría de los productos generados en este proyecto son \textit{Jupyter Notebooks}, los cuales nos permiten interaccionar facilmente con el código. Se explicán en detalle en el capitulo de técnicas y herramientas~\ref{tecyher}. Cada uno de estos \textit{notebooks} contendrán estudios sobre algunas herramientas o técnicas utilizadas o investigadas.
 
-Finalmente, y a modo de aclaración, para llevar a cabo este sistema se irán estudiando diferentes técnicas, como previamente he comentado en el resumen. Comenzando por la técnica de segmentación, continuando con la ventana deslizante y avanzando hasta técnicas más avanzadas, como \textit{deep learning}\cite{deeplearning}.
+Finalmente, y a modo de aclaración, para llevar a cabo este sistema se irán estudiando diferentes técnicas, como previamente he comentado en el resumen. Comenzando por la técnica de segmentación~\cite{wiki:segmentation}, continuando con la ventana deslizante~\cite{slidingwindow} y avanzando hasta técnicas más avanzadas, como \textit{deep learning}\cite{deeplearning}.
