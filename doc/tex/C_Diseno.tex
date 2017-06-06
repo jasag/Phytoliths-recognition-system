@@ -17,13 +17,14 @@ Tanto las imágenes como las etiquetas de las imágenes se almacenan de manera p
 
 La razón de la existencia de una carpeta por cada tipo de fitolito es el almacenamiento organizado de los recortes generados por el etiquetador. Almacenando en cada una de estas carpetas los recortes o imágenes correspondientes a un tipo de fitolito. 
 
-Respecto a la carpeta Default, en ella se almacenan las imágenes completas junto a un fichero \textit{JSON} por imagen. En cada uno de estos ficheros se almacenan las coordenadas  realizadas con el etiquetador en dicha imagen. Un ejemplo del contenido de un fichero JSON sería el siguiente:
+Respecto a la carpeta \textit{Default}, en ella se almacenan las imágenes completas junto a un fichero \textit{JSON} por imagen. En cada uno de estos ficheros se almacenan las coordenadas  realizadas con el etiquetador en dicha imagen. Un ejemplo del contenido de un fichero JSON sería el mostrado en la figura \ref{fig:C.1.1}.
 
-\begin{verbatim}
-{"2017_5_17_17_57Image_7344.jpg": 
-	{"Bilobate": [[865, 1110, 1183, 1402]], 
-		"Spherical": [[1132, 1282, 2207, 2357], [1238, 1414, 368, 533]]}}
-\end{verbatim}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{json_example}
+\caption{Ejemplo de fichero JSON.}
+\label{fig:C.1.1}
+\end{figure}
 
 Siendo el formato: nombre de la imagen y nombre de cada tipo de fitolito, solo apareciendo los existentes en la imagen. Teniendo cada tipo de fitolito una lista de etiquetas, donde cada etiqueta tiene cuatro coordenadas. Las cuatro coordenadas se almacenan con el siguiente orden y significado:
 
@@ -108,7 +109,7 @@ Por un lado, tenemos el módulo que se encarga de la gestión de carpetas donde 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{dia_dirs}
-\caption{Diagrama de clases de las clases encargadas de la gestión de carpetas}
+\caption[Diagrama de clases para la gestión de carpetas]{Diagrama de clases de las clases encargadas de la gestión de carpetas}
 \label{fig:C.4.2}
 \end{figure}
 
@@ -119,31 +120,27 @@ Y, por otro lado, tenemos las clases encargadas de la predicción de una nueva i
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{dia_win}
-\caption{Clase estática encargada de las tareas de non-maximum suppression y ventana deslizante}
+\caption[Clase estática encargada de varias tareas]{Clase estática encargada de las tareas de non-maximum suppression y ventana deslizante}
 \label{fig:C.4.3}
 \end{figure}
 
-Por otro lado, tenemos la clase encargada de envolver al clasificador y realizar las tareas de clasificación de una imagen. Véase la figura \ref{fig:C.4.4}.
+Por otro lado, tenemos la clase encargada de envolver al clasificador y realizar las tareas de clasificación de una imagen. Véase la figura \ref{fig:C.4.4}. Y, finalmente, tenemos la clase encargada de guardar la imagen, mostrarla y poder clasificarla con el apoyo del resto de clases. Véase la figura \ref{fig:C.4.5}. Para finalizar esta sección, podemos apreciar en la figura \ref{fig:C.4.6} como interaccionan las tres clases.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.4\textwidth]{dia_ic}
 \caption{Clase encargada de las tareas de clasificación de una imagen}
 \label{fig:C.4.4}
 \end{figure}
 
-Y, finalmente, tenemos la clase encargada de guardar la imagen, mostrarla y poder clasificarla con el apoyo del resto de clases. Véase la figura \ref{fig:C.4.5}.
-
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.4\textwidth]{dia_li}
-\caption{Clase encargada de de guardar la imagen, mostrarla y poder clasificarla.}
+\caption[Clases encargadas de la clasificación]{Clase encargada de de guardar la imagen, mostrarla y poder clasificarla.}
 \label{fig:C.4.5}
 \end{figure}
 
-Para finalizar esta sección, podemos apreciar en la figura \ref{fig:C.4.6} como interaccionan las tres clases.
-
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{dia_cls}
 \caption{Diagrama de clases del \textit{Jupyter Notebook} para la detección de caras.}
@@ -156,11 +153,11 @@ En esta sección se explicarán las diferentes interfaces de los productos reali
 
 \subsection{\textit{Jupyter Notebook} para la detección de caras}
 
-Durante el primer mes se trabajo en un \textit{Jupyter Notebook} que trataba de reconocer caras mediante un clasificador junto a un extractor de características, como ya hemos explicado en secciones anteriores. Con este \textit{Jupyter Notebook} se trataba de facilitar la evaluación del rendimiento de los clasificadores y el cambio de las distintas variables de manera interactiva. 
+Durante el primer mes se trabajó en un \textit{Jupyter Notebook} que trataba de reconocer caras mediante un clasificador junto a un extractor de características, como ya hemos explicado en secciones anteriores. Con este \textit{Jupyter Notebook} se trataba de facilitar la evaluación del rendimiento de los clasificadores y el cambio de las distintas variables de manera interactiva. 
 
 Por lo tanto, la interfaz de este \textit{Jupyter Notebook} no ha sido trabajada para su uso por parte del usuario. Sino que fue creada para un uso más de experimentación. Es por ello que la interfaz no tiene un buen grado de usabilidad como podemos observar en la figura \ref{fig:C.5.1}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{reconocimiento_de_caras_notebook_v1}
 \caption{\textit{Jupyter Notebook} para el reconomiento de caras}
@@ -182,7 +179,7 @@ Por lo tanto, la interfaz de este \textit{Jupyter Notebook} no ha sido trabajada
 
 La interfaz del etiquetador de imágenes ha sido desarrollada partiendo del prototipo mostrado en la ilustración \ref{fig:C.5.2}. Tratando de crear una interfaz lo más simple e intuitiva para el usuario.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{protototipo_etiquetador_de_imagenes}
 \caption{Prototipo del etiquetador de imágenes}
@@ -191,7 +188,7 @@ La interfaz del etiquetador de imágenes ha sido desarrollada partiendo del prot
 
 El resultado tras la implementación de este producto es el mostrado en la \ref{fig:C.5.3}. Obteniendo una interfaz muy similar a la prototipada en un principio. Pero añadiendo algún elemento más, para facilitar su uso por parte del usuario.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{etiquetador_de_imagenes_v1}
 \caption{Etiquetador de imágenes}

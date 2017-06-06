@@ -1,7 +1,7 @@
 \apendice{Documentación técnica de programación}
 
 \section{Introducción}
-En este anexo se introducirá la información necesaria para las personas que deseen continuar o trabajar en el proyecto.
+En este anexo se introducirá todos los directorios, \textit{notebooks} y documentación útil necesaria para las personas que deseen continuar o trabajar en el proyecto.
 
 \section{Estructura de directorios}
 La estructura de directorios del proyecto, en estructura de árbol, es la siguiente:
@@ -26,7 +26,7 @@ La estructura de directorios del proyecto, en estructura de árbol, es la siguie
 
 \section{Manual del programador}
 
-\subsection{Manual del programador: etiquetador de imágenes}
+\subsection{Etiquetador de imágenes}
 
 En esta sección explicare más en detalle como funciona internamente el etiquetador.
 
@@ -55,7 +55,7 @@ El etiquetador no requiere de ninguna compilación. Simplemente es necesario lle
 
 \subsection{Procedimiento de entrenamiento de \textit{YOLO}}
 
-Para realizar el entrenamiento de \textit{YOLO}, \textit{darkflow} nos provee de un \textit{script} que nos facilita dicha tarea mediante la linea de comandos\footnote{ Solo ha sido probado desde un sistema Linux.}, llamado \textit{flow}. Además, existen dos posibilidades principales para realizar el entrenamiento sobre nuestro \textit{dataset}:
+Para realizar el entrenamiento de \textit{YOLO}, \textit{darkflow} nos provee de un \textit{script} que nos facilita dicha tarea mediante la linea de comandos\footnote{Solo ha sido probado desde un sistema Linux.}, llamado \textit{flow}. Además, existen dos posibilidades principales para realizar el entrenamiento sobre nuestro \textit{dataset}:
 
 \begin{itemize}
 	\item Utilizar unos pesos\footnote{Pesos: son cada uno de los valores asignados a una neurona en una red neuronal.} pre-entrenados para nuestro modelo.
@@ -79,8 +79,40 @@ flow --model cfg/yolo-new.cfg --train
  --dataset "Fitolitos" --annotation "Fitolitos"
 \end{verbatim}
 
-Donde la opción \textit{--train} indica que se desea entrenar un modelo, la opción \textit{--load} indica donde se encuentran los pesos pre-entrenados, la opción \textit{--dataset} indica la ruta de la carpeta donde se encuentran las imagenes de los fitolitos y la opción \textit{--annotation} indica donde se encuentran los ficheros con las coordenadas\footnote{La modificaciones realizadas sobre \textit{darkflow} para permitir la lectura y conversión de mis coordenadas están pensados para que el valor de las opciones \textit{dataset} y \textit{annotation} sean el mismo. De otra manera el modelo fallará en el entrenamiento.}.
+Donde la opción \textit{--train} indica que se desea entrenar un modelo, la opción \textit{--load} indica donde se encuentran los pesos pre-entrenados, la opción \textit{--dataset} indica la ruta de la carpeta donde se encuentran las imagenes de los fitolitos y la opción \textit{--annotation} indica donde se encuentran los ficheros con las coordenadas\footnote{La modificaciones realizadas sobre \href{https://github.com/thtrieu/darkflow}{\textit{darkflow}} para permitir la lectura y conversión de mis coordenadas están pensados para que el valor de las opciones \textit{dataset} y \textit{annotation} sean el mismo. De otra manera el modelo fallará en el entrenamiento.}.
 
+A modo de resumen, voy a enumerar todas las opciones que nos permite escoger la herramienta \textit{flow}:
+
+\begin{itemize}
+	\item \textit{imgdir}: ruta que contiene las imágenes con las que realizar pruebas.
+	\item \textit{binary}: ruta que contiene los pesos.
+	\item \textit{config}: ruta que contiene los ficheros de configuración.
+	\item \textit{dataset}: ruta que contiene las imágenes.
+	\item \textit{backup}: ruta que contiene las copias de seguridad de los pesos.
+	\item \textit{summary}: ruta que contiene los resumenes \textit{TensorBoard}, los cuales se pueden abrir con una herramienta de \textit{TensorFlow}.
+	\item \textit{annotation}: ruta que contiene los ficheros con las anotaciones o coordenadas de las etiquetas dentro de las imágenes.
+	\item \textit{threshold}: umbral que determina las probabilidades mínimas que debe cumplir una detección o caja para mostrarse.
+	\item \textit{model}: ruta al fichero de configuración deseado.
+	\item \textit{trainer}: algoritmo de entrenamiento.
+	\item \textit{momentum}: optimizador aplicable a los algoritmos de entrenamiento: \textit{rmsprop} y \textit{momentum}.
+	\item \textit{verbalise}: mostrar como se forma el grafo o red neuronal.
+	\item \textit{train}: entrenar la red neuronal.
+	\item \textit{load}: inicialización de la red.
+	\item \textit{savepb}: guardar configuración y pesos a un fichero \textit{protobuf}.
+	\item \textit{gpu}: cantidad de la capacidad de los procesadores gráficos a utilizar.
+	\item \textit{gpuName}: nombre de la tarjeta gráfica.
+	\item \textit{lr}: tasa de aprendizaje para el entrenamiento.
+	\item \textit{keep}: número de últimos resultados que se mantienen guardados.
+	\item \textit{batch}: tamaño del lote de imágenes.
+	\item \textit{epoch}: número de \textit{epochs}.
+	\item \textit{save}: número de ejemplos tras los cuales se realiza una copia de seguridad.
+	\item \textit{demo}: para realizar una demo con \textit{webcam}.
+	\item \textit{queue}: tamaño del lote para la demo.
+	\item \textit{json}: salida de las cajas en formato \textit{json}.
+	\item \textit{saveVideo}: guardar video de la entrada de video o camara.
+	\item \textit{pbLoad}: ruta del fichero \textit{protobuf}.
+	\item \textit{metaLoad}: ruta del fichero .meta generado junto al fichero \textit{protobuf}.
+\end{itemize}
 
 \begin{comment}
 \section{Pruebas del sistema}

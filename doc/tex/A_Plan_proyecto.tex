@@ -1,7 +1,9 @@
 \apendice{Planificación}
 
 \section{Introducción}
-Para llevar a cabo este proyecto vamos a aplicar una metodología llamada Scrum. Scrum es una metodología de desarrollo software ágil, es decir, durante cada \textit{sprint} \footnote{\textit{Sprint}: es el período en el cual se lleva a cabo el trabajo en sí.\cite{wiki:scrum}}, generalmente cada semana, se asignarán unas determinadas tareas a cumplimentar, con un producto como consecuencia de estas tareas. Al final de cada \textit{sprint} se realizará una reunión junto a los tutores para validar los avances realizados y determinar las tareas a realizar durante el siguiente \textit{sprint}.
+Para llevar a cabo este proyecto vamos a aplicar una metodología llamada \textit{Scrum}. \textit{Scrum} es una metodología de desarrollo software ágil, es decir, durante cada \textit{sprint}\footnote{\textit{Sprint}: es el período en el cual se lleva a cabo el trabajo en sí~\cite{wiki:scrum}.}, generalmente cada semana, se asignarán unas determinadas tareas a cumplimentar, con un producto como consecuencia de estas tareas. Al final de cada \textit{sprint} se realizará una reunión junto a los tutores para validar los avances realizados y determinar las tareas a realizar durante el siguiente \textit{sprint}.
+
+Además, toda la comunicación se realizará a través de las \href{https://github.com/jasag/Phytoliths-recognition-system}{issues} de \textit{GitHub}.
 
 \section{Planificación temporal}
 
@@ -22,7 +24,7 @@ Estas son las tareas a realizar durante este \textit{sprint} 0:
 
 Como se puede ver las tareas a realizar son básicas, puesto que es el \textit{sprint} 0 y es un \textit{sprint} de mera adaptación al entorno de trabajo. La única tarea que supone un esfuerzo de comprensión mayor es la lectura de los artículos propuestos sobre trabajos relacionados o con una problemática similar a la nuestra. A continuación, en la figura \ref{fig:A.1.1}, se muestra el diagrama \textit{burndown} de este \textit{sprint}. 
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{sprint_0}
 \caption{Burndown del \textit{sprint} 0}
@@ -82,7 +84,7 @@ Estas son las tareas a realizar durante este \textit{sprint} 3:
 	\item Enviar fotos rotadas al clasificador.
 \end{itemize}
 
-Durante este \textit{sprint}, primero, se reorganizo la estructura del proyecto. Aportando mucho más orden y claridad a nuestro proyecto. Después, se introdujeron múltiples clasificadores y métricas, los cuales introduciré en mayor medida en la memoria, como \textit{Random Forest}\cite{randomforest} o \textit{Gradient tree boosting}\cite{gradientboosting}. Por último, se enviaron imágenes rotadas al clasificador, con el fin de poder analizar una posible problemática.
+Durante este \textit{sprint}, primero, se reorganizó la estructura del proyecto. Aportando mucho más orden y claridad a nuestro proyecto. Después, se introdujeron múltiples clasificadores y métricas, los cuales introduciré en mayor medida en la memoria, como \textit{Random Forest}~\cite{randomforest} o \textit{Gradient tree boosting}~\cite{gradientboosting}. Por último, se enviaron imágenes rotadas al clasificador, con el fin de poder analizar una posible problemática.
 
 A continuación, en la figura \ref{fig:A.1.4}, se muestra el diagrama \textit{burndown} de este \textit{sprint}.
 
@@ -396,21 +398,27 @@ Este proyecto ha sido desarrollado por un único desarrollador a tiempo parcial.
 
 \subsection{Viabilidad legal}
 
-En este apartado enunciare las distintas librerías utilizadas junto a sus licencias, en todos sus casos de código abierto. Véase la tabla \ref{tabla:licencias}. Si se desea indagar más sobre las distintas librerías se recomienda ver la sección de herramientas y técnicas dentro de la memoria.
-
-\tablaSmallSinColores{Licencias de las librerías}{p{3.5cm} p{1.5cm} p{2.5cm}}{licencias}{
-  \multicolumn{3}{p{7cm}}{\textbf{Licencias de las librerías}} \\
- }
- {
-  Librería & Versión & Licencia \\\hline
-  Numpy & 1.12 & BSD \\
-  scikit-learn & 0.18 & BSD \\
-  scikit-image & 0.13 & BSD \\
-  Matplotlib & 1.12 & PSF \\
-  Jupyter Notebook & 1 & BSD \\
-  Jupyter Dashboards & 0.6 & BSD \\
-  Ipython File Upload & 0.1.2 & MIT \\
-  darkflow & 0 & GPL 3 \\
- }
+En este apartado enuncio las distintas librerías utilizadas junto a sus licencias, en todos sus casos de código abierto. Véase la tabla \ref{tabla:licencias}. Si se desea indagar más sobre las distintas librerías se recomienda ver la sección de herramientas y técnicas dentro de la memoria.
+ 
+  \begin{table}
+  \begin{center}
+   \begin{tabular}{p{3.5cm} p{1.5cm} p{2.5cm}}
+    \toprule
+    \textbf{Librería} & \textbf{Versión} & \textbf{Licencia} \\
+    \otoprule
+    Numpy & 1.12 & BSD \\
+    scikit-learn & 0.18 & BSD \\
+    scikit-image & 0.13 & BSD \\
+    Matplotlib & 1.12 & PSF \\
+    Jupyter Notebook & 1 & BSD \\
+    Jupyter Dashboards & 0.6 & BSD \\
+	Ipython File Upload & 0.1.2 & MIT \\
+	darkflow & 0 & GPL 3 \\
+    \bottomrule
+   \end{tabular}
+   \caption{Licencias de las librerías}
+   \label{tabla:licencias}
+  \end{center}
+ \end{table}
  
  Finalmente, este proyecto esta publicado bajo la licencia \textit{BSD 3-clause} con la que se permite un libre uso, modificación, distribución y uso privado de este. Sin embargo, con la condición de que el código debe ser suministrado en todas las ocasiones junto a la licencia que expone las distintas garantías de uso. Para finalizar, esta licencia introduce una muy limitada responsabilidad sobre la utilización de este proyecto y ningún tipo de garantía.
