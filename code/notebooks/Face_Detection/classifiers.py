@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
 """
-Created on Sun Mar  5 13:35:02 2017
+Modulo creado para facilitar la importación 
+de los distintos clasificadores
 
 @author: Jaime Sagüillo Revilla
 """

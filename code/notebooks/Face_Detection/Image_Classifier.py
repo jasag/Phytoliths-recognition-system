@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
 """
-Created on Sun Mar  5 13:44:39 2017
-
 @author: Jaime Sagüillo Revilla
 """
 from skimage import feature

@@ -1,11 +1,7 @@
-# -*- coding: utf-8 -*-
 """
-Created on Sun Mar  5 12:49:17 2017
-
 @author: Jaime Sagüillo Revilla
 """
 
-# import the necessary packages
 import numpy as np
 
 """

@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
 """
-Created on Sun Mar  5 14:21:48 2017
-
 @author: Jaime Sagüillo Revilla
 """
 import matplotlib.pyplot as plt
