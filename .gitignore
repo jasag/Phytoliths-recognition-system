@@ -89,8 +89,9 @@ ENV/
 # Rope project settings
 .ropeproject
 
-# Serialized objets
-code/rsc/obj/
+# Images
+code/rsc/img/*
 
-# Image augmentation
-code/notebooks/imgs/*
+# Scripts to delete temporary files
+doc/general_doc/rm.bat
+doc/general_doc/tex/rm.bat
