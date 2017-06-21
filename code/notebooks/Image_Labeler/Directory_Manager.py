@@ -49,9 +49,6 @@ class Directory_Manager():
         """
         if not os.path.exists(path):
             os.makedirs(path)
-        else:
-            raise ValueError('El directorio ya existe en'
-                             ' la ruta especificada: ' + path)
 
     def change_dir(self, path):
         ''' Método que realiza el cambio 
