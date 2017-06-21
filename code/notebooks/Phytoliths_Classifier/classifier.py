@@ -3,7 +3,7 @@
 """
 from .ImageDataset import ImageDataset
 import numpy as np
-from skimage.feature import daisy, hog
+from skimage.feature import daisy
 from skimage.color import rgb2gray
 from sklearn.cluster import MiniBatchKMeans as KMeans
 from sklearn.metrics import accuracy_score
@@ -25,9 +25,13 @@ class Phytoliths_Classifier:
         conjunto de imágenes en escala de grises,
         junto a sus clases"""
         dataset = ImageDataset(path, classes)
+        self._classes = dataset.getClasses()
         X, y = dataset.getData()
         X = list(map(rgb2gray, X))
         return X,y
+
+    def get_classes(self):
+        return self._classes
 
     def features_extractor(self, img, descriptor = daisy):
         """Método responsable de extraer las 
