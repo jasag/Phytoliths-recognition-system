@@ -1,7 +1,7 @@
 """
 @author: Jaime Sagüillo Revilla <jaime.saguillo@gmail.com>
 """
-from code.notebooks.Phytoliths_Classifier.classifier import Phytoliths_Classifier
+from .classifier import Phytoliths_Classifier
 
 import pickle
 
@@ -14,6 +14,10 @@ from skimage.color import rgb2gray
 
 from skimage.feature import daisy
 
+import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+
+
 class Phytoliths_Recognition:
     """Clase encargada del reconocimiento de 
     fitolitos dentro de una imagen"""
@@ -24,7 +28,7 @@ class Phytoliths_Recognition:
     path = '../../rsc/obj/'
 
     def __init__(self, cls_path=path+'cls.sav', cluster_path=path+'cluster.sav',
-                 step_size=40, height=150, width=150):
+                 step_size_h=40, step_size_v=40, height=150, width=150):
         """Constructor de la clase mediante el cual cargamos
         el clasificador y cluster.
         
@@ -34,7 +38,16 @@ class Phytoliths_Recognition:
         self._cls = pickle.load(open(cls_path, 'rb'))
         self._cluster = pickle.load(open(cluster_path, 'rb'))
         self._phy_cls = Phytoliths_Classifier()
-        self._step_size = step_size
+        self._step_size_h = step_size_h
+        self._step_size_v = step_size_v
+        self._height = height
+        self._width = width
+
+    def set_step_size(self, step_size_h, step_size_v):
+        self._step_size_h = step_size_h
+        self._step_size_v = step_size_v
+
+    def set_patch_size(self, height, width):
         self._height = height
         self._width = width
 
@@ -56,8 +69,8 @@ class Phytoliths_Recognition:
         
         :return: cada uno de los recortes de la imagen
         """
-        for y in range(0, image.shape[0], self._step_size):
-            for x in range(0, image.shape[1], self._step_size):
+        for y in range(0, image.shape[0], self._step_size_v):
+            for x in range(0, image.shape[1], self._step_size_h):
                 yield (x, y, image[y:y + self._height, x:x + self._width])
 
     def predict_sliding_window(self, image):
@@ -200,3 +213,16 @@ class Phytoliths_Recognition:
         probs = probs[probs > required_probs]
         return self.non_max_suppression(predictions, probs=probs,
                                         overlapThresh=overlapThresh)
+
+    def plot(self, image, boxes):
+        fig = plt.figure()
+
+        ax = fig.add_subplot(111)
+        ax.imshow(image, cmap=plt.get_cmap('gray'))
+
+        for box in boxes:
+            ax.add_patch(patches.Rectangle((box[0], box[1]),
+                                           box[2] - box[0],
+                                           box[3] - box[1],
+                                           linewidth=1, edgecolor='r'
+                                           , facecolor='none'))
