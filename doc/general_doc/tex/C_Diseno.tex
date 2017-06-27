@@ -93,38 +93,43 @@ El procedimiento simplificado del funcionamiento del \textit{notebook} para el r
 
 \section{Diseño arquitectónico}
 
+En este apartado se representan los aspectos más relevantes a nivel de diseño arquitectónico mediante la notación UML. UML, según sus siglas Lenguaje de Modelado Unificado, es una notación comúnmente utilizada para representar y documentar un sistema con una mayor abstracción~\cite{wiki:uml}.
+
 Este proyecto no contiene un diseño muy elaborado a nivel arquitectónico por dos razones fundamentales. La primera ha sido el esfuerzo requerido en la investigación y el aprendizaje de técnicas muy variadas para afrontar el problema. Hasta dar con la más adecuada. Por otro lado, la mayoría del código ha sido desarrollado en los \textit{Jupyter Notebooks}. Los cuales nos permiten interaccionar fácilmente con el código y documentarlo a su vez, aportando una fácil introducción a otros usuarios.
 
-Aun así existen dos módulos con código empaquetado: módulo utilizado por el \textit{notebook} para la predicción de caras y módulo utilizado para la gestión de carpetas del etiquetador. Véase el diagrama de paquetes \ref{fig:C.4.1}.
+Aun así existen tres módulos con código empaquetado: módulo utilizado para la gestión de carpetas del etiquetador, módulo utilizado para la predicción de caras y el modulo para la predicción de fitolitos. Véase el diagrama de paquetes \ref{fig:C.4.1}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.4\textwidth]{dia_paquetes}
 \caption{Diagrama de paquetes}
 \label{fig:C.4.1}
 \end{figure}
 
+\subsection{Modulo para la gestión de carpetas}
+
 Por un lado, tenemos el módulo que se encarga de la gestión de carpetas donde el etiquetador almacena las imágenes. Véase el diagrama de clases \ref{fig:C.4.2}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{dia_dirs}
 \caption[Diagrama de clases para la gestión de carpetas]{Diagrama de clases de las clases encargadas de la gestión de carpetas}
 \label{fig:C.4.2}
 \end{figure}
 
+\subsection{Modulo para la predicción de caras}
 
-Y, por otro lado, tenemos las clases encargadas de la predicción de una nueva imagen mediante el \textit{notebook} explicado anteriormente. En este caso existen 3 clases, las cuales interaccionan entre sí. La primera es una clase estática con 2 funciones para los cálculos del non-maximum suppression y la ventana deslizante. Véase la figura \ref{fig:C.4.3} 
+Por otro lado, tenemos las clases encargadas de la predicción de caras en una nueva imagen mediante el \textit{notebook} explicado anteriormente. En este caso existen 3 clases, las cuales interaccionan entre sí. La primera es una clase estática con 2 funciones para los cálculos del non-maximum suppression y la ventana deslizante. Véase la figura \ref{fig:C.4.3} 
 
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.4\textwidth]{dia_win}
 \caption[Clase estática encargada de varias tareas]{Clase estática encargada de las tareas de non-maximum suppression y ventana deslizante}
 \label{fig:C.4.3}
 \end{figure}
 
-Por otro lado, tenemos la clase encargada de envolver al clasificador y realizar las tareas de clasificación de una imagen. Véase la figura \ref{fig:C.4.4}. Y, finalmente, tenemos la clase encargada de guardar la imagen, mostrarla y poder clasificarla con el apoyo del resto de clases. Véase la figura \ref{fig:C.4.5}. Para finalizar esta sección, podemos apreciar en la figura \ref{fig:C.4.6} como interaccionan las tres clases.
+Además, tenemos la clase encargada de envolver al clasificador y realizar las tareas de clasificación de una imagen. Véase la figura \ref{fig:C.4.4}. Y, finalmente, tenemos la clase encargada de guardar la imagen, mostrarla y poder clasificarla con el apoyo del resto de clases. Véase la figura \ref{fig:C.4.5}. Para finalizar este modulo, podemos apreciar en la figura \ref{fig:C.4.6} como interaccionan las tres clases.
 
 \begin{figure}
 \centering
@@ -145,6 +150,17 @@ Por otro lado, tenemos la clase encargada de envolver al clasificador y realizar
 \includegraphics[width=0.99\textwidth]{dia_cls}
 \caption{Diagrama de clases del \textit{Jupyter Notebook} para la detección de caras.}
 \label{fig:C.4.6}
+\end{figure}
+
+\subsection{Modulo para la predicción de fitolitos}
+
+Por último, el modulo más importante que consta de unicamente 2 clases: la clase encargada de la clasificación de fitolitos y la clase encargada de el reconocimiento de objetos en imágenes de fitolitos, representadas en la figura~\ref{fig:C.4.7}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{dia_phy}
+\caption{Diagrama de clases para la detección de fitolitos.}
+\label{fig:C.4.7}
 \end{figure}
 
 \section{Diseño de las interfaces}
@@ -193,4 +209,15 @@ El resultado tras la implementación de este producto es el mostrado en la \ref{
 \includegraphics[width=0.99\textwidth]{etiquetador_de_imagenes_v1}
 \caption{Etiquetador de imágenes}
 \label{fig:C.5.3}
+\end{figure}
+
+\subsection{Reconocimiento automático de fitolitos}
+
+La interfaz para el reconocimiento automático de fitolitos consta de un conjunto de \textit{sliders}, los cuales nos permiten cambiar diversos parámetros para experimentar con este y dos botones: botón para subir una imagen y botón para ejecutar el reconocimiento. Véase la figura~\ref{fig:C.5.4}. Cada uno de los botones y \textit{sliders} se encuentran explicados en el manual de usuario~\ref{manuser}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{reconocimiento}
+\caption{Reconocimiento automático de fitolitos}
+\label{fig:C.5.4}
 \end{figure}
