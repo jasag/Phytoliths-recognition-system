@@ -4,23 +4,25 @@
 
 Para la comprensión de este proyecto es necesaria la explicación de algunos conceptos teóricos que introduciré en este apartado. Para ello este apartado se ha organizado en seis bloques principales: fitolito, inteligencia artificial, procesamiento de imágenes, minería de datos, \textit{deep learning} y detección de objetos.
 
-\section{Fitolito y su complejidad}
+\section{Fitolito y la complejidad de su morfología}
 
 Los fitolitos son particulas microscópicas de silice de opalo producidas dentro y entre las celulas de muchas plantas. Además, son partículas muy resilientes y preservadas hasta la actualidad en forma de microfósiles. Estos son utilizados en la investigación de paleoambientes\footnote{Consistente en la reconstrucción de entornos antiguos.}, botánica, geología y arqueología~\cite{phytolith}.
 
 Existen multitud de tipos de fitolitos, pero en este proyecto nos centramos en un conjunto de tipos más delimitado, según los requisitos de nuestros clientes. Los cuales se encuentran concrétamente interesados en el área de la arqueobotánica. En total trabajamos con 7 tipos de fitolitos:
 
-\begin{itemize}
-	\item Bilobate
-	\item Bulliform
-	\item Cyperaceae
-	\item Rondel
-	\item Saddle
-	\item Spherical
-	\item Trichomas
-\end{itemize}
+\begin{multicols}{2}
+	\begin{itemize}
+		\item Bilobate
+		\item Bulliform
+		\item Cyperaceae
+		\item Rondel
+		\item Saddle
+		\item Spherical
+		\item Trichomas
+	\end{itemize}
+\end{multicols}
 
-Como previamente comenté en la introducción del proyecto~\ref{intro}, en este proyecto nos enfrentamos con varias problemáticas. Una de ellas son los distintos tamaños y la tridimensionalidad de estos, lo cual introduce una gran variabilidad en sus apariencias. En la figura \ref{fig:3.1.1} observamos dos fotografías por cada uno de los tipos de fitolito que se encuentran en nuestro ámbito de estudio. Pudiendo observar en ella la variabilidad a la que hago referencia dentro de un mismo tipo de fitolito.
+Como previamente comenté en la introducción del proyecto, en este proyecto nos enfrentamos con varias problemáticas. Una de ellas son los distintos tamaños y la tridimensionalidad de estos, lo cual introduce una gran variabilidad en sus apariencias. En la figura \ref{fig:3.1.1} observamos dos fotografías por cada uno de los tipos de fitolito que se encuentran en nuestro ámbito de estudio. Pudiendo observar en ella la variabilidad a la que hago referencia dentro de un mismo tipo de fitolito.
 
 \begin{figure}
 	\centering
@@ -100,7 +102,9 @@ Además, introduzco dos imágenes etiquetadas en la figura~\ref{fig:3.1.2}. Refl
 	\label{fig:3.1.2}
 \end{figure}
 
-Y, finalmente, destacar otra problemática que plantea este contexto. Las imágenes tienen un alto grado de ruido, ya que estas no solo contienen  fitolitos. Sino que contienen otras materias o restos sin relevancia alguna, como observamos en la figura~\ref{fig:3.1.3}.
+Por otro lado, destacar otra problemática que plantea este contexto. Las imágenes tienen un alto grado de ruido, ya que estas no solo contienen  fitolitos. Sino que contienen otras materias o restos sin relevancia alguna, como observamos en la figura~\ref{fig:3.1.3}. 
+
+Y, por último, las imágenes son muestras de fitolitos en disolución, lo cual provoca que en ocasiones estos se encuentren superpuestos entre sí o junto a otros elementos.
 
 \begin{figure}
 \centering
@@ -125,7 +129,7 @@ En esta sección vamos a distinguir entre aprendizaje supervisado y no supervisa
 
 Aprendizaje supervisado es una técnica que consiste en la inferencia de una función partiendo de un conjunto de datos de entrenamiento etiquetado~\cite{wiki:supervisedLearning}. Dos de las tareas más comunes del aprendizaje supervisado son clasificación y regresión. Es decir, para tareas en las que el resultado deseado sea obtener una variable que nos informe a que clase pertenece una determinada instancia, lo cual es un valor discreto, o para tareas en las que se desea obtener un valor continuo. Dos posibles ejemplos, a modo de aclaración,  podrían ser: la clasificación de \textit{emails} en \textit{spam} o \textit{no-spam} y la predicción del valor de un inmueble. La tarea de clasificación se analizará en detalle en la siguiente sección~\ref{md}.
 
-En cuanto al otro tipo de aprendizaje, el aprendizaje no supervisado consiste en la obtención de la estructura oculta en los datos. Pero al contrario que en el aprendizaje supervisado, partiendo de un conjunto de datos sin etiquetar, es decir, datos para los cuales no poseemos su valor deseado~\cite{wiki:unsupervisedLearning}. Una tarea muy común en aprendizaje no supervisado es el \textit{clustering} o agrupamiento consistente en la agrupación de los datos en un número de grupos determinado, localizando las relaciones internas y las características diferenciadoras respecto a otros grupos. Un posible ejemplo  de la utilización de este tipo de aprendizaje podría ser la categorización de clientes en varios grupos con fines comerciales.
+En cuanto al otro tipo de aprendizaje, el aprendizaje no supervisado consiste en la obtención de la estructura oculta en los datos. Pero al contrario que en el aprendizaje supervisado, partiendo de un conjunto de datos sin etiquetar, es decir, datos para los cuales no poseemos su valor deseado~\cite{wiki:unsupervisedLearning}. Una tarea muy común en aprendizaje no supervisado es el \textit{clustering} o agrupamiento consistente en la agrupación de los datos en un número de grupos determinado, localizando las relaciones internas y las características diferenciadoras respecto a otros grupos. Un posible ejemplo  de la utilización de este tipo de aprendizaje podría ser la categorización de clientes en varios grupos con fines comerciales. Y, más en concreto, en este proyecto se ha utilizado como uno de los pasos de la técnica \textit{Bag of Words}, véase~\ref{bow}.
 
 \section{Minería de datos}
 \label{md}
@@ -140,7 +144,7 @@ En el caso de este proyecto, estamos tratando de identificar los distintos tipos
 El reconocimiento de patrones consiste en la extracción de propiedades similares entre las distintas instancias de una clase~\cite{wiki:patternrecognition}. De manera que podamos identificar un determinado objeto en función de los patrones que contiene este. Este concepto, como podemos observar, está íntimamente relacionado con el concepto de clasificación y \textit{machine larning}.
 
 \subsection{\textit{Bag of Words}}
-
+\label{bow}
 \textit{Bag of Words} (BoW), o en español bolsa de palabras, es una técnica comúnmente utilizada en la clasificación de documentos~\cite{wiki:bowmodel}. En la que se describe un texto mediante el conjunto de palabras que componen dicho documento.
 
 Pero esta técnica también ha sido aplicada a tareas de procesamiento de imágenes. Siendo, la que mejores resultados conseguía, hasta la llegada del \textit{Deep Learning}. Esta se fundamenta en la obtención de las características de una imagen mediante uno o varios descriptores, como HoG~\cite{wiki:hog} o SHIFT~\cite{shift}. Realizando \textit{clustering} sobre este conjunto de características, obtenemos un conjunto de <<palabras>> o características más generales. Por ejemplo, si estuviésemos tratando de  clasificar bicicletas, tras realizar \textit{clustering} sobre las características obtenidas con los descriptores, lo que estaríamos obteniendo son ruedas, manillares, cuadros de bicicleta, pedales, entre otros. Lo cual equivaldría a las palabras de un documento pero en el ámbito de una imagen.
@@ -205,7 +209,7 @@ Como se puede imaginar, obtener las características a mano es una tarea complic
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{hog_example}
-\caption{Ejemplo de las características de HoG.}
+\caption[Ejemplo de las características de HoG]{Ejemplo de las características de HoG. Imagen obtenida de un ejemplo de la página oficial de \textit{skimage}}
 \label{fig:3.4.2}
 \end{figure}
 
@@ -226,15 +230,11 @@ En el caso de la aplicación de esta técnica sobre un conjunto de imágenes, se
 
 \subsection{Reconocimiento de objetos contra Detección de objetos}
 
-Antes de abordar el siguiente concepto, debemos de comprender la diferencia entre el término reconocimiento de objetos y detección de objetos.
+Antes de abordar el siguiente concepto, debemos de comprender la diferencia entre el término detección de objetos y reconocimiento de objetos.
 
-Reconocimiento de objetos es el término utilizado cuando se desea detectar todos los objetos para los que ha sido entrenado el clasificador. Proporcionándonos el tipo de objeto y las coordenadas de la caja que rodea ese objeto. Dependiendo del algoritmo de clasificación empleado, también puede devolver las probabilidades de que ese objeto sea un verdadero positivo o un falso positivo.
+Detección de objetos es el término utilizado cuando se desea detectar todos los objetos para los que ha sido entrenado el modelo. Proporcionándonos el tipo de objeto y las coordenadas de la caja que rodea ese objeto. Dependiendo del modelo, también puede devolver las probabilidades de que ese objeto sea un verdadero positivo.
 
-En cuanto a la detección de objetos, en este solo se desea obtener si es objeto o no. Simplificando el problema anterior, de manera que, pasamos de un problema multiclase a un problema con dos clases, o binario: Objeto o no objeto.
-
-%\section{VOC}?
-
-%\section{Redes neuronales y redes neuronales convolucionales}
+En cuanto al reconocimiento de objetos, en este caso solo se desea obtener la clase de objeto que contiene. Por ejemplo, le enviamos a nuestro clasificador una imagen que contiene un fitolito Rondel y este nos devuelve si es de la clase Rondel, Saddle, Bilobate, u otra.
 
 \section{Aprendizaje profundo}
 
@@ -243,7 +243,7 @@ Aprendizaje profundo, o más comunmente mencionado en inglés mediante las palab
 \textit{Deep learning} es un conjunto de algoritmos de la rama del aprendizaje automático que se caracteriza por los siguientes aspectos, principalmente~\cite{ms:deeplearning}:
 
 \begin{enumerate}
-	\item Consisten en modelos con varias capas en las que la información sufre a menudo operaciones no lineales.
+	\item Consisten en modelos con varias capas en las que la información sufre a menudo operaciones no lineales o transformaciones.
 	\item Consisten en representaciones de características que parten desde un nivel bajo de abstracción hasta llegar a un nivel alto. Por ejemplo, desde los píxeles de la imagen hasta las clases de objetos y sus coordenadas dentro de la imagen.
 \end{enumerate}
 
@@ -257,29 +257,27 @@ Pero no todo son ventajas en esta aproximación. Y es que existe un problema pri
 
 \subsubsection{Versiones}
 
-\textit{YOLO} actualmente tiene dos versiones. Y, en cada una de estas versiones, se ha desarrollado una versión pequeña y una normal. En la primera versión de \textit{YOLO} se consiguió llegar a resultados muy positivos, como la capacidad de procesar 45 imágenes por segundo con una precisión de 63.4 \textit{mAP}\footnote{\textit{Mean average precision} (mAP), o Media promedio de precisión, es comúnmente utilizada como una medida de evaluación de la precisión en la detección de objetos.}. Y, con la versión pequeña de este, se llegaron a procesar 155 imágenes por segundo con una precisión de 52.7 \textit{mAP}~\cite{yolo}. Precisiones muy positivas, pero que todavía no estaban a la altura del estado del arte a nivel de precisión.
+\textit{YOLO} actualmente tiene dos versiones. Y, en cada una de estas versiones, se ha desarrollado una versión pequeña y una normal. En la primera versión de \textit{YOLO} se consiguió llegar a resultados muy positivos, como la capacidad de procesar 45 imágenes por segundo con una precisión de 63.4 \textit{mAP}\footnote{\textit{Mean average precision} (mAP), o Media promedio de precisión, es comúnmente utilizada como una medida de evaluación de la precisión en la detección de objetos.} en el conjunto de imágenes \textit{VOC}\footnote{Conjunto de imágenes compuesto por más de 11.000 imágenes y 20 clases de objetos.}. Y, con la versión pequeña de este, se llegaron a procesar 155 imágenes por segundo con una precisión de 52.7 \textit{mAP}~\cite{yolo}. Precisiones muy positivas, pero que todavía no estaban a la altura del estado del arte a nivel de precisión.
 
-En la segunda versión, se considera a \textit{YOLO} como el estado del arte, junto a \textit{Faster RCNN}. En esta versión, \textit{YOLO} consigue llegar a una precisión de 76,8 \textit{mAP}, procesando 67 imágenes por segundo, y 78,6 \textit{mAP}, procesando 40 imágenes por segundo. Lo cual, supera a \textit{Faster RCNN} en precisión y rapidez, siendo esta última ampliamente superada~\cite{yolov2}.\footnote{\textit{Faster RCNN} consigue clasificar una imagen cada dos segundos(\textit{FPS, frames per second}). En cambio, \textit{YOLO} es capaz de procesar más de 40 imágenes.}
+En la segunda versión, se considera a \textit{YOLO} como el estado del arte, junto a \textit{Faster RCNN}. En esta versión, \textit{YOLO} consigue llegar a una precisión de 76,8 \textit{mAP}, procesando 67 imágenes por segundo, y 78,6 \textit{mAP}, procesando 40 imágenes por segundo. Lo cual, supera a \textit{Faster RCNN} en precisión y rapidez, siendo esta última ampliamente superada\footnote{\textit{Faster RCNN} consigue clasificar una imagen cada dos segundos(\textit{FPS, frames per second}). En cambio, \textit{YOLO} es capaz de procesar más de 40 imágenes.}~\cite{yolov2}.
 
 \subsubsection{Característica diferenciadora de \textit{YOLO}}
 
-\textit{YOLO} otorga un enfoque distinto respecto a sus competidores. Mientras que en otros casos, como \textit{Faster RCNN}, se separan las distintas etapas del procesado de una imagen. \textit{YOLO}, he de aquí su nombre, solo necesita de un único <<vistazo>> para predecir la imagen y obtener las coordenadas, o cajas que rodean a cada uno de los objetos predichos~\cite{yolo}. Véase la figura \ref{fig:3.2.14}.
+\textit{YOLO} otorga un enfoque distinto respecto a sus competidores. Mientras que en otros casos, como \textit{Faster RCNN}, se separan las distintas etapas del procesado de una imagen. \textit{YOLO}, he de aquí su nombre, solo necesita de un único <<vistazo>> para predecir la imagen y obtener las coordenadas, o cajas que rodean a cada uno de los objetos predichos~\cite{yolo}. Además, el uso de una arquitectura de red neuronal distinta, respecto a la mayoría de sus contrincantes, le permite requerir de menos de un tercio de operaciones en coma flotante~\cite{yolov2}. Véase la figura \ref{fig:3.2.14}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{yolo_example}
-\caption{Imagen predicha por \textit{YOLO}}
+\caption[Imagen predicha por \textit{YOLO}]{Imagen predicha por \textit{YOLO}. Imagen obtenida de los ejemplos de \textit{YOLO}.}
 \label{fig:3.2.14}
 \end{figure}
 
-Por supuesto, esta perspectiva no es tan simple como un giro en el enfoque. Sino que, además, implementa otras características, como la normalización en lotes o la obtención automática del tamaño de las cajas, que la permiten ser la mejor aproximación actual en este campo~\cite{yolov2}.
+Por supuesto, esta perspectiva no es tan simple como un giro en el enfoque. Sino que, además, implementa otras características, como la normalización en lotes o la obtención automática del tamaño de las cajas, que le permiten ser la mejor aproximación actual en este campo~\cite{yolov2}.
 
 Podemos ver una comparativa entre los mejores detectores de objetos actuales con \textit{YOLO} en la tabla \ref{tabla:comparativa_yolo}. Indicando para cada uno de ellos la precisión y la capacidad de procesamiento de imágenes, en las unidades de media promedio de precisión e imágenes por segundo, respectivamente.
 
 \begin{table}
   \begin{center}
-  \caption[Comparativa entre los distintos sistemas de detección de objetos]{Comparativa entre los distintos sistemas de detección de objetos sobre el mismo conjunto de entrenamiento y sobre la misma configuración~\cite{yolov2}.}
-    \label{tabla:comparativa_yolo}
     \begin{tabular}{@{} l l r r@{}}
       \toprule
         \textbf{Detection frameworks}  & \textbf{Train} & \textbf{$mAP$} & \textbf{FPS} \\
@@ -297,8 +295,7 @@ Podemos ver una comparativa entre los mejores detectores de objetos actuales con
       YOLOv2 544 x 544                            & 2007+2012      & 78.6           & 40 \\
       \bottomrule
     \end{tabular}
+    \caption[Comparativa entre los distintos sistemas de detección de objetos]{Comparativa entre los distintos sistemas de detección de objetos sobre el mismo conjunto de entrenamiento y sobre la misma configuración~\cite{yolov2}.}
+    \label{tabla:comparativa_yolo}
   \end{center}
 \end{table}
-
-
-% Por aclarar más cosas

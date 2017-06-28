@@ -17,7 +17,7 @@
 % Links
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
-	allcolors = {red}
+	allcolors = {blue}
 }
 
 % Ecuaciones
@@ -29,6 +29,8 @@
 % Párrafos
 \nonzeroparskip
 
+% Enumeraciones multicolumnas
+\usepackage{multicol}
 
 % Imagenes
 \usepackage{graphicx}
@@ -424,15 +426,15 @@ Dr. José Francisco Díez Pastor
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-La arqueobotánica es la ciencia que estudia las interrelaciones de las poblaciones humanas antiguas con el mundo vegetal. Obteniendo información de las actividades del ser humano relacionadas con las plantas como: técnicas de agricultura, consumo de vegetales, utilización de las plantas o información sobre los entornos de vegetación prehistóricos.
+La arqueobotánica es la ciencia que estudia las interrelaciones de las poblaciones humanas antiguas con el mundo vegetal. Trata de obtener información de las actividades del ser humano relacionadas con las plantas tales como: técnicas de agricultura, consumo de vegetales, utilización de las plantas o información sobre los entornos de vegetación prehistóricos.
 
-En concreto, nuestro objetivo se centra en la rama de los micro-restos y, más en concreto, en los fitolitos. Los fitolitos son partículas microscópicas generadas por las plantas, a causa de un proceso metabólico vital para ellas. La identificación de los fitolitos nos permite obtener, entre otra, la información anteriormente citada.
+El objetivo de este proyecto se centra en la rama de los micro-restos y, más en concreto, en los fitolitos. Los fitolitos son partículas microscópicas generadas por las plantas, a causa de un proceso metabólico vital para ellas. La identificación de los fitolitos nos permite obtener, entre otra, la información sobre arqueobotánica.
 
 En este proyecto tratamos de solucionar la problemática de analizar cada una de las muestras microscópicas manualmente. Mediante la creación de un sistema que sea capaz de reconocer de forma automática los fitolitos en cada una de estas muestras.
 
-Para ello, se comenzó mediante técnicas de segmentación, las cuales no aportaban grandes resultados, por su enorme ineficiencia en tiempos. Se continuó con la utilización de técnicas tradicionales, en el ámbito de la visión artificial, como es la ventana deslizante. Y, se finalizo, estudiando técnicas avanzas de \textit{deep learning}, o aprendizaje profundo, junto a técnicas de \textit{data augmentation}.
+Para la creación de este sistema se planteaba un problema fundamental consistente en la necesidad de poseer imágenes con los fitolitos previamente identificados. Con este objetivo se realizó un etiquetador de imágenes que permite a los expertos etiquetar los diversos tipos de fitolitos en las muestras. Y que junto a técnicas de data augmentation, como rotaciones y cambios de tamaño, nos permitieron obtener un conjunto de imágenes lo suficientemente grandes para entrenar el clasificador.
 
-Además, en la utilización de este tipo de técnicas se plantea un problema fundamental que es la necesidad de poseer imágenes con los fitolitos previamente identificados, por lo que se realizó un etiquetador de imágenes que permite a los expertos etiquetar los diversos tipos de fitolitos en las muestras.
+Finalmente, durante el desarrollo de este proyecto se realizó un estudio de las posibles técnicas para llevar a cabo este sistema. Aplicándose, como solución final, la ventana deslizante para la subdivisión de una imagen en varios recortes, los cuales un clasificador recibe y clasifica en fitolito o fondo de la imagen.
 
 % Acabar con la conclusión
 
