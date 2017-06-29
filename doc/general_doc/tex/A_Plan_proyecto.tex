@@ -3,7 +3,7 @@
 \section{Introducción}
 Para llevar a cabo este proyecto vamos a aplicar una metodología llamada \textit{Scrum}. \textit{Scrum} es una metodología de desarrollo software ágil, es decir, durante cada \textit{sprint}\footnote{\textit{Sprint}: es el período en el cual se lleva a cabo el trabajo en sí~\cite{wiki:scrum}.}, generalmente cada semana, se asignarán unas determinadas tareas a cumplimentar, con un producto como consecuencia de estas tareas. Al final de cada \textit{sprint} se realizará una reunión junto a los tutores para validar los avances realizados y determinar las tareas a realizar durante el siguiente \textit{sprint}.
 
-Además, toda la comunicación se realizará a través de las \url{https://github.com/jasag/Phytoliths-recognition-system}{issues} de \textit{GitHub}.
+Además, toda la comunicación se realizará a través de las \textit{issues} de \textit{GitHub} en \url{www.github.com/jasag/Phytoliths-recognition-system}.
 
 \section{Planificación temporal}
 
@@ -237,7 +237,7 @@ Estas son las tareas a realizar durante este \textit{sprint} 10:
 	\item Corregir errores en la carga de etiquetas.
 	\item Mejorar la interfaz del etiquetador de imágenes.
 	\item Documentación: manual de usuario del etiquetador de imágenes.
-	\item Documentación: diseño(prototipo).
+	\item Documentación: diseño (prototipo).
 \end{itemize}
 
 Durante este \textit{sprint} se comenzaron las pruebas con el detector automático de objetos, para su futura adaptación a la detección de fitolitos. Además, se trataron de solucionar algunos errores presentes en el etiquetador. Y, finalmente, se documentó en la medida de lo posible el manual del etiquetador. Tratando de facilitar su uso por parte de los usuarios, en breves momentos.
@@ -435,30 +435,66 @@ A continuación, en la figura \ref{fig:A.1.19}, se muestra el diagrama \textit{b
 En esta sección se realiza un análisis de los costes económicos que hubiera supuesto el desarrollo de este proyecto en un entorno empresarial.
 
 \subsubsection{Coste del personal}
+
 Este proyecto ha sido desarrollado por un único desarrollador a tiempo parcial. En la tabla \ref{tabla:costespersonales} muestro el desglose de los costes ocasionados por el salario que hubiese recibido en una situación real.
 
 \tablaSmallSinColores{Costes de personal}{p{4.5cm} p{.25cm} p{2.5cm}}{costespersonales}{
   \multicolumn{3}{p{6cm}}{\textbf{Costes de personal}} \\
  }
  {
-  Salario mensual neto  & 1500\euro{} \\
-  Retención IRPF (15\%) & \euro{} \\
-  Seguridad social (29,9\%) & \euro{} \\
-  Salario mensual bruto  & \euro{} \\\hline
-  Salario total(4 meses)  & \euro{} \\
+  Salario mensual neto  & 748,8\euro{} \\
+  Retención IRPF (15\%) & 240\euro{} \\
+  Seguridad social (38,2\%) & 611,2\euro{} \\
+  Salario mensual bruto  & 1600\euro{} \\\hline
+  Salario total(5 meses)  & 8000\euro{} \\
   }
+ 
+Para realizar los cálculos referentes a la seguridad social debemos de tener en cuenta que tanto la empresa como el empleado participan en su pago. Pero que entre ambas suman el 38,2\%. Por parte de la empresa se desglosa de la siguiente manera:
 
-\subsubsection{Coste del \textit{software} y \textit{hardware}}
+\begin{itemize}
+	\item Contingencias comunes: 23,6\%
+	\item AT\textbackslash EP (Accidente de trabajo y Enfermedad Profesional): 1,95\%
+	\item Desempleo: 5,5\%
+	\item Formación profesional: 0,6\%
+	\item Fondo garantía profesional: 0,2\%
+\end{itemize}
 
+Por otra parte, se encuentran las aportaciones realizadas por el empleado:
 
+\begin{itemize}
+	\item Contingencias comunes: 4,7\%
+	\item Desempleo/formación profesional: 1,65\%
+\end{itemize}
+
+\subsubsection{Costes informáticos}
+
+En cuanto al \textit{hardware}, para el desarrollo de este proyecto únicamente ha sido necesario un ordenador portátil, con una amortización de 5 años. El cual incluía todo lo necesario para llevarlo a cabo, aunque con algunas limitaciones a nivel de rendimiento. Por otro lado, los costes a nivel \textit{software} son los referentes al \textit{IDE} utilizado: \textit{JetBrains PyCharm}. En la tabla~\ref{tabla:costeshw} se muestran ambos costes.
+
+\tablaSmallSinColores{Costes informáticos}{p{4cm} p{.25cm} p{2.5cm} p{3.5cm}}{costeshw}{
+  \multicolumn{2}{p{4cm}}{\textbf{Costes \textit{hardware}}} & Coste total & Coste amortizado\\
+ }
+ {
+  Ordenador portatil & & 1300\euro{} & 108,33\euro{}\euro{}\\
+  \textit{JetBrains PyCharm} & & 87,26\euro{} & 87,26\\\hline
+  Total & & 1387,36 & 195,59\euro{}\\
+  }
 
 \subsubsection{Costes totales}
 
+Por lo tanto, la suma total de los cálculos se recoge en la tabla~\ref{tabla:costestotales}
 
+\tablaSmallSinColores{Costes totales}{p{4.5cm} p{.25cm} p{2.5cm}}{costestotales}{
+  \multicolumn{3}{p{6.5cm}}{\textbf{Costes totales}} \\
+ }
+ {
+  Coste del personal  & 8000\euro{} \\
+  Costes informáticos  & 195,59\euro{} \\\hline
+  Total & 8195,59\euro{}\\
+  }
 
 \subsection{Viabilidad legal}
 
-En este apartado enuncio las distintas librerías utilizadas junto a sus licencias, en todos sus casos de código abierto. Véase la tabla \ref{tabla:licencias}. Si se desea indagar más sobre las distintas librerías se recomienda ver la sección de herramientas y técnicas dentro de la memoria.
+En este apartado enuncio las distintas librerías utilizadas en este proyecto junto a sus licencias, en todos sus casos de código abierto. Véase la tabla \ref{tabla:licencias}. Si se desea indagar más sobre las distintas librerías se recomienda ver la sección de herramientas y técnicas dentro de la memoria.
  
   \begin{table}
   \begin{center}
