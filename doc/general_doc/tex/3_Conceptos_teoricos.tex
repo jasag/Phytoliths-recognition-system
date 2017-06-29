@@ -2,11 +2,11 @@
 
 %En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
 
-Para la comprensión de este proyecto es necesaria la explicación de algunos conceptos teóricos que introduciré en este apartado. Para ello este apartado se ha organizado en seis bloques principales: fitolito, inteligencia artificial, procesamiento de imágenes, minería de datos, \textit{deep learning} y detección de objetos.
+Para la comprensión de este proyecto es necesaria la explicación de algunos conceptos teóricos que introduciré en este apartado. Para ello se ha organizado en seis bloques principales: fitolito, inteligencia artificial, procesamiento de imágenes, minería de datos, \textit{deep learning} y detección de objetos.
 
 \section{Fitolito y la complejidad de su morfología}
 
-Los fitolitos son particulas microscópicas de silice de opalo producidas dentro y entre las celulas de muchas plantas. Además, son partículas muy resilientes y preservadas hasta la actualidad en forma de microfósiles. Estos son utilizados en la investigación de paleoambientes\footnote{Consistente en la reconstrucción de entornos antiguos.}, botánica, geología y arqueología~\cite{phytolith}.
+Los fitolitos son particulas microscópicas de sílice de ópalo producidas dentro y entre las células de muchas plantas. Además, son partículas muy resilientes y se han preservado hasta la actualidad en forma de microfósiles. Estos son utilizados en la investigación de paleoambientes\footnote{Consistente en la reconstrucción de entornos antiguos.}, botánica, geología y arqueología~\cite{phytolith}.
 
 Existen multitud de tipos de fitolitos, pero en este proyecto nos centramos en un conjunto de tipos más delimitado, según los requisitos de nuestros clientes. Los cuales se encuentran concrétamente interesados en el área de la arqueobotánica. En total trabajamos con 7 tipos de fitolitos:
 
@@ -86,7 +86,7 @@ Como previamente comenté en la introducción del proyecto, en este proyecto nos
 	\label{fig:3.1.1}
 \end{figure}
 
-Además, introduzco dos imágenes etiquetadas en la figura~\ref{fig:3.1.2}. Reflejando en ella la diferencia de tamaños entre los distintos tipos de fitolitos, a la que previamente hacía referencia. Lo cual aporta mayor complejidad al problema que estamos acometiendo. 
+Además, en la figura ~\ref{fig:3.1.2} introduzco dos imágenes de microscopio con los fitolitos etiquetados. Reflejando en ella la diferencia de tamaños entre los distintos tipos de fitolitos, a la que previamente hacía referencia. Lo cual aporta mayor complejidad al problema que estamos acometiendo. 
 
 \begin{figure}
 	\centering
@@ -115,7 +115,7 @@ Y, por último, las imágenes son muestras de fitolitos en disolución, lo cual 
 
 \section{Inteligencia artificial}
 
-Inteligencia artificial, que comúnmente aparece como las siglas IA o AI del inglés Artificial Intelligence, consiste en otorgar a las máquinas la capacidad de realizar acciones que habitualmente son realizadas por humanos, imitando la inteligencia cognitiva humana~\cite{alanturing:ai}. Esta podría ser una posible definición de Inteligencia artificial, pero existen multitud~\cite{russell1995modern}. Algunos posibles ejemplos conocidos por todos en los que se aplica la IA son el coche autónomo, videojuegos, asistentes personales, reconocimiento facial en imágenes, entre otros.
+Inteligencia artificial, que comúnmente aparece como las siglas IA o AI del inglés Artificial Intelligence, consiste en otorgar a las máquinas la capacidad de realizar acciones que habitualmente son realizadas por humanos, imitando la inteligencia cognitiva humana~\cite{alanturing:ai}. Esta podría ser una posible definición de IA, pero existen multitud~\cite{russell1995modern}. Algunos posibles ejemplos conocidos por todos en los que se aplica la IA son el coche autónomo, videojuegos, asistentes personales, reconocimiento facial en imágenes, entre otros.
 
 \subsection{Aprendizaje automático}
 
@@ -127,37 +127,51 @@ Apredizaje automático, o en inglés \textit{machine learning}, es un campo de l
 
 En esta sección vamos a distinguir entre aprendizaje supervisado y no supervisado, ambas técnicas pertenecientes al campo de \textit{machine learning}.
 
-Aprendizaje supervisado es una técnica que consiste en la inferencia de una función partiendo de un conjunto de datos de entrenamiento etiquetado~\cite{wiki:supervisedLearning}. Dos de las tareas más comunes del aprendizaje supervisado son clasificación y regresión. Es decir, para tareas en las que el resultado deseado sea obtener una variable que nos informe a que clase pertenece una determinada instancia, lo cual es un valor discreto, o para tareas en las que se desea obtener un valor continuo. Dos posibles ejemplos, a modo de aclaración,  podrían ser: la clasificación de \textit{emails} en \textit{spam} o \textit{no-spam} y la predicción del valor de un inmueble. La tarea de clasificación se analizará en detalle en la siguiente sección~\ref{md}.
+Aprendizaje supervisado es una técnica que consiste en la inferencia de una función partiendo de un conjunto de datos de entrenamiento etiquetado~\cite{wiki:supervisedLearning}. Dos de las tareas más comunes del aprendizaje supervisado son clasificación y regresión. Es decir, para tareas en las que el resultado deseado sea obtener una variable que nos informe a que clase pertenece una determinada instancia, lo cual es un valor discreto, o para tareas en las que se desea obtener un valor continuo. Dos posibles ejemplos, a modo de aclaración,  podrían ser: la clasificación de \textit{emails} en \textit{spam} o \textit{no-spam} y la predicción del valor de un inmueble. La tarea de clasificación se analizará en detalle en la sección~\ref{md}.
 
-En cuanto al otro tipo de aprendizaje, el aprendizaje no supervisado consiste en la obtención de la estructura oculta en los datos. Pero al contrario que en el aprendizaje supervisado, partiendo de un conjunto de datos sin etiquetar, es decir, datos para los cuales no poseemos su valor deseado~\cite{wiki:unsupervisedLearning}. Una tarea muy común en aprendizaje no supervisado es el \textit{clustering} o agrupamiento consistente en la agrupación de los datos en un número de grupos determinado, localizando las relaciones internas y las características diferenciadoras respecto a otros grupos. Un posible ejemplo  de la utilización de este tipo de aprendizaje podría ser la categorización de clientes en varios grupos con fines comerciales. Y, más en concreto, en este proyecto se ha utilizado como uno de los pasos de la técnica \textit{Bag of Words}, véase~\ref{bow}.
+En cuanto al otro tipo de aprendizaje, el aprendizaje no supervisado consiste en la obtención de la estructura oculta en los datos. Pero al contrario que en el aprendizaje supervisado, partiendo de un conjunto de datos sin etiquetar, es decir, datos para los cuales no poseemos su valor deseado~\cite{wiki:unsupervisedLearning}. Una tarea muy común en aprendizaje no supervisado es el \textit{clustering} o agrupamiento, consistente en la agrupación de los datos en un número de grupos determinado, localizando las relaciones internas y las características diferenciadoras respecto a otros grupos. Un posible ejemplo  de la utilización de este tipo de aprendizaje podría ser la categorización de clientes en varios grupos con fines comerciales. Y, más en concreto, en este proyecto se ha utilizado como uno de los pasos de la técnica \textit{Bag of Words}, véase la sección~\ref{bow}.
 
 \section{Minería de datos}
 \label{md}
 \subsection{Clasificación}
 
-Clasificación, como ya se ha introducido previamente, es la tarea de identificar, entre un conjunto de  categorías o clases\footnote{Se entiende por clase a cada uno de los tipos, o categorías, en las que se desean clasificar las instancias. Por ejemplo, en un problema en el que deseemos clasificar imágenes como personas y perros. Las clases serán: persona y perro.}, a que categoría o clase pertenece una determinada instancia o imagen.
+Clasificación, como ya se ha introducido previamente, es la tarea de identificar, entre un conjunto de  categorías o clases\footnote{Se entiende por clase a cada uno de los tipos, o categorías, en las que se desean clasificar las instancias. Por ejemplo, en un problema en el que deseemos clasificar imágenes como personas y perros. Las clases serán: persona y perro.}, a que categoría o clase pertenece una determinada instancia (esta instancia puede ser una imagen, por ejemplo).
 
-En el caso de este proyecto, estamos tratando de identificar los distintos tipos de fitolitos dentro de una imagen. Lo cual no es una tarea estrictamente de clasificación sino de reconocimiento de objetos. Pero, en el caso de que nuestro programa recibiese únicamente una imagen recortada conteniendo un fitolito, como las que se ven en la figura~\ref{fig:3.1.1}. Podríamos aplicar un modelo de clasificación que nos predijese el tipo de fitolito que contiene la imagen.
+En el caso de este proyecto, estamos tratando de identificar los distintos tipos de fitolitos dentro de una imagen. Lo cual no es una tarea estríctamente de clasificación sino de reconocimiento de objetos. Pero, en el caso de que nuestro programa recibiese únicamente una imagen recortada conteniendo un fitolito, como las que se ven en la figura~\ref{fig:3.1.1}, podríamos aplicar un modelo de clasificación que nos predijese el tipo de fitolito que contiene la imagen.
 
 \subsection{Reconocimiento de patrones}
 
-El reconocimiento de patrones consiste en la extracción de propiedades similares entre las distintas instancias de una clase~\cite{wiki:patternrecognition}. De manera que podamos identificar un determinado objeto en función de los patrones que contiene este. Este concepto, como podemos observar, está íntimamente relacionado con el concepto de clasificación y \textit{machine larning}.
+El reconocimiento de patrones consiste en la extracción de propiedades similares entre las distintas instancias de una clase~\cite{wiki:patternrecognition}. De manera que podamos identificar un determinado objeto en función de los patrones que este contiene. Este concepto, como podemos observar, está íntimamente relacionado con el concepto de clasificación y \textit{machine larning}.
 
 \subsection{\textit{Bag of Words}}
 \label{bow}
 \textit{Bag of Words} (BoW), o en español bolsa de palabras, es una técnica comúnmente utilizada en la clasificación de documentos~\cite{wiki:bowmodel}. En la que se describe un texto mediante el conjunto de palabras que componen dicho documento.
 
-Pero esta técnica también ha sido aplicada a tareas de procesamiento de imágenes. Siendo, la que mejores resultados conseguía, hasta la llegada del \textit{Deep Learning}. Esta se fundamenta en la obtención de las características de una imagen mediante uno o varios descriptores, como HoG~\cite{wiki:hog} o SHIFT~\cite{shift}. Realizando \textit{clustering} sobre este conjunto de características, obtenemos un conjunto de <<palabras>> o características más generales. Por ejemplo, si estuviésemos tratando de  clasificar bicicletas, tras realizar \textit{clustering} sobre las características obtenidas con los descriptores, lo que estaríamos obteniendo son ruedas, manillares, cuadros de bicicleta, pedales, entre otros. Lo cual equivaldría a las palabras de un documento pero en el ámbito de una imagen.
+Pero esta técnica también ha sido aplicada a tareas de procesamiento de imágenes. Siendo la que mejores resultados conseguía hasta la llegada del \textit{Deep Learning}. Esta se fundamenta en la obtención de las características de una imagen mediante uno o varios descriptores, como HoG~\cite{wiki:hog} o SHIFT~\cite{shift}. Realizando \textit{clustering} sobre este conjunto de características, obtenemos un conjunto de <<palabras>> o características más generales. Por ejemplo, si estuviésemos tratando de  clasificar bicicletas, tras realizar \textit{clustering} sobre las características obtenidas con los descriptores, lo que estaríamos obteniendo son ruedas, manillares, cuadros de bicicleta, pedales, entre otros. Lo cual equivaldría a las palabras de un documento pero en el ámbito de una imagen. En la figura \ref{fig:3.1.3.1} muestro un diagrama, a modo de aclaración, del funcionamiento de BoW.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{diabow}
+\caption{Esquema de funcionamiento de \textit{Bag of Words}}
+\label{fig:3.1.3.1}
+\end{figure}
 
 \subsection{Red neuronal artificial}
 
-Una red neuronal artificial (RNA) es un modelo compuesto de un conjunto de unidades, llamadas neuronas artificiales, organizadas en capas e interconectadas entre sí. Como podréis imaginar, las RNAs tratan de imitar el funcionamiento del cerebro del ser humano, con el objetivo de solucionar problemas de la misma manera que los humanos~\cite{wiki:ann}.
+Una red neuronal artificial (RNA) es un modelo compuesto de un conjunto de unidades, llamadas neuronas artificiales, organizadas en capas e interconectadas entre sí. Como fácilmente se intuye, las RNAs tratan de imitar el funcionamiento del cerebro de los animales, con el objetivo de solucionar problemas de la misma manera que ellos~\cite{wiki:ann}.
 
 El concepto de red neuronal no es, en absoluto, un concepto que haya surgido en la actualidad. Aunque este haya cobrado más fuerza en los últimos años, gracias a los avances realizados en la materia y al avance en los recursos informáticos.
 
 \subsubsection{Red neuronal convolucional}
 
-Las redes neuronales convolucionales son una variante de la red neuronal original. Estas aportan dos ventajas principales sobre las originales: mayor eficiencia en su implementación y reducen el número de parametros utilizados considerablemente~\cite{cnn}.
+Las redes neuronales convolucionales son una variante de la red neuronal original. Estas aportan dos ventajas principales sobre las originales: mayor eficiencia en su implementación y reducen el número de parametros utilizados considerablemente~\cite{cnn}. En la figura~\ref{fig:3.1.4} muestro un diagrama de una arquitectura ejemplo de este tipo de red.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{cnn}
+\caption[Ejemplo de arquitectura de red neuronal convolucional]{Ejemplo de arquitectura de red neuronal convolucional para el reconocimiento de caracteres manuscritos~\cite{cnnimage}.}
+\label{fig:3.1.4}
+\end{figure}
 
 \section{Procesamiento de imágenes}
 
@@ -173,11 +187,12 @@ En nuestro caso, segmentamos la imagen para eliminar el fondo de ella y obtener 
         \includegraphics[width=\textwidth]{2}
         \caption{Imagen original}
     \end{subfigure}
+    \hspace{1em}
     \begin{subfigure}[b]{0.4\textwidth}
         \includegraphics[width=\textwidth]{yen_image}
-        \caption{Imagen tras aplicarla segmentación}
+        \caption{Imagen segmentada}
     \end{subfigure}
-    \caption{Segementación de una imagen}
+    \caption{Segmentación de una imagen}
 	\label{fig:3.4.0}
 \end{figure}
 
@@ -189,7 +204,7 @@ La binarización de una imagen consiste en la simplificación de los valores de 
 
 \subsubsection{Thresholding}
 
-Es el método mas simple para la segmentación de una imagen, pudiendose utilizar para la binarización de una imagen, como es nuestro caso. Consiste en reemplazar los píxeles por debajo de una determinada constante a píxeles negros, y los que se encuentran por encima a píxeles blancos o viceversa. Un ejemplo de una imagen a la que se le ha aplicado esta técnica se muestra en la figura \ref{fig:3.2.1}.
+Es el método mas simple para la segmentación de una imagen, pudiéndose utilizar para la binarización de una imagen, como es nuestro caso. Consiste en reemplazar los píxeles por debajo de una determinada constante a píxeles negros, y los que se encuentran por encima a píxeles blancos o viceversa. Un ejemplo de una imagen a la que se le ha aplicado esta técnica se muestra en la figura \ref{fig:3.2.1}.
 
 \begin{figure}
 \centering
@@ -209,7 +224,7 @@ Como se puede imaginar, obtener las características a mano es una tarea complic
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{hog_example}
-\caption[Ejemplo de las características de HoG]{Ejemplo de las características de HoG. Imagen obtenida de un ejemplo de la página oficial de \textit{skimage}}
+\caption[Ejemplo de las características de HoG]{Ejemplo de las características de HoG. Imagen obtenida de un ejemplo de la página oficial de \textit{skimage}~\url{www.flickr.com/photos/nasacommons/16504233985/}}
 \label{fig:3.4.2}
 \end{figure}
 
@@ -253,7 +268,7 @@ Pero no todo son ventajas en esta aproximación. Y es que existe un problema pri
 
 \subsection{\textit{YOLO}}
 
-\textit{YOLO}, o \textit{You Only Look Once}~\cite{yolo}, es una aproximación innovadora en la detección de objetos, considerado actualmente, como el estado del arte en esta materia, junto a \textit{Faster RCNN}~\cite{faster-rcnn}\footnote{Faster RCNN es un detector de objetos en tiempo real con una precisión similar a la última versión de \textit{YOLO}, pero con menor rendimiento en tiempos que \textit{este}.}. Tratando de crear una arquitectura que funciona en tiempo real pero, a su vez, siendo capaz de soportar un número de clases mayor a 9000~\cite{yolov2}.
+\textit{YOLO}, o \textit{You Only Look Once}~\cite{yolo}, es una aproximación innovadora en la detección de objetos, considerado actualmente, como el estado del arte en esta materia, junto a \textit{Faster RCNN}~\cite{faster-rcnn}\footnote{Faster RCNN es un detector de objetos en tiempo real con una precisión similar a la última versión de \textit{YOLO}, pero con menor rendimiento en tiempos que este.}. Tratando de crear una arquitectura que funciona en tiempo real pero, a su vez, siendo capaz de soportar un número de clases mayor a 9000~\cite{yolov2}.
 
 \subsubsection{Versiones}
 
@@ -263,7 +278,7 @@ En la segunda versión, se considera a \textit{YOLO} como el estado del arte, ju
 
 \subsubsection{Característica diferenciadora de \textit{YOLO}}
 
-\textit{YOLO} otorga un enfoque distinto respecto a sus competidores. Mientras que en otros casos, como \textit{Faster RCNN}, se separan las distintas etapas del procesado de una imagen. \textit{YOLO}, he de aquí su nombre, solo necesita de un único <<vistazo>> para predecir la imagen y obtener las coordenadas, o cajas que rodean a cada uno de los objetos predichos~\cite{yolo}. Además, el uso de una arquitectura de red neuronal distinta, respecto a la mayoría de sus contrincantes, le permite requerir de menos de un tercio de operaciones en coma flotante~\cite{yolov2}. Véase la figura \ref{fig:3.2.14}.
+\textit{YOLO} otorga un enfoque distinto respecto a sus competidores. Mientras que en otros casos, como \textit{Faster RCNN}, se separan las distintas etapas del procesado de una imagen. \textit{YOLO}, por ello viene su nombre, solo necesita de un único <<vistazo>> para predecir la imagen y obtener las coordenadas, o cajas que rodean a cada uno de los objetos predichos~\cite{yolo}. Además, el uso de una arquitectura de red neuronal distinta, respecto a la mayoría de sus contrincantes, le permite requerir de menos de un tercio de operaciones en coma flotante~\cite{yolov2}. Véase la figura \ref{fig:3.2.14}.
 
 \begin{figure}[h]
 \centering

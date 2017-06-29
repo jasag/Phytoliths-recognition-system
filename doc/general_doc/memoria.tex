@@ -428,15 +428,13 @@ Dr. José Francisco Díez Pastor
 \begin{abstract}
 La arqueobotánica es la ciencia que estudia las interrelaciones de las poblaciones humanas antiguas con el mundo vegetal. Trata de obtener información de las actividades del ser humano relacionadas con las plantas tales como: técnicas de agricultura, consumo de vegetales, utilización de las plantas o información sobre los entornos de vegetación prehistóricos.
 
-El objetivo de este proyecto se centra en la rama de los micro-restos y, más en concreto, en los fitolitos. Los fitolitos son partículas microscópicas generadas por las plantas, a causa de un proceso metabólico vital para ellas. La identificación de los fitolitos nos permite obtener, entre otra, la información sobre arqueobotánica.
+El objetivo de este proyecto se centra en la rama de los micro-restos y, más en concreto, en los fitolitos. Los fitolitos son partículas microscópicas generadas por las plantas, a causa de un proceso metabólico vital para ellas. La identificación de los fitolitos nos permite obtener, entre otra, la información sobre arqueobotánica anteriormente citada.
 
-En este proyecto tratamos de solucionar la problemática de analizar cada una de las muestras microscópicas manualmente. Mediante la creación de un sistema que sea capaz de reconocer de forma automática los fitolitos en cada una de estas muestras.
+En este proyecto tratamos de solucionar la problemática de analizar cada una de las muestras microscópicas manualmente mediante la creación de un sistema que sea capaz de reconocer de forma automática los fitolitos en cada una de estas muestras.
 
-Para la creación de este sistema se planteaba un problema fundamental consistente en la necesidad de poseer imágenes con los fitolitos previamente identificados. Con este objetivo se realizó un etiquetador de imágenes que permite a los expertos etiquetar los diversos tipos de fitolitos en las muestras. Y que junto a técnicas de data augmentation, como rotaciones y cambios de tamaño, nos permitieron obtener un conjunto de imágenes lo suficientemente grandes para entrenar el clasificador.
+Para la creación de este sistema se planteaba un problema fundamental consistente en la necesidad de poseer imágenes con los fitolitos previamente identificados. Con este objetivo se realizó un etiquetador de imágenes que permite a los expertos etiquetar los diversos tipos de fitolitos en las muestras. Debido al coste de los expertos etiquetando, se utilizaron técnicas de data augmentation, como rotaciones y cambios de tamaño, nos permitieron obtener un conjunto de imágenes lo suficientemente grandes para entrenar el clasificador.
 
-Finalmente, durante el desarrollo de este proyecto se realizó un estudio de las posibles técnicas para llevar a cabo este sistema. Aplicándose, como solución final, la ventana deslizante para la subdivisión de una imagen en varios recortes, los cuales un clasificador recibe y clasifica en fitolito o fondo de la imagen.
-
-% Acabar con la conclusión
+Adicionalmente, durante el desarrollo de este proyecto se realizó un estudio de las posibles técnicas para llevar a cabo el sistema de reconocimiento automático. Aplicándose, como solución final, la ventana deslizante para la subdivisión de una imagen en varios recortes, los cuales un clasificador recibe y clasifica en fitolito o no fitolito (fondo de la imagen).
 
 %Proyecto a realizar en colaboración con investigadores del CSIC en el que, mediante técnicas de reconocimiento automático de imágenes, se diseñará e implementará un sistema software capaz de identificar fitolitos en fotografías realizadas con microscopio. El análisis de fitolitos es una popular técnica utilizada en arqueobotánica para la identificación e interpretación de vegetales fosilizados. Gracias a la observación de los fitolitos y a la contabilidad de una determinada muestra, es posible determinar condiciones ambientales así como actividades humanas relacionadas con las plantas, tales como técnicas agrícolas empleadas o dieta, entre otras muchas. El proyecto se realizará en Python mediante la utilización del paquete scikit-learn que facilitará las labores de segmentación y reconocimiento de patrones.
 %En este primer apartado se hace una \textbf{breve} presentación del tema que se aborda en el proyecto.
@@ -453,12 +451,20 @@ Arqueobotánica, Fitolito, Reconocimiento automático de objetos, Inteligencia a
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-%A \textbf{brief} presentation of the topic addressed in the project.
+Archeobotany is the science that studies the interrelations of ancient human populations with the plant world. It tries to obtain information about the human activities related to plants such as: agriculture techniques, vegetable consumption, plant utilization or information on prehistoric vegetation environments.
+
+The objective of this project is focused on the branch of the micro-remains and, more specifically, on the phytoliths. Phytoliths are microscopic particles generated by plants, because of a vital metabolic process for them. The identification of the phytoliths allows us to obtain, among others, the information on archaeobotany mentioned above.
+
+In this project we try to solve the problem of analyzing each of the microscopic samples manually by creating a system that is able to automatically recognize the phytoliths in each of these samples.
+
+For the creation of this system, a fundamental problem was the need to possess images with the phytoliths previously identified. To this end, an image labelling tool was made which allows the experts to identify the various types of phytoliths in the samples. Due to the cost of labelling by experts, data augmentation techniques were used, such as rotations and size changes, allowing us to obtain a set of images large enough to train the classifier.
+
+In addition, during the development of this project a study of the possible techniques to carry out the automatic recognition system was carried out. As a final solution, the sliding window is used for the subdivision of an image into several cuts, which a classifier receives and classifies in phytolith or non-phytolith (background of the image).
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
 \begin{abstract}
-%keywords separated by commas.
+Archeobotany, Phytolith, Automatic object recognition, Artificial Intelligence
 \end{abstract}
 
 \clearpage
