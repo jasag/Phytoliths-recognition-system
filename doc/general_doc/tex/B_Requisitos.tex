@@ -17,6 +17,8 @@ reconocimiento automático de fitolitos con la mejor precisión y eficiencia pos
 \section{Catálogo de requisitos}
 Derivados de los objetivos anteriores, poseemos un conjunto de requisitos para el conjunto de aplicaciones resultantes de este proyecto.
 
+\subsection{Requisitos funcionales}
+
 \begin{itemize}
 	\item \textbf{RF-1} Crear un sistema capaz de reconocer fitolitos automáticamente.
 	\begin{itemize}
@@ -43,10 +45,15 @@ Derivados de los objetivos anteriores, poseemos un conjunto de requisitos para e
 	\end{itemize}
 \end{itemize}
 
+\subsection{Requisitos no funcionales}
+
+\begin{itemize}
+	\item \textbf{RNF-1} Facilidad de uso: las herramientas diseñadas para el usuario final deben ser intuitivas y fáciles de utilizar con una mínima formación.
+\end{itemize}
 
 \section{Especificación de requisitos}
 
-La especificación de requisitos será explicada mediante diagramas de casos de uso en notación UML y una tabla por cada caso de uso, la cual los explica en mayor detalle.
+La especificación de requisitos será explicada mediante diagramas de casos de uso en notación UML\footnote{UML, según sus siglas Lenguaje de Modelado Unificado, es una notación comúnmente utilizada para representar y documentar un sistema con una mayor abstracción~\cite{wiki:uml}.} y una tabla por cada caso de uso, la cual los explica en mayor detalle.
 
 \subsection{Diagramas de casos de uso}
 
@@ -139,15 +146,11 @@ La especificación de requisitos será explicada mediante diagramas de casos de 
   Descripción                            & \multicolumn{2}{p{10.25cm}}{Permite al usuario identificar los fitolitos en una imagen.} \\\hline
   \multirow{2}{3.5cm}{Requisitos}  &\multicolumn{2}{p{10.25cm}}{RF-1} \\\cline{2-3}
                                          & \multicolumn{2}{p{10.25cm}}{RF-1.1} \\\hline
-  Precondiciones                         &    \multicolumn{2}{p{10.25cm}}{Tener instalado \textit{darkflow}.}    \\\hline
+  Precondiciones                         &    \multicolumn{2}{p{10.25cm}}{}    \\\hline
   \multirow{2}{3.5cm}{Secuencia normal}  & Paso & Acción \\\cline{2-3}
                                          & 1    & El usuario escoge una imagen.
   \\\cline{2-3}
-                                         & 2    & El usuario lanza el comando o script que predice una imagen.
-  \\\cline{2-3}
-                                         & 3    & Se carga el modelo.
-    \\\cline{2-3}
-                                         & 4    & Se cargan los pesos del modelo.                                           	\\\cline{2-3}
+                                         & 2    & El usuario pulsa en el botón para predecir una nueva imagen. 	\\\cline{2-3}
                                          & 5    & Se predice la imagen. 
     \\\cline{2-3}
                                          & 6    & Se muestran los resultados. 

@@ -13,7 +13,7 @@ En este trabajo se manejan dos tipos de datos principales:
 	\item Ficheros JSON que contienen las coordenadas de las etiquetas realizadas con el etiquetador de imágenes.
 \end{itemize}
 
-Tanto las imágenes como las etiquetas de las imágenes se almacenan de manera persistente en el almacenamiento de nuestro disco duro. Para observarlas, deberemos navegar, dentro del proyecto, por la siguiente ruta de carpetas: \textit{code}, \textit{rsc}, \textit{img}. Una vez situados en la carpeta \textit{img}, nos encontraremos una serie de carpetas con el nombre de cada tipo de fitolito y una carpeta \textit{Default}\footnote{Siempre y cuando hayamos utilizado el etiquetador anteriormente.}.
+Tanto las imágenes como las etiquetas de las imágenes se almacenan de manera persistente en nuestro disco duro. Para observarlas, deberemos navegar, dentro del proyecto, por la siguiente ruta de carpetas: \textit{code}, \textit{rsc}, \textit{img}. Una vez situados en la carpeta \textit{img}, nos encontraremos una serie de carpetas con el nombre de cada tipo de fitolito y una carpeta \textit{Default}\footnote{Siempre y cuando hayamos utilizado el etiquetador anteriormente.}.
 
 La razón de la existencia de una carpeta por cada tipo de fitolito es el almacenamiento organizado de los recortes generados por el etiquetador. Almacenando en cada una de estas carpetas los recortes o imágenes correspondientes a un tipo de fitolito. 
 
@@ -75,14 +75,16 @@ Nótese que existen más variables a tener en cuenta, como el tipo de fitolito, 
 
 \subsection{Procedimiento en el \textit{notebook} para la detección de caras}
 
-El procedimiento simplificado del funcionamiento del \textit{notebook} para el reconocimiento de caras en una imagen es el mostrado en el procedimiento \ref{alg:2}.
+El procedimiento simplificado del funcionamiento del \textit{notebook} para el reconocimiento de caras en una imagen es el mostrado en el procedimiento~\ref{alg:2}.
 
 \begin{algorithm}
     Realizamos la ventana deslizante sobre la imagen.    
     
+    \ForEach{ventana}{%
     Obtenemos las características del histograma de los gradientes.
 
 	Clasificamos la imagen.    
+    }
     
     Eliminamos las ventanas redundantes con non-maximum suppression.
 
@@ -91,9 +93,33 @@ El procedimiento simplificado del funcionamiento del \textit{notebook} para el r
     \label{alg:2}
 \end{algorithm}
 
+\subsection{Procedimiento para la detección de fitolitos}
+
+El procedimiento del funcionamiento del \textit{notebook} para el reconocimiento de fitolitos en una imagen es muy similar al mostrado en~\ref{alg:2}. El procedimiento es el mostrado en~\ref{alg:3}.
+
+\begin{algorithm}
+    Realizamos la ventana deslizante sobre la imagen.    
+    
+    \ForEach{ventana}{%
+    Obtenemos las características.
+    
+    Realizamos agrupamiento sobre las características.
+    
+    Obtenemos histograma.    
+    
+    Clasificamos la imagen. 
+    }	   
+    
+    Eliminamos las ventanas redundantes con non-maximum suppression.
+
+    Mostramos la imagen con los rectángulos.
+    \caption{Procedimiento de reconocimiento de fitolitos}
+    \label{alg:3}
+\end{algorithm}
+
 \section{Diseño arquitectónico}
 
-En este apartado se representan los aspectos más relevantes a nivel de diseño arquitectónico mediante la notación UML. UML, según sus siglas Lenguaje de Modelado Unificado, es una notación comúnmente utilizada para representar y documentar un sistema con una mayor abstracción~\cite{wiki:uml}.
+En este apartado se representan los aspectos más relevantes a nivel de diseño arquitectónico mediante la notación UML.
 
 Este proyecto no contiene un diseño muy elaborado a nivel arquitectónico por dos razones fundamentales. La primera ha sido el esfuerzo requerido en la investigación y el aprendizaje de técnicas muy variadas para afrontar el problema. Hasta dar con la más adecuada. Por otro lado, la mayoría del código ha sido desarrollado en los \textit{Jupyter Notebooks}. Los cuales nos permiten interaccionar fácilmente con el código y documentarlo a su vez, aportando una fácil introducción a otros usuarios.
 
@@ -112,8 +138,8 @@ Por un lado, tenemos el módulo que se encarga de la gestión de carpetas donde 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{dia_dirs}
-\caption[Diagrama de clases para la gestión de carpetas]{Diagrama de clases de las clases encargadas de la gestión de carpetas}
+\includegraphics[width=0.4\textwidth]{dia_dirs}
+\caption{Diagrama de la clase encargada de la gestión de carpetas}
 \label{fig:C.4.2}
 \end{figure}
 
