@@ -12,29 +12,43 @@ La estructura de directorios del proyecto, en estructura de árbol, es la siguie
 		\item \textit{\textbf{code}}: contiene toda la lógica de la aplicación.
 			\begin{itemize}
 				\item \textit{\textbf{imgaug}}: repositorio para realizar \textit{Data Augmentation} con \textit{Python 2}.
+				\item \textit{\textbf{darkflow}}: repositorio para la detección de objetos en tiempo real.
 				\item \textit{\textbf{notebooks}}: contiene todos los notebooks creados para este proyecto.
-				\item \textit{\textbf{rsc}}: contiene los recursos necesarios por las distintas aplicaciones.
-				\item \textit{\textbf{src}}: contiene el notebook principal para tareas de reconocimiento. Esta carpeta aun se encuentra en desarrollo.
+				\begin{itemize}
+					\item Classifiers\_and\_HoG: contiene una serie de \textit{notebooks} para la clasificación de imágenes.
+					\item Data\_Augmentation: contiene una serie de \textit{notebooks} para tareas de \textit{data augmentation}.
+					\item Image\_Labeler: contiene el etiquetador de imágenes.
+					\item Phytoliths\_Classifier: contiene varios \textit{notebooks} en los que se muestran ejemplos de clasificación y reconocimiento de fitolitos.
+					\item Prototypes: contiene varios \textit{notebooks} prototipos.
+				\end{itemize}
+				\item \textit{\textbf{rsc}}: contiene los recursos necesarios por las distintas aplicaciones: imágenes y objetos. 
 			\end{itemize}
 		\item \textit{\textbf{doc}}: contiene la documentación del proyecto.
-			\begin{itemize}
-				\item \textit{\textbf{img}}: contiene todas las imágenes de la memoria y anexos del proyecto.
-				\item \textit{\textbf{tex}}: contiene los ficheros correspondientes a cada uno de los anexos.
-			\end{itemize}
+		\begin{itemize}
+			\item \textbf{general\_doc}: contiene la memoria y los anexos del proyecto.
+				\begin{itemize}
+					\item \textit{\textbf{img}}: contiene todas las imágenes de la memoria y anexos del proyecto.
+					\item \textit{\textbf{tex}}: contiene los ficheros correspondientes a cada uno de los anexos.
+				\end{itemize}
+			\item \textbf{source\_doc}: contiene la documentación del código.
+			\item \textbf{test\_reports}: contiene los informes de cubrimiento del código.
+		\end{itemize}
 	\end{itemize}
 \end{itemize}
 
 \section{Manual del programador}
 
+En este apartado se explican algunos aspectos sobre los dos \textit{notebooks} principales: etiquetador de imágenes y \textit{notebook} para el reconocimiento de fitolitos. Aunque sería aplicable a otros, como los desarrollados para realizar \textit{data augmentation}. 
+
 \subsection{Etiquetador de imágenes}
 
 En esta sección explicare más en detalle como funciona internamente el etiquetador.
 
-\subsubsection{Base del etiquetador: \textit{Widgets} de \textit{Python}}
+\subsubsection{Base del etiquetador: \textit{Widgets} de \textit{ipywidgets}}
 
-El etiquetador está creado mediante los \textit{Widgets} de \textit{Python}. Un \textit{Widget} es un objeto de Python con representación en navegadores. Este nos permite la comunicación entre \textit{JavaScript} y \textit{Python}. Facilitando, así, crear interfaces \textit{Web} interactivas, como es nuestro caso\cite{ipywidgets:whataarewidgets}.
+El etiquetador está creado mediante los \textit{Widgets} de \textit{ipywidgets} para \textit{Python}. Un \textit{Widget} es un objeto de Python con representación en navegadores. Este nos permite la comunicación entre \textit{JavaScript} y \textit{Python}. Facilitando, así, crear interfaces \textit{Web} interactivas, como es nuestro caso~\cite{ipywidgets:whataarewidgets}.
 
-El etiquetador de imágenes es un \textit{Widget} personalizado, el cual ha sido creado por nosotros. Pero, además, este utiliza otros \textit{Widgets} prefedefinidos por \textit{Python} para los botones.
+El etiquetador de imágenes es un \textit{Widget} personalizado, el cual ha sido creado por nosotros. Pero, además, este utiliza otros \textit{Widgets} prefedefinidos por los \textit{ipywidgets} para los botones.
 
 \subsubsection{\textit{Javascript}}
 
@@ -48,10 +62,24 @@ La parte de \textit{Python} controla toda la lógica de la aplicación. Desde qu
 
 Además, para los botones, los cuales son \textit{Widgets} de \textit{Python}, se controlan tambien sus eventos desde el propio \textit{Python}.
 
+\subsection{Reconocimiento de fitolitos}
+
+El \textit{notebook} para el reconocimiento de fitolitos ha sido creado basándonos en los \textit{widgets} predefinidos sobre los que en la sección anterior hablábamos. Por lo que la idea es similar a la anterior con la diferencia de que no se utiliza ningún \textit{widget} personalizado.
+
+En cuanto al código que se encarga de detectar los fitolitos dentro de una imagen, este se encuentra documentado en la carpeta <<doc/general\_doc>> como previamente he indicado. En la figura~\ref{fig:D.3} muestro la portada de la documentación del código. Además, para tener una mayor compresión del código, se deben de consultar los anexos de diseño procedimental y los conceptos y aspectos relevantes de la memoria.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{docex}
+\caption{Portada de la documentación del código}
+\label{fig:D.3}
+\end{figure}
+
 \section{Compilación, instalación y ejecución del proyecto}
 
-\subsection{Compilación, instalación y ejecución del  etiquetador de imágenes}
-El etiquetador no requiere de ninguna compilación. Simplemente es necesario llevar a cabo los pasos indicados en el \textit{\textit{Manual del usuario etiquetador de imágenes}} para su instalación y ejecución. Y, en ese momento, estaremos listos para modificar o mejorar el código todo lo que deseemos.
+\subsection{Compilación, instalación y ejecución}
+
+Los \textit{notebooks} llevan consigo la instalación de varias librerías, las cuales se indican en el \textit{Manual de uuario}. En ningún caso necesitan ser compilado, ni los \textit{notebooks} ni ningun fuente, al ser \textit{Python} un lenguaje interpretado.  
 
 \subsection{Procedimiento de entrenamiento de \textit{YOLO}}
 
@@ -114,6 +142,24 @@ A modo de resumen, voy a enumerar todas las opciones que nos permite escoger la 
 	\item \textit{metaLoad}: ruta del fichero .meta generado junto al fichero \textit{protobuf}.
 \end{itemize}
 
-\begin{comment}
 \section{Pruebas del sistema}
-\end{comment}
+
+En el desarrollo de cualquier sistema software es fundamental poseer una batería de teses con los cuales probar el correcto funcionamiento de nuestro sistema. En nuestro caso, desgraciadamente, el tiempo necesario para la investigación de las distintas técnicas y su aplicación nos ha dificultado en gran medida llevarlos a cabo con la perfección que nos hubiese gustado.
+
+Sin embargo, hemos realizado varios teses unitarios, incluidos en <<code/tests>>, para las distintas clases que tenemos empaquetadas. En la figura~\ref{fig:D.1} se muestra un ejemplo. Además, bajo la carpeta <<doc/test\_reports>> hay varias carpetas con los informes de cubrimiento con el aspecto mostrado en la figura~\ref{fig:D.2}.
+
+En cuanto a los \textit{Jupyter Notebooks}, sería interesante que en futuros desarrollos se utilizase un \textit{framework} para la automatización de teses de aplicaciones web como Selenium\footnote{\url{http://www.seleniumhq.org/}}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{testex}
+\caption{Ejemplo de test unitario}
+\label{fig:D.1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.99\textwidth]{covex}
+\caption{Ejemplo de test unitario}
+\label{fig:D.2}
+\end{figure}
