@@ -1,7 +1,6 @@
-#from darkflow.utils.pascal_voc_clean_xml import pascal_voc_clean_xml
 from darkflow.utils.dataset_clean_json import json_parser
 from numpy.random import permutation as perm
-from .test import preprocess
+from .predict import preprocess
 # from .misc import show
 from copy import deepcopy
 import pickle
@@ -32,7 +31,7 @@ def _batch(self, chunk):
 
     # preprocess
     jpg = chunk[0]; w, h, allobj_ = chunk[1]
-    allobj = deepcopy(allobj_)
+    allobj = None #deepcopy(allobj_)
     path = os.path.join(self.FLAGS.dataset, jpg)
     img = self.preprocess(path, allobj)
 

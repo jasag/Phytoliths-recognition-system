@@ -13,13 +13,13 @@ def _pp(l):  # pretty printing
     for i in l: print('{}: {}'.format(i, l[i]))
 
 
-def json_parser(ANN, pick, exclusive=False):
+def json_parser(ANN, pick, exclusive = False):
     print('Parsing for {} {}'.format(
         pick, 'exclusively' * int(exclusive)))
 
     dumps = list()
     cur_dir = os.getcwd()
-    os.chdir(cur_dir)
+    os.chdir(ANN)
     annotations = os.listdir('.')
     annotations = glob.glob(str(annotations) + '*.json')
     size = len(annotations)
@@ -51,10 +51,10 @@ def json_parser(ANN, pick, exclusive=False):
             for k, _ in coords_dict.items():
 
                 for rect_y, rect_y2, rect_x, rect_x2 in coords_dict[k]:
-                    current = [k, rect_x, rect_y, rect_x2, rect_y2]
-                    all += [current]
+                        current = ["Fitolito", rect_x, rect_y, rect_x2, rect_y2]
+                        all += [current]
 
-                add = [[jpg, [w, h, all]]]
+                add = [[image_name, [w, h, all]]]
                 dumps += add
 
     # gather all stats
