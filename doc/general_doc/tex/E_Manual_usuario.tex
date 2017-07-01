@@ -14,8 +14,20 @@ Los requisitos \textit{software} necesarios para poder ejecutar las aplicaciones
 	\item IPython File Upload. Siguiendo los pasos de instalación en \url{https://github.com/peteut/ipython-file-upload}.
 
 	\item \textit{Jupyter Dashboards}. Siguiendo los pasos de instalación en \url{https://github.com/jupyter/dashboards}.
-
-	\item Este proyecto se puede descargar o clonar desde el siguiente enlace al repositorio:\\ \url{https://github.com/jasag/Phytoliths-recognition-system}. Entrando, preferiblemente, en la pestaña de \textit{Releases} y descargando el zip \textit{v0.1.0}. Véase la figura \ref{fig:E.4.0}.
+	
+	\item La instalación de las librerías, mediante el administrador de paquetes \textit{pip} o \textit{conda}, que en algunas ocasiones se encuentran pre-instaladas\footnote{Existe un caso especial, como es la herramienta de \textit{data augmentation} para \textit{Python 2} que lleva consigo instalación de esa versión con todas sus librerías. Por lo que se aconseja la utilización de las otras herramientas desarrolladas para ser operativas con \textit{Python 3}.}
+	\begin{multicols}{2}
+	\begin{itemize}
+		\item \textit{scikit-learn}
+		\item \textit{scikit-image}
+		\item \textit{Matplotlib}
+		\item \textit{numpy}
+		\item \textit{traitlets}
+		\item \textit{ipywidgets}
+		\item \textit{Pillow}
+	\end{itemize}
+	\end{multicols}
+	\item Este proyecto se puede descargar o clonar desde el siguiente enlace al repositorio:\\ \url{https://github.com/jasag/Phytoliths-recognition-system}. Entrando, preferiblemente, en la pestaña de \textit{Releases} y descargando el <<source/code>>. Véase la figura \ref{fig:E.4.0}.
 
 \end{itemize}
 
@@ -28,10 +40,10 @@ Los requisitos \textit{software} necesarios para poder ejecutar las aplicaciones
 
 \section{Manual del usuario}
 
-En esta sección se explicarán los distintos aspectos a tener en cuenta en el uso de los distintos productos.
+En esta sección se explicarán los distintos aspectos a tener en cuenta en el uso de el etiquetador y el \textit{notebook} para el reconocimiento de fitolitos.
 
 \subsection{Manual del usuario: etiquetador de imágenes}
-
+\label{iluser}
 Una vez completados satisfactoriamente los pasos anteriores,  ejecutamos \textit{Jupyter Notebook} desde \textit{Anaconda}\footnote{ Si es la primera vez que utilizas Anaconda es recomendable utilizar Anaconda Navigator. Ya que este nos facilitará ejecutar \textit{Jupyter Notebook}, sin el uso de la linea comandos.}. Y desde esta aplicación, abrimos el \textit{notebook} \textit{Image\_Labeler.ipynb}, en la carpeta \textit{code/notebooks} dentro de este proyecto previamente descargado.
 
 Con \textit{Image\_Labeler.ipynb} ya abierto, tendremos que navegar por la barra de navegación del \textit{notebook} para llevar a cabo los dos siguientes pasos:
@@ -57,7 +69,7 @@ Con \textit{Image\_Labeler.ipynb} ya abierto, tendremos que navegar por la barra
 
 Una vez realizados los pasos anteriores, tendremos como resultado la pantalla inicial del etiquetador, tal y como se observa en la figura \ref{fig:E.4.3}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.99\textwidth]{etiquetador_de_imagenes_antes_de_cargar_imagen_v1}
 \caption{Etiquetador de imágenes}
@@ -161,21 +173,21 @@ Se han incluido en el etiquetador una serie de notificaciones, las cuales nos pe
 
 Gracias a estas notificaciones podremos saber si la imagen que hemos seleccionado era correcta, o no, y si las etiquetas ya han sido guardadas.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.60\textwidth]{notificacion_carga_de_imagen_correctamente}
 \caption{Notificación en la carga de una imagen}
 \label{fig:E.4.8.1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.70\textwidth]{notificacion_carga_de_imagen_incorrectamente}
 \caption[Notificación en la carga incorrecta]{Notificación en la carga incorrecta de un fichero que no sea una imagen}
 \label{fig:E.4.8.2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.70\textwidth]{notificacion_guardado_correctamente}
 \caption{Notificación en el guardado de etiquetas}
@@ -185,3 +197,35 @@ Gracias a estas notificaciones podremos saber si la imagen que hemos seleccionad
 \subsubsection{Bloqueo del etiquetador}
 
 En algunas ocasiones, y por razones que desconozco hasta el momento, el etiquetador puede bloquearse al cargar imágenes previamente etiquetadas. Para solucionar este problema, basta con recargar el etiquetador, yendo a la barra de navegación, navegando por \textit{Cell} y finalmente clicando en \textit{Run All}. Como hicimos en la puesta en marcha del etiquetador.
+
+\subsection{Manual del usuario: \textit{notebook} para el reconocimiento de fitolitos}
+
+La mayoría de los pasos anteriores son aplicables para este \textit{notebook}. En este caso, su nombre es \textit{Phytoliths\_Recognition\_UI.ipynb}, en la carpeta code/notebooks. Para su ejecución y puesta a punto simplemente hay que llevar a cabo los pasos equivalentes a los indicados para el etiquetador~\ref{iluser}: abrimos el \textit{notebook}, ejecutamos todas la celdas y activamos el \textit{Dashboard Preview}. Hay que destacar que este se ha creado con el objetivo de que los usuarios experimenten con las técnicas empleadas y con los distintos parámetros. Aunque los parámetros establecidos por defecto son los que mejores resultados nos han otorgado. Véase la figura~\ref{fig:E.4.8.4}. Los parámetros a los que hago referencia son:
+
+\begin{itemize}
+	\item \textbf{Reescalado}: factor de reescalado de 0 a 1 de la imagen.
+	\item \textbf{Altura de la ventana}: altura de la ventana deslizante.
+	\item \textbf{Ancho de la ventana}: ancho de la ventana deslizante.
+	\item \textbf{Salto horizontal}: salto horizontal de la ventana deslizante.
+	\item \textbf{Salto vertical}: salto vertical de la ventana deslizante.
+	\item \textbf{Factor de solapamiento}: factor de solapamiento utilizado por la técnica \textit{non-maximum suppression}.
+	\item \textbf{Probabilidades fitolito}: probabilidades mínimas de las ventanas que se mostrarán como fitolito.
+	\item \textbf{\textit{Browse}}: botón mediante el que escoger una nueva imagen a predecir.
+	\item \textbf{Reconocer}: botón mediante el que se predice y muestra una imagen.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{ilparameters}
+\caption[Parámetros para el reconocimiento de fitolitos]{Parámetros ajustables para el reconocimiento de fitolitos}
+\label{fig:E.4.8.4}
+\end{figure}
+
+Para finalizar, en la figura \ref{fig:E.4.8.5} muestro una captura del \textit{notebook}.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{reconocimiento}
+\caption{\textit{Notebook} para el reconocimiento automático de fitolitos}
+\label{fig:E.4.8.5}
+\end{figure}
