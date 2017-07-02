@@ -15,10 +15,13 @@
 \usepackage{subcaption}
 
 % Links
+%\usepackage[hidelinks]{hyperref}
+% Links
+\PassOptionsToPackage{hyphens}{url}%
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
 	allcolors = {blue}
-}
+}	
 
 % Ecuaciones
 \usepackage{amsmath}
@@ -432,7 +435,7 @@ El objetivo de este proyecto se centra en la rama de los micro-restos y, más en
 
 En este proyecto tratamos de solucionar la problemática de analizar cada una de las muestras microscópicas manualmente mediante la creación de un sistema que sea capaz de reconocer de forma automática los fitolitos en cada una de estas muestras.
 
-Para la creación de este sistema se planteaba un problema fundamental consistente en la necesidad de poseer imágenes con los fitolitos previamente identificados. Con este objetivo se realizó un etiquetador de imágenes que permite a los expertos etiquetar los diversos tipos de fitolitos en las muestras. Debido al coste de los expertos etiquetando, se utilizaron técnicas de data augmentation, como rotaciones y cambios de tamaño, nos permitieron obtener un conjunto de imágenes lo suficientemente grandes para entrenar el clasificador.
+Para la creación de este sistema se planteaba un problema fundamental consistente en la necesidad de poseer imágenes con los fitolitos previamente identificados. Con este objetivo se realizó un etiquetador de imágenes que permite a los expertos etiquetar los diversos tipos de fitolitos en las muestras. Debido al coste de los expertos etiquetando, se utilizaron técnicas de data augmentation, como rotaciones y cambios de tamaño, que nos permitieron obtener un conjunto de imágenes lo suficientemente grande para entrenar el clasificador.
 
 Adicionalmente, durante el desarrollo de este proyecto se realizó un estudio de las posibles técnicas para llevar a cabo el sistema de reconocimiento automático. Aplicándose, como solución final, la ventana deslizante para la subdivisión de una imagen en varios recortes, los cuales un clasificador recibe y clasifica en fitolito o no fitolito (fondo de la imagen).
 

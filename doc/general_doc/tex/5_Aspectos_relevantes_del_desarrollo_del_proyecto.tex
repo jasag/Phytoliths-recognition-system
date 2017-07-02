@@ -128,6 +128,8 @@ Como podemos apreciar en la figura \ref{fig:sliding_window}, primero la ventana 
 \label{fig:sliding_window}
 \end{figure}
 
+Después de completar el recorrido, cada uno de los recortes resultantes se envía a un clasificador, el cual distingue a que clase pertenece el recorte. Por ejemplo, fitolito o no fitolito (fondo de la imagen).
+
 El primer conjunto de técnicas escogidas ha sido una Máquina de Vector Soporte (SVM)~\cite{svm} junto al Histograma de los gradientes orientados, la cual es una técnica para la extracción automática de características. Sin embargo, se analizaron distintas técnicas para adoptar la que mejor se adapte a nuestra problemática.
 
 El procedimiento para obtener el clasificador es el siguiente:
@@ -179,7 +181,7 @@ Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviam
 	\label{fig:5.1.4}
 \end{figure}
 
-\section{Conclusiones}
+\subsection{Conclusiones}
 
 El método utilizado en esta sección se encuentra muy limitado por los siguientes aspectos:
 
@@ -234,11 +236,11 @@ A continuación, se explica como hemos llegado al mejor clasificador para llevar
 
 Para conseguir la mayor precisión posible, el primer paso consiste en conseguir el clasificador que mejor se ajuste a este problema. Para llevar a cabo esta tarea fundamental se prueban 11 clasificadores distintos, realizando cambios en sus parámetros y finalmente validando sus resultados mediante validación cruzada\footnote{Consiste en la evaluación de los resultados haciendo subdivisiones aleatorias entre el conjunto de datos para la evaluación y el entrenamiento. De manera que se consigan unos resultados que se asemejen lo máximo a los que conseguiremos en la práctica.}. De manera que lleguemos a la configuración que mejor se ajuste a este problema.
 
-Para comprobar cual es la mejor combinación de parámetros posible dado un clasificador se utiliza un método de \textit{scikit-learn} que asigna combinaciones aleatorias entre los valores dados. Pudiéndose utilizar alternativamente la búsqueda en malla con resultados similares pero con una lentitud mucho mayor.
+Para comprobar cual es la mejor combinación de parámetros posible dado un clasificador se utiliza un método de \textit{scikit-learn} que asigna combinaciones aleatorias entre los valores dados. Pudiéndose utilizar alternativamente la búsqueda en malla con resultados similares pero con una lentitud mucho mayor\footnote{Búsqueda en malla:~\url{http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html} y búsqueda aleatoria:~\url{www.scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html}.}.
 
 \subsection{Resultados experimentales}
 
-Antes de comenzar a analizar los resultados, en esta primera versión vamos a barajar dos posibilidades: clasificar únicamente los fitolitos o clasificar las distintas categorías. 
+Antes de comenzar a analizar los resultados, en esta primera versión vamos a barajar dos posibilidades: clasificar si una región es fitolito o no, o clasificar si una región es uno de los distintos tipos de fitolito o no, diferenciándolos entre sí. 
 
 Por otro lado, en este apartado vamos a analizar los resultados obtenidos en la evaluación de los distintos clasificadores y en el reconocimiento de fitolitos.
 
@@ -249,7 +251,7 @@ Como previamente comentábamos, para la obtención del mejor clasificador utiliz
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth]{cross_val}
-\caption{Resultados de la validación cruzada con las clases fitolito y no fitolito}
+\caption[Resultados de la validación cruzada con las clases fitolito y no fitolito]{Resultados de la validación cruzada con las clases fitolito y no fitolito. Algunos de los clasificadores se repiten por el hecho de que son resultados con distintos ajustes en los parámetros, tales como: el número de \textit{clusters} y clasificadores base, entre otros.}
 \label{fig:cross_val}
 \end{figure}
 
