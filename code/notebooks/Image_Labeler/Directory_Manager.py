@@ -83,7 +83,7 @@ class Directory_Manager():
 
     def get_default_dir(self):
         """ Método que devuelve la ruta del
-         directorio por defecto.
+        directorio por defecto.
         
         :return: ruta del directorio por defecto
         """
@@ -93,7 +93,7 @@ class Directory_Manager():
         """ Método que devuelve la ruta sobre 
         la que cuelgan todos los directorios.
         
-        :return: ruta sobre la que cuelgan todos 
+        :return: ruta sobre la que cuelgan todos \
         los directorios
         """
         return self._path_cte

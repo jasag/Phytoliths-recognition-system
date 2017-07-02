@@ -3,7 +3,7 @@ from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
 import pickle
 
-PHYTOLITHS_TYPES = ['Phytolith', 'Background']
+PHYTOLITHS_TYPES = ['ph', 'bk']
 NUM_CENTERS = 500
 
 imgs_path = '../../../rsc/img'
@@ -20,7 +20,6 @@ phy_cls = Phytoliths_Classifier()
 print("Comenzando a obtener el conjunto de datos.")
 X, y = phy_cls.get_data(path=imgs_path, classes= PHYTOLITHS_TYPES)
 print("Finalizada la obtención de los conjuntos de datos.")
-
 
 print("Las clases estan en el siguiente orden:")
 print(phy_cls.get_classes())

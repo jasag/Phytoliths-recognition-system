@@ -118,7 +118,7 @@ class Phytoliths_Recognition:
     def non_max_suppression(self, boxes, probs=None, overlapThresh=0.3):
         """Método que se encarga de la realización
         de non-maximum suppression sobre un conjunto
-        de ventanas. Obtenido de <https://github.com/jrosebr1/imutils/
+        de ventanas. Obtenido de <https://github.com/jrosebr1/imutils/\
         blob/master/imutils/object_detection.py>
         
         :param probs: probabilidades
@@ -195,8 +195,8 @@ class Phytoliths_Recognition:
         ventanas.
         
         :param image: imagen
-        :param required_probs: probabilidades minimas de las 
-        ventanas a considerar.
+        :param required_probs: probabilidades minimas \
+        de las ventanas a considerar.
         :param rescale_factor: factor de reescalado
         :param overlapThresh: umbral de solapamiento 
         :return: coordenadas de las ventanas
@@ -215,9 +215,10 @@ class Phytoliths_Recognition:
                                         overlapThresh=overlapThresh)
 
     def plot(self, image, boxes):
-        fig = plt.figure()
+        fig = plt.figure(figsize=(7,10))
 
         ax = fig.add_subplot(111)
+        ax.axis('off')
         ax.imshow(image, cmap=plt.get_cmap('gray'))
 
         for box in boxes:

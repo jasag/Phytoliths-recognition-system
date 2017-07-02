@@ -32,7 +32,7 @@ from sklearn.neighbors import KNeighborsClassifier
 #########################################################################
 PATH = '../../../rsc/obj/'
 EXT = '.sav'
-NUM_CENTERS = [600, 550, 500, 400, 300, 200, 150, 100, 25, 10] # Número de centros del cluster
+NUM_CENTERS = [500, 400, 300, 200, 150, 100, 25, 10] # Número de centros del cluster
 PHYTOLITHS_TYPES = ['Phytolith', 'Background']
 
 # Especificación de parametros y distribuciones
@@ -45,7 +45,8 @@ param_dist = {
         "alpha": [0.1, 0.2, 0.5, 1, 1.5, 2]
     },
     "AB": {
-        "base_estimator":  [DecisionTreeClassifier(max_depth=4),
+        "base_estimator":  [GaussianNB(),
+                            DecisionTreeClassifier(max_depth=4),
                             DecisionTreeClassifier(max_depth=8),
                             DecisionTreeClassifier(max_depth=16)],
         "n_estimators": [150, 300, 600, 900],
@@ -159,20 +160,20 @@ def report(results, n_top=3):
 #########################################################################
 # DEFINICIÓN DE CLASIFICADORES
 #########################################################################
-classifiers = {"KN": KNeighborsClassifier(),
+classifiers = {#"KN": KNeighborsClassifier(),
                # linear_model.LinearRegression(),
                #  GaussianNB No tiene parametros, por lo tanto comprobar por separado.
-               "GNB": GaussianNB(),
-               "MNB": MultinomialNB(),
+               #"GNB": GaussianNB(),
+               #"MNB": MultinomialNB(),
                "AB": AdaBoostClassifier(),
-               "QDA": QuadraticDiscriminantAnalysis(),
+               #"QDA": QuadraticDiscriminantAnalysis(),
                #"MLP": MLPClassifier(alpha=1e-4, verbose=10),
-               "DTC": DecisionTreeClassifier(),
-               "GB": GradientBoostingClassifier(),
-               "RF": RandomForestClassifier(),
-               "GP": GaussianProcessClassifier(kernel=1.0 * RBF(1.0)),
-               "SVM": svm.SVC(probability=True),
-               "LSVM": svm.LinearSVC()
+               #"DTC": DecisionTreeClassifier(),
+               #"GB": GradientBoostingClassifier(),
+               #"RF": RandomForestClassifier(),
+               #"GP": GaussianProcessClassifier(kernel=1.0 * RBF(1.0)),
+               #"SVM": svm.SVC(probability=True),
+               #"LSVM": svm.LinearSVC()
                }
 
 #########################################################################

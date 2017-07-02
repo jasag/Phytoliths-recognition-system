@@ -73,16 +73,16 @@ class Phytoliths_Classifier:
         return train_features, all_features
 
     def get_features_cluster(self, X_train, num_centers,
-                             cluster= KMeans, descriptor = daisy):
+                             cluster= KMeans, descriptor = daisy, pretrained = False):
         """Método responsable de obtener el 
         cluster y las caracterísiticas dado 
         un conjunto de imágenes y número 
         de centros para los clusters.
         
         :param X_train: conjunto de imágenes
-        :param num_centers: número de centros 
+        :param num_centers: número de centros \
         para el cluster
-        :return: cluster y conjunto de entrenamiento 
+        :return: cluster y conjunto de entrenamiento \
         (características)
         """
         train_features, all_features = self.whole_features_extractor(X_train,
@@ -90,8 +90,9 @@ class Phytoliths_Classifier:
 
         # Se inicializa el algoritmo de Kmeans
         # indicando el número de clusters
-        warnings.filterwarnings("ignore")
-        cluster = cluster(num_centers)
+        if pretrained == False:
+            warnings.filterwarnings("ignore")
+            cluster = cluster(num_centers)
 
         # Se construye el cluster con todas las
         # características del conjunto de entramiento
@@ -160,9 +161,9 @@ class Phytoliths_Classifier:
                                                   probability=True)):
         """Método encargado de obtener un
         clasificador entrenado dado el
-         conjunto de características, las
-         predicciones y opcionalmente el 
-         clasificador.
+        conjunto de características, las
+        predicciones y opcionalmente el 
+        clasificador.
         
         :param trainInstances: conjunto de características
         :param y_train: predicciones
@@ -180,7 +181,7 @@ class Phytoliths_Classifier:
         :param cls: clasificador
         :param cluster: cluster
         :param imgTest: imagen 
-        :return: vector de predicciones 
+        :return: vector de predicciones \
         correspondiente a cada clase
         """
         imgFeatures = self.features_extractor(imgTest, descriptor)
@@ -213,7 +214,7 @@ class Phytoliths_Classifier:
         
         :param cluster: cluster
         :param X: conjunto de imágenes
-        :param y_true: clases correspondientes 
+        :param y_true: clases correspondientes \
         a las imágenes
         :return: precisión
         """
