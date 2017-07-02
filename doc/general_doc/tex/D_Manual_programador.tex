@@ -1,7 +1,7 @@
 \apendice{Documentación técnica de programación}
 
 \section{Introducción}
-En este anexo se introducirá todos los directorios, \textit{notebooks} y documentación útil necesaria para las personas que deseen continuar o trabajar en el proyecto.
+En este anexo se introducirán todos los directorios, \textit{notebooks} y documentación útil necesaria para las personas que deseen continuar o trabajar en el proyecto.
 
 \section{Estructura de directorios}
 La estructura de directorios del proyecto, en estructura de árbol, es la siguiente:
@@ -53,11 +53,11 @@ El etiquetador de imágenes es un \textit{Widget} personalizado, el cual ha sido
 
 La parte de código \textit{JavaScript} se ocupa de representar todos los elementos visuales y capturar los eventos.
 
-En cuanto a elementos visuales, nos referimos al SVG, la imagen, rectangulos o etiquetas y textos. Los cuales son elementos \textit{HTML}. Y, en cuanto a eventos, nos referimos a los clicks o movimientos del ratón sobre nuestros elementos \textit{HTML}.
+En cuanto a elementos visuales, nos referimos al SVG, la imagen, rectángulos o etiquetas y textos. Los cuales son elementos \textit{HTML}. Y, en cuanto a eventos, nos referimos a los clicks o movimientos del ratón sobre nuestros elementos \textit{HTML}.
 
 \subsubsection{\textit{Python}}
 
-La parte de \textit{Python} controla toda la lógica de la aplicación. Desde que imagen se muestra, hasta las conversiones de las coordenadas de la imagen entre la vista y la imagen real.
+La parte de \textit{Python} controla toda la lógica de la aplicación. Desde qué imagen se muestra, hasta las conversiones de las coordenadas de la imagen entre la vista y la imagen real.
 
 Además, para los botones, los cuales son \textit{Widgets} de \textit{Python}, se controlan tambien sus eventos desde el propio \textit{Python}.
 
@@ -65,7 +65,7 @@ Además, para los botones, los cuales son \textit{Widgets} de \textit{Python}, s
 
 El \textit{notebook} para el reconocimiento de fitolitos ha sido creado basándonos en los \textit{widgets} predefinidos sobre los que en la sección anterior hablábamos. Por lo que la idea es similar a la anterior con la diferencia de que no se utiliza ningún \textit{widget} personalizado.
 
-En cuanto al código que se encarga de detectar los fitolitos dentro de una imagen, este se encuentra documentado en la carpeta <<doc/general\_doc>> como previamente he indicado. En la figura~\ref{fig:D.3} muestro la portada de la documentación del código. Además, para tener una mayor compresión del código, se deben de consultar los anexos de diseño procedimental y los conceptos y aspectos relevantes de la memoria.
+En cuanto al código que se encarga de detectar los fitolitos dentro de una imagen, este se encuentra documentado en la carpeta \texttt{doc/general\_doc} como previamente he indicado. En la figura~\ref{fig:D.3} muestro la portada de la documentación del código. Además, para tener una mayor compresión del código, se deben de consultar los anexos de diseño procedimental y los conceptos y aspectos relevantes de la memoria.
 
 \begin{figure}
 \centering
@@ -78,7 +78,7 @@ En cuanto al código que se encarga de detectar los fitolitos dentro de una imag
 
 \subsection{Compilación, instalación y ejecución}
 
-Los \textit{notebooks} llevan consigo la instalación de varias librerías, las cuales se indican en el \textit{Manual de uuario}. En ningún caso necesitan ser compilado, ni los \textit{notebooks} ni ningun fuente, al ser \textit{Python} un lenguaje interpretado.  
+Los \textit{notebooks} llevan consigo la instalación de varias librerías, las cuales se indican en el \textit{Manual de usuario}. En ningún caso necesitan ser compilado, ni los \textit{notebooks} ni ningún fuente, al ser \textit{Python} un lenguaje interpretado.  
 
 \subsection{Procedimiento de entrenamiento de \textit{YOLO}}
 
@@ -91,7 +91,7 @@ Para realizar el entrenamiento de \textit{YOLO}, \textit{darkflow} nos provee de
 
 La ventaja de utilizar unos pesos pre-entrenados reside en que la red neuronal ya habrá aprendido ciertas características, como bordes o formas. Por lo tanto, el tiempo de entrenamiento será mucho menor. Pero puede que la reutilización de dicho modelo no se adecue a nuestras necesidades ya sea porque tengamos un número distinto de clases al modelo inicial o porque el contexto sea totalmente distinto.
 
-Por otro lado, se encuentra el entrenamiento desde cero de un nuevo modelo que se adecue a nuestras necesidades. El cual suple las desventajas presentadas por la anterior opción, pero introduce una mayor complejidad a la hora del entrenamiento.
+Por otro lado, se encuentra el entrenamiento desde cero de un nuevo modelo que se adecúe a nuestras necesidades. El cual suple las desventajas presentadas por la anterior opción, pero introduce una mayor complejidad a la hora del entrenamiento.
 
 En cualquier caso, los dos siguientes ejemplos, correspondientes a las opciones planteadas, nos permitirían entrenar el modelo:
 
@@ -99,9 +99,11 @@ En cualquier caso, los dos siguientes ejemplos, correspondientes a las opciones 
 flow --train --model cfg/yolo-tiny.cfg
  --load bin/yolo-tiny.weights
  --dataset "Fitolitos" --annotation "Fitolitos"
+\end{verbatim}
 
 o
 
+\begin{verbatim}
 flow --model cfg/yolo-new.cfg --train
  --dataset "Fitolitos" --annotation "Fitolitos"
 \end{verbatim}
@@ -145,7 +147,7 @@ A modo de resumen, voy a enumerar todas las opciones que nos permite escoger la 
 
 En el desarrollo de cualquier sistema software es fundamental poseer una batería de teses con los cuales probar el correcto funcionamiento de nuestro sistema. En nuestro caso, desgraciadamente, el tiempo necesario para la investigación de las distintas técnicas y su aplicación nos ha dificultado en gran medida llevarlos a cabo con la perfección que nos hubiese gustado.
 
-Sin embargo, hemos realizado varios teses unitarios, incluidos en <<code/tests>>, para las distintas clases que tenemos empaquetadas. En la figura~\ref{fig:D.1} se muestra un ejemplo. Además, bajo la carpeta <<doc/test\_reports>> hay varias carpetas con los informes de cubrimiento con el aspecto mostrado en la figura~\ref{fig:D.2}.
+Sin embargo, hemos realizado varios test unitarios, incluidos en <<code/tests>>, para las distintas clases que tenemos empaquetadas. En la figura~\ref{fig:D.1} se muestra un ejemplo. Además, bajo la carpeta <<doc/test\_reports>> hay varias carpetas con los informes de cubrimiento con el aspecto mostrado en la figura~\ref{fig:D.2}.
 
 En cuanto a los \textit{Jupyter Notebooks}, sería interesante que en futuros desarrollos se utilizase un \textit{framework} para la automatización de teses de aplicaciones web como Selenium\footnote{\url{http://www.seleniumhq.org/}}.
 

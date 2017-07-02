@@ -27,13 +27,13 @@ Los requisitos \textit{software} necesarios para poder ejecutar las aplicaciones
 		\item \textit{Pillow}
 	\end{itemize}
 	\end{multicols}
-	\item Este proyecto se puede descargar o clonar desde el siguiente enlace al repositorio:\\ \url{https://github.com/jasag/Phytoliths-recognition-system}. Entrando, preferiblemente, en la pestaña de \textit{Releases} y descargando el <<source/code>>. Véase la figura \ref{fig:E.4.0}.
+	\item Este proyecto se puede descargar o clonar desde el siguiente enlace al repositorio:\\ \url{https://github.com/jasag/Phytoliths-recognition-system}. Entrando, preferiblemente, en la pestaña de \textit{Releases} y descargando el <<source code>>. Véase la figura \ref{fig:E.4.0}.
 
 \end{itemize}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.40\textwidth]{v010}
+\includegraphics[width=0.80\textwidth]{v010}
 \caption{Primera versión del etiquetador}
 \label{fig:E.4.0}
 \end{figure}
@@ -44,7 +44,7 @@ En esta sección se explicarán los distintos aspectos a tener en cuenta en el u
 
 \subsection{Manual del usuario: etiquetador de imágenes}
 \label{iluser}
-Una vez completados satisfactoriamente los pasos anteriores,  ejecutamos \textit{Jupyter Notebook} desde \textit{Anaconda}\footnote{ Si es la primera vez que utilizas Anaconda es recomendable utilizar Anaconda Navigator. Ya que este nos facilitará ejecutar \textit{Jupyter Notebook}, sin el uso de la linea comandos.}. Y desde esta aplicación, abrimos el \textit{notebook} \textit{Image\_Labeler.ipynb}, en la carpeta \textit{code/notebooks} dentro de este proyecto previamente descargado.
+Una vez completados satisfactoriamente los pasos anteriores,  ejecutamos \textit{Jupyter Notebook} desde \textit{Anaconda}\footnote{ Si es la primera vez que utilizas Anaconda es recomendable utilizar Anaconda Navigator. Ya que este nos facilitará ejecutar \textit{Jupyter Notebook}, sin el uso de la linea comandos.}. Y desde esta aplicación, abrimos el \textit{notebook} \textit{Image\_Labeler.ipynb}, en la carpeta \texttt{code/notebooks} dentro de este proyecto previamente descargado.
 
 Con \textit{Image\_Labeler.ipynb} ya abierto, tendremos que navegar por la barra de navegación del \textit{notebook} para llevar a cabo los dos siguientes pasos:
 
@@ -137,7 +137,7 @@ A su vez, y para facilitarnos distinguir a que tipo de fitolito pertenece cada e
 
 \subsubsection{Realizar etiquetas}
 
-Una vez cargada la imagen en el etiquetador, y comprendido el uso de los botones de selección de tipo de fitolito, podemos comenzar a  etiquetar fitolitos. Para etiquetar, basta con clicar en la imagen, definiendo una esquina del rectangulo, mover el ratón hacía donde deseemos y volver a clicar, definiendo la otra esquina de este. Para, así, definir una etiqueta como la que se puede ver en la figura \ref{fig:E.4.6}.
+Una vez cargada la imagen en el etiquetador, y comprendido el uso de los botones de selección de tipo de fitolito, podemos comenzar a  etiquetar fitolitos. Para etiquetar, basta con clicar en la imagen, definiendo una esquina del rectángulo, mover el ratón hacía donde deseemos y volver a clicar, definiendo la otra esquina de este. Para, así, definir una etiqueta como la que se puede ver en la figura \ref{fig:E.4.6}.
 
 \subsubsection{Eliminar etiquetas}
 
@@ -155,11 +155,11 @@ En la versión actual del etiquetador, este te permite realizar etiquetas fuera 
 
 Por lo tanto, debemos de tener en cuenta que las etiquetas que no tengan todas sus aristas dentro de la imagen no se guardan.
 
-Aun así, en la siguiente sección explicaré como comprobar que las etiquetas previamente realizadas han sido guardadas.
+Aún así, en la siguiente sección explicaré como comprobar que las etiquetas previamente realizadas han sido guardadas.
 
 \subsubsection{Carga de etiquetas previamente realizadas}
 
-Las imágenes etiquetadas se guardan en la carpeta \textit{/code/rsc/img} dentro de la carpeta contenedora del proyecto. Al cargar imágenes que se encuentren dentro de esta carpeta, las etiquetas previamente realizadas sobre estas imágenes se cargarán con ellas\footnote{Nótese que los nombres de las imágenes no son los cargados originalmente, ya que todas las imágenes etiquetadas son renombradas para no sobrescribir imágenes previamente etiquetadas con nombres iguales.}. Esto nos permitirá poder añadir nuevas etiquetas a imágenes ya procesadas, modificarlas o eliminarlas.
+Las imágenes etiquetadas se guardan en la carpeta \texttt{/code/rsc/img} dentro de la carpeta contenedora del proyecto. Al cargar imágenes que se encuentren dentro de esta carpeta, las etiquetas previamente realizadas sobre estas imágenes se cargarán con ellas\footnote{Nótese que los nombres de las imágenes no son los cargados originalmente, ya que todas las imágenes etiquetadas son renombradas para no sobrescribir imágenes previamente etiquetadas con nombres iguales.}. Esto nos permitirá poder añadir nuevas etiquetas a imágenes ya procesadas, modificarlas o eliminarlas.
 
 \subsubsection{Notificaciones}
 
@@ -200,7 +200,7 @@ En algunas ocasiones, y por razones que desconozco hasta el momento, el etiqueta
 
 \subsection{Manual del usuario: \textit{notebook} para el reconocimiento de fitolitos}
 
-La mayoría de los pasos anteriores son aplicables para este \textit{notebook}. En este caso, su nombre es \textit{Phytoliths\_Recognition\_UI.ipynb}, en la carpeta code/notebooks. Para su ejecución y puesta a punto simplemente hay que llevar a cabo los pasos equivalentes a los indicados para el etiquetador~\ref{iluser}: abrimos el \textit{notebook}, ejecutamos todas la celdas y activamos el \textit{Dashboard Preview}. Hay que destacar que este se ha creado con el objetivo de que los usuarios experimenten con las técnicas empleadas y con los distintos parámetros. Aunque los parámetros establecidos por defecto son los que mejores resultados nos han otorgado. Véase la figura~\ref{fig:E.4.8.4}. Los parámetros a los que hago referencia son:
+La mayoría de los pasos anteriores son aplicables para este \textit{notebook}. En este caso, su nombre es \textit{Phytoliths\_Recognition\_UI.ipynb}, en la carpeta \texttt{code/notebooks}. Para su ejecución y puesta a punto simplemente hay que llevar a cabo los pasos equivalentes a los indicados para el etiquetador~\ref{iluser}: abrimos el \textit{notebook}, ejecutamos todas la celdas y activamos el \textit{Dashboard Preview}. Hay que destacar que este se ha creado con el objetivo de que los usuarios experimenten con las técnicas empleadas y con los distintos parámetros. Aunque los parámetros establecidos por defecto son los que mejores resultados nos han dado. Véase la figura~\ref{fig:E.4.8.4}. Los parámetros a los que hago referencia son:
 
 \begin{itemize}
 	\item \textbf{Reescalado}: factor de reescalado de 0 a 1 de la imagen.

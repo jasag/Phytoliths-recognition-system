@@ -69,7 +69,7 @@ El procedimiento muy simplificado del funcionamiento del etiquetador cuando se c
     \label{alg:1}
 \end{algorithm}
 
-Una vez cargada la imagen, como indico finalmente, se escuchan los eventos del ratón. En concreto, los \textit{clicks} y movimientos de este sobre el SVG. Ya que la creación de los rectangulos, o etiquetas, sobre la imagen se hacen a partir de dichos eventos. Para ello, se poseen dos \textit{listeners}, u observadores de eventos, uno para cada evento. Los \textit{clicks} se utilizan para la creación de un nuevo rectángulo o su finalización. Y los movimientos del ratón, una vez hecho un primer click\footnote{De manera que hayamos creado el rectángulo.}, permiten redimensionar el rectángulo de manera totalmente intuitiva.
+Una vez cargada la imagen, como indico finalmente, se escuchan los eventos del ratón. En concreto, los \textit{clicks} y movimientos de este sobre el SVG. Ya que la creación de los rectángulos, o etiquetas, sobre la imagen se hacen a partir de dichos eventos. Para ello, se poseen dos \textit{listeners}, u observadores de eventos, uno para cada evento. Los \textit{clicks} se utilizan para la creación de un nuevo rectángulo o su finalización. Y los movimientos del ratón, una vez hecho un primer click\footnote{De manera que hayamos creado el rectángulo.}, permiten redimensionar el rectángulo de manera totalmente intuitiva.
 
 Nótese que existen más variables a tener en cuenta, como el tipo de fitolito, el cual determina el directorio donde se guardará el recorte obtenido de la etiqueta y como se almacenan las coordenadas en el fichero \textit{JSON}, entre otras. Pero lo que se intenta realizar en este apartado es una explicación simplificada del procedimiento.
 
@@ -86,7 +86,7 @@ El procedimiento simplificado del funcionamiento del \textit{notebook} para el r
 	Clasificamos la imagen.    
     }
     
-    Eliminamos las ventanas redundantes con non-maximum suppression.
+    Eliminamos las ventanas redundantes con \textit{non-maximum suppression}.
 
     Mostramos la imagen con los rectángulos.
     \caption{Procedimiento de funcionamiento del etiquetador}
@@ -95,7 +95,7 @@ El procedimiento simplificado del funcionamiento del \textit{notebook} para el r
 
 \subsection{Procedimiento para la detección de fitolitos}
 
-El procedimiento del funcionamiento del \textit{notebook} para el reconocimiento de fitolitos en una imagen es muy similar al mostrado en~\ref{alg:2}. El procedimiento es el mostrado en~\ref{alg:3}.
+El procedimiento del funcionamiento del \textit{notebook} para el reconocimiento de fitolitos en una imagen es muy similar al mostrado en el algoritmo~\ref{alg:2}. El procedimiento es el mostrado en el algoritmo~\ref{alg:3}.
 
 \begin{algorithm}
     Realizamos la ventana deslizante sobre la imagen.    
@@ -121,13 +121,13 @@ El procedimiento del funcionamiento del \textit{notebook} para el reconocimiento
 
 En este apartado se representan los aspectos más relevantes a nivel de diseño arquitectónico mediante la notación UML.
 
-Este proyecto no contiene un diseño muy elaborado a nivel arquitectónico por dos razones fundamentales. La primera ha sido el esfuerzo requerido en la investigación y el aprendizaje de técnicas muy variadas para afrontar el problema. Hasta dar con la más adecuada. Por otro lado, la mayoría del código ha sido desarrollado en los \textit{Jupyter Notebooks}. Los cuales nos permiten interaccionar fácilmente con el código y documentarlo a su vez, aportando una fácil introducción a otros usuarios.
+Este proyecto no contiene un diseño muy elaborado a nivel arquitectónico por dos razones fundamentales. La primera ha sido el esfuerzo requerido en la investigación y el aprendizaje de técnicas muy variadas para afrontar el problema, hasta dar con la más adecuada. Por otro lado, la mayoría del código ha sido desarrollado en los \textit{Jupyter Notebooks}. Los cuales nos permiten interaccionar fácilmente con el código y documentarlo a su vez, aportando una fácil introducción a otros usuarios.
 
 Aun así existen tres módulos con código empaquetado: módulo utilizado para la gestión de carpetas del etiquetador, módulo utilizado para la predicción de caras y el modulo para la predicción de fitolitos. Véase el diagrama de paquetes \ref{fig:C.4.1}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.4\textwidth]{dia_paquetes}
+\includegraphics[width=0.6\textwidth]{dia_paquetes}
 \caption{Diagrama de paquetes}
 \label{fig:C.4.1}
 \end{figure}
@@ -145,17 +145,17 @@ Por un lado, tenemos el módulo que se encarga de la gestión de carpetas donde 
 
 \subsection{Modulo para la predicción de caras}
 
-Por otro lado, tenemos las clases encargadas de la predicción de caras en una nueva imagen mediante el \textit{notebook} explicado anteriormente. En este caso existen 3 clases, las cuales interaccionan entre sí. La primera es una clase estática con 2 funciones para los cálculos del non-maximum suppression y la ventana deslizante. Véase la figura \ref{fig:C.4.3} 
+Por otro lado, tenemos las clases encargadas de la predicción de caras en una nueva imagen mediante el \textit{notebook} explicado anteriormente. En este caso existen 3 clases, las cuales interaccionan entre sí. La primera es una clase estática con 2 funciones para los cálculos del \textit{non-maximum suppression} y la ventana deslizante. Véase la figura \ref{fig:C.4.3} 
 
 
 \begin{figure}
 \centering
 \includegraphics[width=0.4\textwidth]{dia_win}
-\caption[Clase estática encargada de varias tareas]{Clase estática encargada de las tareas de non-maximum suppression y ventana deslizante}
+\caption[Clase estática encargada de varias tareas]{Clase estática encargada de las tareas de \textit{non-maximum suppression} y ventana deslizante}
 \label{fig:C.4.3}
 \end{figure}
 
-Además, tenemos la clase encargada de envolver al clasificador y realizar las tareas de clasificación de una imagen. Véase la figura \ref{fig:C.4.4}. Y, finalmente, tenemos la clase encargada de guardar la imagen, mostrarla y poder clasificarla con el apoyo del resto de clases. Véase la figura \ref{fig:C.4.5}. Para finalizar este modulo, podemos apreciar en la figura \ref{fig:C.4.6} como interaccionan las tres clases.
+Además, tenemos la clase encargada de envolver al clasificador y realizar las tareas de clasificación de una imagen. Véase la figura \ref{fig:C.4.4}. Y, finalmente, tenemos la clase encargada de guardar la imagen, mostrarla y poder clasificarla con el apoyo del resto de clases. Véase la figura \ref{fig:C.4.5}. Para finalizar este módulo, podemos apreciar en la figura \ref{fig:C.4.6} como interaccionan las tres clases.
 
 \begin{figure}
 \centering
@@ -180,7 +180,7 @@ Además, tenemos la clase encargada de envolver al clasificador y realizar las t
 
 \subsection{Modulo para la predicción de fitolitos}
 
-Por último, el modulo más importante que consta de unicamente 2 clases: la clase encargada de la clasificación de fitolitos y la clase encargada de el reconocimiento de objetos en imágenes de fitolitos, representadas en la figura~\ref{fig:C.4.7}.
+Por último, el módulo más importante que consta de unicamente 2 clases: la clase encargada de la clasificación de fitolitos y la clase encargada de el reconocimiento de objetos en imágenes de fitolitos, representadas en la figura~\ref{fig:C.4.7}.
 
 \begin{figure}
 \centering
@@ -194,6 +194,8 @@ Por último, el modulo más importante que consta de unicamente 2 clases: la cla
 En esta sección se explicarán las diferentes interfaces de los productos realizados en este trabajo fin de grado.
 
 \subsection{\textit{Jupyter Notebook} para la detección de caras}
+\widowpenalty=5000 
+\clubpenalty=10000
 
 Durante el primer mes se trabajó en un \textit{Jupyter Notebook} que trataba de reconocer caras mediante un clasificador junto a un extractor de características, como ya hemos explicado en secciones anteriores. Con este \textit{Jupyter Notebook} se trataba de facilitar la evaluación del rendimiento de los clasificadores y el cambio de las distintas variables de manera interactiva. 
 
@@ -239,7 +241,7 @@ El resultado tras la implementación de este producto es el mostrado en la \ref{
 
 \subsection{Reconocimiento automático de fitolitos}
 
-La interfaz para el reconocimiento automático de fitolitos consta de un conjunto de \textit{sliders}, los cuales nos permiten cambiar diversos parámetros para experimentar con este y dos botones: botón para subir una imagen y botón para ejecutar el reconocimiento. Véase la figura~\ref{fig:C.5.4}. Cada uno de los botones y \textit{sliders} se encuentran explicados en el manual de usuario~\ref{manuser}.
+La interfaz para el reconocimiento automático de fitolitos consta de un conjunto de \textit{sliders}, los cuales nos permiten cambiar diversos parámetros para experimentar con este y dos botones: botón para subir una imagen y botón para ejecutar el reconocimiento. Véase la figura~\ref{fig:C.5.4}. Cada uno de los botones y \textit{sliders} se encuentran explicados en el manual de usuario (anexo~\ref{manuser}).
 
 \begin{figure}
 \centering

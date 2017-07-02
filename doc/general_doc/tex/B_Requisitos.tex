@@ -57,6 +57,10 @@ La especificación de requisitos será explicada mediante diagramas de casos de 
 
 \subsection{Diagramas de casos de uso}
 
+Como previamente comentaba, en la figura \ref{fig:B.1} muestro el diagrama de casos de uso generales y en la figura \ref{fig:B.2} muestro el extendido del segundo caso de uso del diagrama general.
+
+Por otro lado, en las tablas \ref{tabla:tablaUC1}, \ref{tabla:tablaUC2}, \ref{tabla:tablaUC3} muestro los casos de uso generales con mayor detalle y en las \ref{tabla:tablaUC1.1}, \ref{tabla:tablaUC2.2}, \ref{tabla:tablaUC2.3}, \ref{tabla:tablaUC2.4}, \ref{tabla:tablaUC2.1.1}, \ref{tabla:tablaUC2.2.2} y \ref{tabla:tablaUC2.2.3} los casos de uso más específicos.
+
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{dia_uc}
@@ -83,18 +87,18 @@ La especificación de requisitos será explicada mediante diagramas de casos de 
   \\\cline{2-3}
                                          & \multicolumn{2}{p{10.25cm}}{RF-1.1}
                                          \\\hline
-  Precondiciones                         &  \multicolumn{2}{p{10.25cm}}{Tener instalado \textit{darkflow}.}   \\\hline
+  Precondiciones                         &  \multicolumn{2}{p{10.25cm}}{}   \\\hline
   \multirow{2}{3.5cm}{Secuencia normal}  & Paso & Acción \\\cline{2-3}
                                          & 1    & El usuario lanza el comando de entrenamiento.
   \\\cline{2-3}
-                                         & 2    & Se carga el modelo.
+                                         & 2    & Se carga el conjunto de imágenes.
   \\\cline{2-3}
-                                         & 3    & Se cargan los pesos del modelo.
+                                         & 3    & Se calculan los \textit{clusters}.
     \\\cline{2-3}
-                                         & 4    & Se convierten las coordenadas de las etiquetas.                                           	\\\cline{2-3}
+                                         & 4    & Se halla el conjunto de entrenamiento.                                           	\\\cline{2-3}
                                          & 5    & Se comienza el entrenamiento. 
                                          \\\hline
-  Postcondiciones                        & \multicolumn{2}{p{10.25cm}}{Se guardan unos ficheros con los pesos resultantes del entrenamiento.} \\\hline
+  Postcondiciones                        & \multicolumn{2}{p{10.25cm}}{Se el clasificador y el \textit{cluster}.} \\\hline
   Excepciones                        & \multicolumn{2}{p{10.25cm}}{La elección de opciones no compatibles entre sí.}\\\hline
   Importancia                            & Alta \\\hline
   Urgencia                               & Media \\
