@@ -12,7 +12,8 @@ class Phytoliths_Recognition_Tests(unittest.TestCase):
 
         recog = Phytoliths_Recognition(cls_path=cls_path,cluster_path=cluster_path)
         image = io.imread('../rsc/img/Default/2017_5_17_17_54Image_746.jpg')
-        print(recog.predict_sliding_window_nms(image))
+        boxes = recog.predict_sliding_window_nms(image, required_probs= 0.99)
+        print(boxes)
 
 if __name__ == '__main__':
     unittest.main()
