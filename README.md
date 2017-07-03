@@ -69,9 +69,9 @@ Este repositorio forma parte del trabajo fin de grado de ingeniería informátic
 - Jaime Sagüillo Revilla
 
 Tutores:
- - Álvar Arnaiz González
- - José Francisco Diez Pastor
- 
+ - D. Álvar Arnaiz González
+ - Dr. José Francisco Diez Pastor
+ - D.ª Virginia Ahedo García
  
 ## Licencia
 BSD 3-Clause License
