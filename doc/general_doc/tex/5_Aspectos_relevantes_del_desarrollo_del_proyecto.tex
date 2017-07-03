@@ -107,7 +107,7 @@ Durante las primeras pruebas, la segmentación más interesante hasta el momento
 
 \section{Problema fundamental: falta de imágenes}
 
-Llegados a este punto, y teniendo una primera aproximación, con mayor o menor precisión, de como afrontar el reconocimiento automático de fitolitos, se plantea un problema fundamental en el desarrollo de este proyecto. El problema al que me refiero, es que no poseemos o conocemos ningún conjunto de entrenamiento de imágenes etiquetadas\footnote{Me refiero por imágenes etiquetadas, a imágenes con las coordenadas de donden se encuentran los distintos fitolitos en estas.} de fitolitos. Y por lo que consideramos, es el requisito básico en el aprendizaje supervisado.
+Llegados a este punto, y teniendo una primera aproximación, con mayor o menor precisión, de cómo afrontar el reconocimiento automático de fitolitos, se plantea un problema fundamental en el desarrollo de este proyecto. El problema al que me refiero es que no poseemos o conocemos ningún conjunto de entrenamiento de imágenes etiquetadas\footnote{Me refiero por imágenes etiquetadas, a imágenes con las coordenadas de donden se encuentran los distintos fitolitos en estas.} de fitolitos. Y por lo que consideramos, es el requisito básico en el aprendizaje supervisado.
 
 Debido a esta problemática, desarrollamos un etiquetador de fitolitos que permita a nuestros usuarios crear un conjunto de imágenes de fitolitos etiquetadas y así, solucionar este problema fundamental en el desarrollo del proyecto.
 
@@ -115,11 +115,11 @@ En concreto, este etiquetador es una aplicación web desarrollada sobre un conju
 
 \section{Clasificadores}
 
-La aproximación mediante procesamiento de imágenes, mostrada previamente en la sección \ref{procimg}, no parece la más adecuada visto los resultados obtenidos. Por ello vamos a realizar el estudio sobre una segunda aproximación  mediante clasificadores, junto a descriptores visuales y la técnica de la ventana deslizante, o en inglés \textit{sliding window}.
+La aproximación mediante procesamiento de imágenes, mostrada previamente en la sección \ref{procimg}, no parece la más adecuada visto los resultados obtenidos. Por ello, vamos a realizar el estudio sobre una segunda aproximación  mediante clasificadores, junto a descriptores visuales y la técnica de la ventana deslizante, o en inglés \textit{sliding window}.
 
 \textit{Sliding window} consiste en la subdivisión de una imagen en distintos fragmentos, estableciendo previamente el tamaño de los fragmentos, tanto en ancho como en alto, y el tamaño del salto en cada eje, tras una subdivisión. 
 
-Como podemos apreciar en la figura \ref{fig:sliding_window}, primero la ventana deslizante recorre la imagen en el eje horizontal. Comenzando por la esquina superior izquierda hasta llegar a la esquina superior derecha. Generando una imagen por cada subdivisión y realizando saltos horizontales según el tamaño que hayamos definido. Una vez esta llega a la esquina superior derecha, la ventana deslizante lleva a cabo el mismo proceso pero realizando un salto en el eje vertical. Y así sucesivamente hasta completar su recorrido por toda la imagen.
+Como podemos apreciar en la figura \ref{fig:sliding_window}, primero la ventana deslizante recorre la imagen en el eje horizontal, comenzando por la esquina superior izquierda hasta llegar a la esquina superior derecha. Generando, así, una imagen por cada subdivisión y realizando saltos horizontales según el tamaño que hayamos definido. Una vez que esta llega a la esquina superior derecha, la ventana deslizante lleva a cabo el mismo proceso pero realizando un salto en el eje vertical. Y así sucesivamente hasta completar su recorrido por toda la imagen.
 
 \begin{figure}
 \centering
@@ -186,19 +186,19 @@ Como explicábamos anteriormente, una vez tenemos nuestro clasificador le enviam
 El método utilizado en esta sección se encuentra muy limitado por los siguientes aspectos:
 
 \begin{itemize}
-	\item Es una técnica que presenta problemas de rendimiento. Puesto que requiere de 2 o 3 segundos, como mínimo, para clasificar una nueva imagen.
-	\item Es una técnica que no tiene en cuenta el contexto de la imagen para su clasificación. Sino, que solo tiene en cuenta cada uno de los fragmentos de la imagen de manera aislada al resto. Lo cual dificulta una adecuada precisión del clasificador.
-	\item Comete muchos errores en la detección de falsos positivos. Como se puede observar en la figura \ref{subfig:family_labeled_nms}.
+	\item Es una técnica que presenta problemas de rendimiento, puesto que requiere de 2 o 3 segundos, como mínimo, para clasificar una nueva imagen.
+	\item Es una técnica que no tiene en cuenta el contexto de la imagen para su clasificación, sino que solo tiene en cuenta cada uno de los fragmentos de la imagen de manera aislada al resto. Lo que dificulta una adecuada precisión del clasificador.
+	\item Comete muchos errores en la detección de falsos positivos, como se puede observar en la figura \ref{subfig:family_labeled_nms}.
 	\item El tamaño de la subdivisión de la imagen es constante. Por lo tanto, complica las posibilidades en la detección de distintos tamaños de fitolitos.
 \end{itemize}
 
 \section{Detección de objetos mediante técnicas de \textit{deep learning}}
 
-Una vez observados los resultados mediante una técnica clásica, como es \textit{sliding window}, vamos a ir un paso más allá, con las técnicas de \textit{deep learning}. Las cuales son las que, con diferencia, mayor rendimiento aportan en la actualidad, como previamente he explicado en los conceptos teóricos.
+Una vez observados los resultados mediante una técnica clásica, como es \textit{sliding window}, vamos a ir un paso más allá con las técnicas de \textit{deep learning}. Las cuales son las que, con diferencia, mayor rendimiento aportan en la actualidad, como previamente he explicado en los conceptos teóricos.
 
-Para ello, vamos a entrenar una implementación de \textit{YOLO} en \textit{Python}, llamada \textit{darkflow}~\cite{darkflow}, todavía en desarrollo, para tratar de llevar a cabo el detector automático de fitolitos. Aunque, existen otras alternativas que se podrían adoptar en un futuro de no conseguir los resultados esperados con esta implementación.
+Para ello, vamos a entrenar una implementación de \textit{YOLO} en \textit{Python}, llamada \textit{darkflow}~\cite{darkflow}, todavía en desarrollo, para tratar de llevar a cabo el detector automático de fitolitos. Aunque existen otras alternativas que se podrían adoptar en un futuro de no conseguir los resultados esperados con esta implementación.
 
-Previamente, en los conceptos teóricos, se ha explicado que este tipo de modelos también presentan algunas problemáticas, por el volumen de imágenes necesario y el tiempo necesario para ser entrenados, principalmente. Existen soluciones, como \textit{data augmentation}, trasferencia de conocimiento o partir de modelos previamente entrenados.
+Previamente, en los conceptos teóricos, se ha explicado que este tipo de modelos también presentan algunas problemáticas por el volumen de imágenes necesario y el tiempo necesario para ser entrenados, principalmente. Existen soluciones como \textit{data augmentation}, trasferencia de conocimiento o partir de modelos previamente entrenados.
 
 Tras experimentar con estas técnicas durante un periodo de más de un mes, no se han conseguido resultados. Lo que quiero decir con esto es que el modelo entrenado no es capaz de obtener cajas al predecir una nueva imagen. Y, por lo tanto, la precisión es de un 0\%. Existen dos principales razones por las que el modelo no es capaz de obtener resultados, bajo el conocimiento que he adquirido sobre este marco de trabajo:
 
@@ -209,11 +209,11 @@ Tras experimentar con estas técnicas durante un periodo de más de un mes, no s
 
 Adicionalmente, por si fuese de interés, incluyo 2 hilos de \textit{GitHub} en los que sé mantuvo conversaciones con los desarrolladores del proyecto y otros colaboradores para la puesta a punto del sistema: \url{www.github.com/thtrieu/darkflow/issues/256} y \url{www.github.com/thtrieu/darkflow/issues/80}.
 
-Por concluir, al necesitar mejores recursos para el entrenamiento de la red, mayores conocimientos sobre el funcionamiento del modelo y debido a la alta complejidad del problema se mantiene esta posible solución como una segunda vía para continuar estudiando en líneas futuras.
+Por concluir, al necesitar mejores recursos para el entrenamiento de la red, mayores conocimientos sobre el funcionamiento del modelo y debido a la alta complejidad del problema, se mantiene esta posible solución como una segunda vía para continuar estudiando en líneas futuras.
 
 \section{Solución final: \textit{Bag of Words} junto  a \textit{ventana deslizante}}
 
-Como hemos observado durante el transcurso de este capítulo, hemos tratado de recorrer la mayoría de los caminos en visión artificial para dar solución a este problema. Comenzando por lo más sencillo y finalizando con lo más complejo.
+Como hemos observado durante el transcurso de este capítulo, hemos tratado de recorrer la mayoría de los caminos en visión artificial para dar solución a este problema, comenzando por lo más sencillo y finalizando con lo más complejo.
 
 Llegados a este punto, hemos podido ver que la solución de este problema con aprendizaje profundo o \textit{deep learning} no es trivial. Y, por lo tanto, para llevarlo a cabo adecuadamente es necesario tener conocimientos avanzados en este campo. Y que al contrario, la utilización de un clasificador junto a descriptores de características tiene una puesta a punto mucho más transparente para el desarrollador, aunque su rendimiento sea sustancialmente peor que el de una red neuronal.
 
@@ -224,9 +224,9 @@ Sin embargo, existe una solución derivada del uso de clasificadores junto a la 
 	\item Mejorar la precisión en la detección.
 \end{itemize}
 
-En cuanto a la primera problemática, cuando utilizamos un descriptor de características sobre una ventana o recorte de la imagen, obtenemos un resultado cuyo tamaño es dependiente de las dimensiones de la ventana que estemos utilizando. Esta ventana será la que después enviemos a nuestro clasificador para obtener una predicción. Teniendo que ser la ventana y la entrada de nuestro clasificador siempre de las mismas dimensiones. Por lo tanto, esto nos condiciona a que la ventana debe ser siempre de un tamaño fijo, aunque los fitolitos no lo sean.
+En cuanto a la primera problemática, cuando utilizamos un descriptor de características sobre una ventana o recorte de la imagen, obtenemos un resultado cuyo tamaño es dependiente de las dimensiones de la ventana que estemos utilizando. Esta ventana será la que después enviemos a nuestro clasificador para obtener una predicción, teniendo que ser la ventana y la entrada de nuestro clasificador siempre de las mismas dimensiones. Por lo tanto, esto nos condiciona a que la ventana debe ser siempre de un tamaño fijo, aunque los fitolitos no lo sean.
 
-Sin embargo, la técnica \textit{Bag of Words} soluciona esta problemática. Debido a que el resultado del descriptor se agrupa, mediante \textit{clustering}, en un número fijo de características independiente del tamaño de la ventana. Mediante el cual se predice si una determinada ventana contiene un fitolito.
+Sin embargo, la técnica \textit{Bag of Words} soluciona esta problemática. Debido a que el resultado del descriptor se agrupa, mediante \textit{clustering}, en un número fijo de características independiente del tamaño de la ventana, mediante el cual se predice si una determinada ventana contiene un fitolito.
 
 Por otro lado, aun no teniendo una base con la que contrastar la mejoría de la precisión respecto al uso de un clasificador junto a un descriptor de características. Esta técnica se ha utilizado comúnmente por reportar mejores resultados. 
 
@@ -246,7 +246,7 @@ Por otro lado, en este apartado vamos a analizar los resultados obtenidos en la 
 
 \subsubsection{Validación cruzada}
 
-Como previamente comentábamos, para la obtención del mejor clasificador utilizamos la validación cruzada mediante la cual obtendremos la precisión de un modelo dadas distintas subdivisiones sobre el conjunto de datos. En la figura~\ref{fig:cross_val} muestro una gráfica de los mejores resultados en la clasificación binaria de fitolitos, es decir, fitolito o no fitolito. Como podemos apreciar, conseguimos tasas mayores del 90\% de clasificación, lo cual representa que el clasficador predice correctamente en más del 90\% de los casos lo que es un fitolito y lo que no lo es. Hay que destacar que el conjunto de entrenamiento de la clase fitolito y fondo esta compuesta por aproximadamente 200 imágenes en cada caso. 
+Como previamente comentábamos, para la obtención del mejor clasificador utilizamos la validación cruzada mediante la cual obtendremos la precisión de un modelo dadas distintas subdivisiones sobre el conjunto de datos. En la figura~\ref{fig:cross_val} muestro una gráfica de los mejores resultados en la clasificación binaria de fitolitos, es decir, fitolito o no fitolito. Como podemos apreciar, conseguimos tasas mayores del 90\% de clasificación, lo cual representa que el clasificador predice correctamente en más del 90\% de los casos lo que es un fitolito y lo que no lo es. Hay que destacar que el conjunto de entrenamiento de la clase fitolito y fondo esta compuesta por aproximadamente 200 imágenes en cada caso. 
 
 \begin{figure}
 \centering
@@ -255,7 +255,7 @@ Como previamente comentábamos, para la obtención del mejor clasificador utiliz
 \label{fig:cross_val}
 \end{figure}
 
-Por otro lado, se encuentra la clasificación en los distintos tipos de fitolitos. En este caso, debido a las restricciones de mis recursos \textit{hardware} solo puedo utilizar 50 imágenes por clase. Los mejores resultados como observamos en la gráfica~\ref{fig:cross_val_all} están en torno al 64\% de precisión. Lo cual nos lleva a la decisión final de que en esta primera versión solo tratemos de reconocer los fitolitos, sin categorizarles.
+Por otro lado, se encuentra la clasificación en los distintos tipos de fitolitos. En este caso, debido a las restricciones de mis recursos \textit{hardware}, solo puedo utilizar 50 imágenes por clase. Los mejores resultados como observamos en la gráfica~\ref{fig:cross_val_all} están en torno al 64\% de precisión. Lo cual nos lleva a la decisión final de que en esta primera versión solo tratemos de reconocer los fitolitos, sin categorizarles.
 
 \begin{figure}
 \centering
@@ -268,7 +268,7 @@ Para concluir, los resultados de la validación cruzada tienen el único objetiv
 
 \subsubsection{Reconocimiento de fitolitos}
 
-Para finalizar este trabajo, vamos a realizar un breve análisis de los resultados obtenidos sobre 10 imágenes escogidas aleatoriamente con las que nuestro clasificador no ha sido entrenado. En la figura~\ref{fig:5.17} muestro cuatro de ellas, tras predecirlas con nuestro sistema. Siendo las dos primeras muy pocos precisas y las dos últimas absolutamente precisas, pero con algo de imprecisión a la hora de delimitar al fitolito. Para no dejar lugar a la duda, en la figura~\ref{fig:5.18} muestro las imágenes orginales etiquetadas por nuestros colaboradores y expertos.
+Para finalizar este trabajo, vamos a realizar un breve análisis de los resultados obtenidos sobre 10 imágenes escogidas aleatoriamente con las que nuestro clasificador no ha sido entrenado. En la figura~\ref{fig:5.17} muestro cuatro de ellas, tras predecirlas con nuestro sistema, siendo las dos primeras muy pocos precisas y las dos últimas absolutamente precisas, pero con algo de imprecisión a la hora de delimitar al fitolito. Para no dejar lugar a la duda, en la figura~\ref{fig:5.18} muestro las imágenes orginales etiquetadas por nuestros colaboradores y expertos.
 
 \begin{figure}
 	\centering
@@ -322,7 +322,7 @@ Para finalizar este trabajo, vamos a realizar un breve análisis de los resultad
 	\label{fig:5.18}
 \end{figure}
 
-Para concluir, en la gráfica~\ref{fig:acc} muestro la precisión en el reconocimiento de fitolitos sobre las 10 imágenes con las que hemos evaluado a nuestro sistema. En esta muestro los verdaderos positivos por imagen, los falsos positivos y el total de fitolitos. Como se puede apreciar, en un 60\% de las imágenes se reconoce todos los fitolitos correctamente. Pero, sin embargo, en seis de las 10 imágenes se reconocen falsos positivos.
+Para concluir, en la gráfica~\ref{fig:acc} muestro la precisión en el reconocimiento de fitolitos sobre las 10 imágenes con las que hemos evaluado a nuestro sistema. En ella muestro los verdaderos positivos por imagen, los falsos positivos y el total de fitolitos. Como se puede apreciar, en un 60\% de las imágenes se reconoce todos los fitolitos correctamente. Pero, sin embargo, en seis de las 10 imágenes se reconocen falsos positivos.
 
 \begin{figure}
 \centering

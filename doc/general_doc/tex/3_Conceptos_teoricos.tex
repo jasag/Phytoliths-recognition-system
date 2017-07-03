@@ -8,7 +8,7 @@ Para la comprensión de este proyecto es necesaria la explicación de algunos co
 
 Los fitolitos son particulas microscópicas de sílice de ópalo producidas dentro y entre las células de muchas plantas. Además, son partículas muy resilientes y se han preservado hasta la actualidad en forma de microfósiles. Estos son utilizados en la investigación de paleoambientes\footnote{Consistente en la reconstrucción de entornos antiguos.}, botánica, geología y arqueología~\cite{phytolith}.
 
-Existen multitud de tipos de fitolitos, pero en este proyecto nos centramos en un conjunto de tipos más delimitado, según los requisitos de nuestros clientes. Los cuales se encuentran concrétamente interesados en el área de la arqueobotánica. En total trabajamos con 7 tipos de fitolitos:
+Existen multitud de tipos de fitolitos, pero en este proyecto nos centramos en un conjunto de tipos más delimitado, según los requisitos de nuestros clientes. Los cuales se encuentran concretamente interesados en el área de la arqueobotánica. En total trabajamos con 7 tipos de fitolitos:
 
 \begin{multicols}{2}
 	\begin{itemize}
@@ -86,7 +86,7 @@ Como previamente comenté en la introducción del proyecto, en este proyecto nos
 	\label{fig:3.1.1}
 \end{figure}
 
-Además, en la figura ~\ref{fig:3.1.2} introduzco dos imágenes de microscopio con los fitolitos etiquetados. Reflejando en ella la diferencia de tamaños entre los distintos tipos de fitolitos, a la que previamente hacía referencia. Lo cual aporta mayor complejidad al problema que estamos acometiendo. 
+Además, en la figura~\ref{fig:3.1.2} introduzco dos imágenes de microscopio con los fitolitos etiquetados. Reflejando en ella la diferencia de tamaños entre los distintos tipos de fitolitos, a la que previamente hacía referencia. Lo cual aporta mayor complejidad al problema que estamos acometiendo. 
 
 \begin{figure}
 	\centering
@@ -115,7 +115,7 @@ Y, por último, las imágenes son muestras de fitolitos en disolución, lo cual 
 
 \section{Inteligencia artificial}
 
-Inteligencia artificial, que comúnmente aparece como las siglas IA o AI (del inglés \textit{Artificial Intelligence}), consiste en otorgar a las máquinas la capacidad de realizar acciones que habitualmente son realizadas por humanos, imitando la inteligencia cognitiva humana~\cite{alanturing:ai}. Esta podría ser una posible definición de IA, pero existen multitud~\cite{russell1995modern}. Algunos posibles ejemplos conocidos por todos en los que se aplica la IA son el coche autónomo, videojuegos, asistentes personales, reconocimiento facial en imágenes, entre otros.
+Inteligencia artificial, que comúnmente aparece bajo las siglas IA o AI (del inglés \textit{Artificial Intelligence}), consiste en otorgar a las máquinas la capacidad de realizar acciones que habitualmente son realizadas por humanos, imitando la inteligencia cognitiva humana~\cite{alanturing:ai}. Esta podría ser una posible definición de IA, pero existen multitud~\cite{russell1995modern}. Algunos posibles ejemplos conocidos por todos en los que se aplica la IA son el coche autónomo, videojuegos, asistentes personales, reconocimiento facial en imágenes, entre otros.
 
 \subsection{Aprendizaje automático}
 
@@ -127,7 +127,7 @@ Apredizaje automático, o en inglés \textit{machine learning}, es un campo de l
 
 En esta sección vamos a distinguir entre aprendizaje supervisado y no supervisado, ambas técnicas pertenecientes al campo de \textit{machine learning}.
 
-Aprendizaje supervisado es una técnica que consiste en la inferencia de una función partiendo de un conjunto de datos de entrenamiento etiquetado~\cite{wiki:supervisedLearning}. Dos de las tareas más comunes del aprendizaje supervisado son clasificación y regresión. Es decir, para tareas en las que el resultado deseado sea obtener una variable que nos informe a que clase pertenece una determinada instancia, lo cual es un valor discreto, o para tareas en las que se desea obtener un valor continuo. Dos posibles ejemplos, a modo de aclaración,  podrían ser: la clasificación de \textit{emails} en \textit{spam} o \textit{no-spam} y la predicción del valor de un inmueble. La tarea de clasificación se analizará en detalle en la sección~\ref{md}.
+Aprendizaje supervisado es una técnica que consiste en la inferencia de una función partiendo de un conjunto de datos de entrenamiento etiquetado~\cite{wiki:supervisedLearning}. Dos de las tareas más comunes del aprendizaje supervisado son clasificación y regresión. Es decir, para tareas en las que el resultado deseado sea obtener una variable que nos informe de la clase a la que pertenece una determinada instancia, lo cual es un valor discreto, o para tareas en las que se desea obtener un valor continuo. Dos posibles ejemplos, a modo de aclaración,  podrían ser: la clasificación de \textit{emails} en \textit{spam} o \textit{no-spam} y la predicción del valor de un inmueble. La tarea de clasificación se analizará en detalle en la sección~\ref{md}.
 
 En cuanto al otro tipo de aprendizaje, el aprendizaje no supervisado consiste en la obtención de la estructura oculta en los datos. Pero al contrario que en el aprendizaje supervisado, partiendo de un conjunto de datos sin etiquetar, es decir, datos para los cuales no poseemos su valor deseado~\cite{wiki:unsupervisedLearning}. Una tarea muy común en aprendizaje no supervisado es el \textit{clustering} o agrupamiento, consistente en la agrupación de los datos en un número de grupos determinado, localizando las relaciones internas y las características diferenciadoras respecto a otros grupos. Un posible ejemplo  de la utilización de este tipo de aprendizaje podría ser la categorización de clientes en varios grupos con fines comerciales. Y, más en concreto, en este proyecto se ha utilizado como uno de los pasos de la técnica \textit{Bag of Words}, véase la sección~\ref{bow}.
 
@@ -135,7 +135,7 @@ En cuanto al otro tipo de aprendizaje, el aprendizaje no supervisado consiste en
 \label{md}
 \subsection{Clasificación}
 
-Clasificación, como ya se ha introducido previamente, es la tarea de identificar, entre un conjunto de  categorías o clases\footnote{Se entiende por clase a cada uno de los tipos, o categorías, en las que se desean clasificar las instancias. Por ejemplo, en un problema en el que deseemos clasificar imágenes como personas y perros. Las clases serán: persona y perro.}, a que categoría o clase pertenece una determinada instancia (esta instancia puede ser una imagen, por ejemplo).
+Clasificación, como ya se ha introducido previamente, es la tarea de identificar, entre un conjunto de  categorías o clases\footnote{Se entiende por clase a cada uno de los tipos, o categorías, en las que se desean clasificar las instancias. Por ejemplo, en un problema en el que deseemos clasificar imágenes como personas y perros. Las clases serán: persona y perro.}, a qué categoría o clase pertenece una determinada instancia (esta instancia puede ser una imagen, por ejemplo).
 
 En el caso de este proyecto, estamos tratando de identificar los distintos tipos de fitolitos dentro de una imagen. Lo cual no es una tarea estríctamente de clasificación sino de reconocimiento de objetos. Pero, en el caso de que nuestro programa recibiese únicamente una imagen recortada conteniendo un fitolito, como las que se ven en la figura~\ref{fig:3.1.1}, podríamos aplicar un modelo de clasificación que nos predijese el tipo de fitolito que contiene la imagen.
 
@@ -145,9 +145,9 @@ El reconocimiento de patrones consiste en la extracción de propiedades similare
 
 \subsection{\textit{Bag of Words}}
 \label{bow}
-\textit{Bag of Words} (BoW), o en español bolsa de palabras, es una técnica comúnmente utilizada en la clasificación de documentos~\cite{wiki:bowmodel}. En la que se describe un texto mediante el conjunto de palabras que componen dicho documento.
+\textit{Bag of Words} (BoW), o en español bolsa de palabras, es una técnica comúnmente utilizada en la clasificación de documentos~\cite{wiki:bowmodel}, en la que se describe un texto mediante el conjunto de palabras que componen dicho documento.
 
-Pero esta técnica también ha sido aplicada a tareas de procesamiento de imágenes. Siendo la que mejores resultados conseguía hasta la llegada del \textit{Deep Learning}. Esta se fundamenta en la obtención de las características de una imagen mediante uno o varios descriptores, como HoG~\cite{wiki:hog} o SHIFT~\cite{shift}. Realizando \textit{clustering} sobre este conjunto de características, obtenemos un conjunto de <<palabras>> o características más generales. Por ejemplo, si estuviésemos tratando de  clasificar bicicletas, tras realizar \textit{clustering} sobre las características obtenidas con los descriptores, lo que estaríamos obteniendo son ruedas, manillares, cuadros de bicicleta, pedales, entre otros. Lo cual equivaldría a las palabras de un documento pero en el ámbito de una imagen. En la figura \ref{fig:3.1.3.1} muestro un diagrama, a modo de aclaración, del funcionamiento de BoW.
+Pero esta técnica también ha sido aplicada a tareas de procesamiento de imágenes, siendo la que mejores resultados conseguía hasta la llegada del \textit{Deep Learning}. Esta se fundamenta en la obtención de las características de una imagen mediante uno o varios descriptores, como HoG~\cite{wiki:hog} o SHIFT~\cite{shift}. Realizando \textit{clustering} sobre este conjunto de características, obtenemos un conjunto de <<palabras>> o características más generales. Por ejemplo, si estuviésemos tratando de  clasificar bicicletas, tras realizar \textit{clustering} sobre las características obtenidas con los descriptores, lo que estaríamos obteniendo son ruedas, manillares, cuadros de bicicleta, pedales, entre otros. Lo cual equivaldría a las palabras de un documento pero en el ámbito de una imagen. En la figura \ref{fig:3.1.3.1} muestro un diagrama, a modo de aclaración, del funcionamiento de BoW.
 
 \begin{figure}
 \centering
@@ -247,7 +247,7 @@ En el caso de la aplicación de esta técnica sobre un conjunto de imágenes, se
 
 Antes de abordar el siguiente concepto, debemos de comprender la diferencia entre el término detección de objetos y reconocimiento de objetos.
 
-Detección de objetos es el término utilizado cuando se desea detectar todos los objetos para los que ha sido entrenado el modelo. Proporcionándonos el tipo de objeto y las coordenadas de la caja que rodea ese objeto. Dependiendo del modelo, también puede devolver las probabilidades de que ese objeto sea un verdadero positivo.
+Detección de objetos es el término utilizado cuando se desea detectar todos los objetos para los que ha sido entrenado el modelo, proporcionándonos el tipo de objeto y las coordenadas de la caja que rodea ese objeto. Dependiendo del modelo, también puede devolver las probabilidades de que ese objeto sea un verdadero positivo.
 
 En cuanto al reconocimiento de objetos, en este caso solo se desea obtener la clase de objeto que contiene. Por ejemplo, le enviamos a nuestro clasificador una imagen que contiene un fitolito Rondel y este nos devuelve si es de la clase Rondel, Saddle, Bilobate, u otra.
 
@@ -264,7 +264,7 @@ Aprendizaje profundo, o más comunmente mencionado en inglés mediante las palab
 
 Este conjunto de técnicas es la intersección entre las redes neuronales, la inteligencia artificial, el modelado de grafos, la optimización, el reconocimiento de patrones y el procesado de señales~\cite{ms:deeplearning}. % Aclarar algunos de los conceptos
 
-Pero no todo son ventajas en esta aproximación. Y es que existe un problema principal: el cual es el volumen de imágenes que necesita un modelo de este tipo para ser adecuadamente entrenado, del orden de miles o cientos de miles. Por otro lado, el tiempo necesario para entrenar un modelo de este tipo es enorme, sino se posee una tarjeta gráfica especialmente potente. Y, por último, estos son modelos de caja negra, es decir, que difícilmente resultan comprensibles para un ser humano. Más adelante indagaremos en posibles soluciones.
+Pero no todo son ventajas en esta aproximación. Y es que existe un problema principal: el volumen de imágenes que necesita un modelo de este tipo para ser adecuadamente entrenado, del orden de miles o cientos de miles. Por otro lado, el tiempo necesario para entrenar un modelo de este tipo es enorme, sino se posee una tarjeta gráfica especialmente potente. Y, por último, estos son modelos de caja negra, es decir, que difícilmente resultan comprensibles para un ser humano. Más adelante indagaremos en posibles soluciones.
 
 \subsection{\textit{YOLO}}
 
@@ -278,9 +278,9 @@ En la segunda versión, se considera a \textit{YOLO} como el estado del arte, ju
 
 \subsubsection{Característica diferenciadora de \textit{YOLO}}
 
-\textit{YOLO} otorga un enfoque distinto respecto a sus competidores. Mientras que en otros casos, como \textit{Faster RCNN}, se separan las distintas etapas del procesado de una imagen. \textit{YOLO}, por ello viene su nombre, solo necesita de un único <<vistazo>> para predecir la imagen y obtener las coordenadas, o cajas que rodean a cada uno de los objetos predichos~\cite{yolo}. Además, el uso de una arquitectura de red neuronal distinta, respecto a la mayoría de sus contrincantes, le permite requerir de menos de un tercio de operaciones en coma flotante~\cite{yolov2}. Véase la figura \ref{fig:3.2.14}.
+\textit{YOLO} otorga un enfoque distinto respecto a sus competidores. Mientras que en otros casos, como \textit{Faster RCNN}, se separan las distintas etapas del procesado de una imagen; \textit{YOLO}, de ahí su nombre, solo necesita de un único <<vistazo>> para predecir la imagen y obtener las coordenadas, o cajas que rodean a cada uno de los objetos predichos~\cite{yolo}. Además, el uso de una arquitectura de red neuronal distinta, respecto a la mayoría de sus contrincantes, le permite requerir de menos de un tercio de operaciones en coma flotante~\cite{yolov2}. Véase la figura \ref{fig:3.2.14}.
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{yolo_example}
 \caption[Imagen predicha por \textit{YOLO}]{Imagen predicha por \textit{YOLO}. Imagen obtenida de los ejemplos de \textit{YOLO}.}
