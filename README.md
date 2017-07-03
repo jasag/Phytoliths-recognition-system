@@ -9,7 +9,7 @@
 ## Prerrequisitos
 Los prerrequisitos necesarios para poder instalar las aplicaciones realizadas en este proyecto son:
 
-- Windows.
+- Windows o Linux.
 - Google Chrome.
 - Anaconda.
 - La ultima *release* de este proyecto o repositorio.
@@ -34,6 +34,18 @@ jupyter dashboards quick-setup --user
 jupyter nbextension enable jupyter_dashboards --py
 ```
 
+### Otras librerías
+
+El resto de librerías se pueden instalar mediante las herramientas *pip* o *conda*:
+
+- scikit-learn
+- scikit-image
+- Matplotlib
+- numpy
+- traitlets
+- ipywidgets
+- Pillow
+
 ## Uso del etiquetador
 Una vez completados satisfactoriamente los pasos anteriores, ejecutamos la aplicación _Jupyter Notebook_.  Y desde esta aplicación, abrimos el notebook _Image_Labeler.ipynb_, en la carpeta _code/notebooks_ dentro de la carpeta de este proyecto. Con el _notebook_ ya abierto, tendremos que navegar por la barra de navegación de este para llevar a cabo los dos siguientes pasos:
 
@@ -43,8 +55,12 @@ Una vez completados satisfactoriamente los pasos anteriores, ejecutamos la aplic
 
 **Ya tenemos listo el etiquetador de fitolitos para su funcionamiento.**
 
-![](https://raw.githubusercontent.com/jasag/Phytoliths-recognition-system/research/doc/img/etiquetador_de_imagenes_2_v1.JPG)
+![](https://raw.githubusercontent.com/jasag/Phytoliths-recognition-system/master/doc/general_doc/img/etiquetador_de_imagenes_2_v1.JPG)
 
+## Sistema de reconocimiento automático de fitolitos
+Los pasos anteriores son también aplicables para este *notebook*. En este caso, su nombre es Phytoliths_Recognition_UI.ipynb, en la carpeta _code/notebooks_.
+
+![](https://raw.githubusercontent.com/jasag/Phytoliths-recognition-system/master/doc/general_doc/img/reconocimiento.JPG)
 
 ## Documentación
 Este repositorio forma parte del trabajo fin de grado de ingeniería informática desarrollado para la Universidad de Burgos (UBU). Para obtener información más detallada sobre el proyecto, véase la memoria y anexos del proyecto. 
